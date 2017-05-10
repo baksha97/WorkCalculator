@@ -7,23 +7,46 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2E021AC91EC3608600B2CA7D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2E021AC81EC3608600B2CA7D /* GoogleService-Info.plist */; };
+		2E68F9651EC36255007CEEF5 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E68F9641EC36255007CEEF5 /* LoginViewController.swift */; };
+		2E68F9681EC364F2007CEEF5 /* CreateAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E68F9671EC364F2007CEEF5 /* CreateAccountViewController.swift */; };
+		2E68F96B1EC3685F007CEEF5 /* WorkUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E68F96A1EC3685F007CEEF5 /* WorkUser.swift */; };
+		2E68F96D1EC368C1007CEEF5 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E68F96C1EC368C1007CEEF5 /* User.swift */; };
+		2E68F96F1EC36B08007CEEF5 /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E68F96E1EC36B08007CEEF5 /* Util.swift */; };
+		2E68F9711EC372C6007CEEF5 /* WorkDay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E68F9701EC372C6007CEEF5 /* WorkDay.swift */; };
+		2E68F9731EC379A0007CEEF5 /* StringExtention.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E68F9721EC379A0007CEEF5 /* StringExtention.swift */; };
+		2E68F9761EC37C4E007CEEF5 /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E68F9751EC37C4E007CEEF5 /* DateExtension.swift */; };
 		2EDCC5111EA90F560092BD61 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EDCC5101EA90F560092BD61 /* AppDelegate.swift */; };
-		2EDCC5131EA90F560092BD61 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EDCC5121EA90F560092BD61 /* ViewController.swift */; };
 		2EDCC5161EA90F560092BD61 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2EDCC5141EA90F560092BD61 /* Main.storyboard */; };
 		2EDCC5191EA90F560092BD61 /* WorkCalculator.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2EDCC5171EA90F560092BD61 /* WorkCalculator.xcdatamodeld */; };
 		2EDCC51B1EA90F560092BD61 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2EDCC51A1EA90F560092BD61 /* Assets.xcassets */; };
 		2EDCC51E1EA90F560092BD61 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2EDCC51C1EA90F560092BD61 /* LaunchScreen.storyboard */; };
+		2EDCC5271EA9105B0092BD61 /* work.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2EDCC5261EA9105B0092BD61 /* work.jpg */; };
+		C590BCD44ACE6882D6338A2D /* Pods_WorkCalculator.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34177B416451CD21A053B7BD /* Pods_WorkCalculator.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2E021AC81EC3608600B2CA7D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		2E68F9641EC36255007CEEF5 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		2E68F9671EC364F2007CEEF5 /* CreateAccountViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateAccountViewController.swift; sourceTree = "<group>"; };
+		2E68F96A1EC3685F007CEEF5 /* WorkUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkUser.swift; sourceTree = "<group>"; };
+		2E68F96C1EC368C1007CEEF5 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		2E68F96E1EC36B08007CEEF5 /* Util.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Util.swift; path = WorkCalculator/Util.swift; sourceTree = "<group>"; };
+		2E68F9701EC372C6007CEEF5 /* WorkDay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkDay.swift; sourceTree = "<group>"; };
+		2E68F9721EC379A0007CEEF5 /* StringExtention.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringExtention.swift; sourceTree = "<group>"; };
+		2E68F9741EC37B35007CEEF5 /* WorkCalculatorPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = WorkCalculatorPlayground.playground; sourceTree = "<group>"; };
+		2E68F9751EC37C4E007CEEF5 /* DateExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
 		2EDCC50D1EA90F560092BD61 /* WorkCalculator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WorkCalculator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2EDCC5101EA90F560092BD61 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		2EDCC5121EA90F560092BD61 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		2EDCC5151EA90F560092BD61 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		2EDCC5181EA90F560092BD61 /* WorkCalculator.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = WorkCalculator.xcdatamodel; sourceTree = "<group>"; };
 		2EDCC51A1EA90F560092BD61 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2EDCC51D1EA90F560092BD61 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2EDCC51F1EA90F560092BD61 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2EDCC5261EA9105B0092BD61 /* work.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = work.jpg; sourceTree = "<group>"; };
+		34177B416451CD21A053B7BD /* Pods_WorkCalculator.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WorkCalculator.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CE76C94E53A0D480C3B6E62F /* Pods-WorkCalculator.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WorkCalculator.release.xcconfig"; path = "Pods/Target Support Files/Pods-WorkCalculator/Pods-WorkCalculator.release.xcconfig"; sourceTree = "<group>"; };
+		D0037C03F5984507DB5EA9D3 /* Pods-WorkCalculator.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WorkCalculator.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WorkCalculator/Pods-WorkCalculator.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,17 +54,45 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C590BCD44ACE6882D6338A2D /* Pods_WorkCalculator.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2E68F9661EC36284007CEEF5 /* Account Managment */ = {
+			isa = PBXGroup;
+			children = (
+				2E68F9641EC36255007CEEF5 /* LoginViewController.swift */,
+				2E68F9671EC364F2007CEEF5 /* CreateAccountViewController.swift */,
+			);
+			name = "Account Managment";
+			sourceTree = "<group>";
+		};
+		2E68F9691EC36839007CEEF5 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				2E68F9721EC379A0007CEEF5 /* StringExtention.swift */,
+				2E68F9751EC37C4E007CEEF5 /* DateExtension.swift */,
+				2E68F96A1EC3685F007CEEF5 /* WorkUser.swift */,
+				2E68F9701EC372C6007CEEF5 /* WorkDay.swift */,
+				2E68F96C1EC368C1007CEEF5 /* User.swift */,
+			);
+			name = Models;
+			path = WorkCalculator;
+			sourceTree = "<group>";
+		};
 		2EDCC5041EA90F560092BD61 = {
 			isa = PBXGroup;
 			children = (
 				2EDCC50F1EA90F560092BD61 /* WorkCalculator */,
+				2E68F9741EC37B35007CEEF5 /* WorkCalculatorPlayground.playground */,
+				2E68F9691EC36839007CEEF5 /* Models */,
+				2E68F96E1EC36B08007CEEF5 /* Util.swift */,
 				2EDCC50E1EA90F560092BD61 /* Products */,
+				51341D35B7EBEF28AD93C820 /* Pods */,
+				AFAA1609999700E316EE6D4D /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -56,15 +107,42 @@
 		2EDCC50F1EA90F560092BD61 /* WorkCalculator */ = {
 			isa = PBXGroup;
 			children = (
+				2E68F9661EC36284007CEEF5 /* Account Managment */,
 				2EDCC5101EA90F560092BD61 /* AppDelegate.swift */,
-				2EDCC5121EA90F560092BD61 /* ViewController.swift */,
 				2EDCC5141EA90F560092BD61 /* Main.storyboard */,
 				2EDCC51A1EA90F560092BD61 /* Assets.xcassets */,
 				2EDCC51C1EA90F560092BD61 /* LaunchScreen.storyboard */,
 				2EDCC51F1EA90F560092BD61 /* Info.plist */,
-				2EDCC5171EA90F560092BD61 /* WorkCalculator.xcdatamodeld */,
+				2EDCC5251EA910430092BD61 /* Resources */,
 			);
 			path = WorkCalculator;
+			sourceTree = "<group>";
+		};
+		2EDCC5251EA910430092BD61 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				2EDCC5261EA9105B0092BD61 /* work.jpg */,
+				2EDCC5171EA90F560092BD61 /* WorkCalculator.xcdatamodeld */,
+				2E021AC81EC3608600B2CA7D /* GoogleService-Info.plist */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		51341D35B7EBEF28AD93C820 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				D0037C03F5984507DB5EA9D3 /* Pods-WorkCalculator.debug.xcconfig */,
+				CE76C94E53A0D480C3B6E62F /* Pods-WorkCalculator.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		AFAA1609999700E316EE6D4D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				34177B416451CD21A053B7BD /* Pods_WorkCalculator.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -74,9 +152,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2EDCC5221EA90F560092BD61 /* Build configuration list for PBXNativeTarget "WorkCalculator" */;
 			buildPhases = (
+				5D64F74B6DB1133BC5DEE23F /* [CP] Check Pods Manifest.lock */,
 				2EDCC5091EA90F560092BD61 /* Sources */,
 				2EDCC50A1EA90F560092BD61 /* Frameworks */,
 				2EDCC50B1EA90F560092BD61 /* Resources */,
+				E29D1D9A74ADE29B53A5E4D7 /* [CP] Embed Pods Frameworks */,
+				0B19488B8B6F890282EE59C3 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -129,18 +210,75 @@
 			files = (
 				2EDCC51E1EA90F560092BD61 /* LaunchScreen.storyboard in Resources */,
 				2EDCC51B1EA90F560092BD61 /* Assets.xcassets in Resources */,
+				2E021AC91EC3608600B2CA7D /* GoogleService-Info.plist in Resources */,
+				2EDCC5271EA9105B0092BD61 /* work.jpg in Resources */,
 				2EDCC5161EA90F560092BD61 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		0B19488B8B6F890282EE59C3 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-WorkCalculator/Pods-WorkCalculator-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		5D64F74B6DB1133BC5DEE23F /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		E29D1D9A74ADE29B53A5E4D7 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-WorkCalculator/Pods-WorkCalculator-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		2EDCC5091EA90F560092BD61 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2EDCC5131EA90F560092BD61 /* ViewController.swift in Sources */,
+				2E68F96B1EC3685F007CEEF5 /* WorkUser.swift in Sources */,
+				2E68F9761EC37C4E007CEEF5 /* DateExtension.swift in Sources */,
+				2E68F9731EC379A0007CEEF5 /* StringExtention.swift in Sources */,
+				2E68F9711EC372C6007CEEF5 /* WorkDay.swift in Sources */,
+				2E68F9681EC364F2007CEEF5 /* CreateAccountViewController.swift in Sources */,
+				2E68F96D1EC368C1007CEEF5 /* User.swift in Sources */,
+				2E68F9651EC36255007CEEF5 /* LoginViewController.swift in Sources */,
+				2E68F96F1EC36B08007CEEF5 /* Util.swift in Sources */,
 				2EDCC5191EA90F560092BD61 /* WorkCalculator.xcdatamodeld in Sources */,
 				2EDCC5111EA90F560092BD61 /* AppDelegate.swift in Sources */,
 			);
@@ -261,6 +399,7 @@
 		};
 		2EDCC5231EA90F560092BD61 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D0037C03F5984507DB5EA9D3 /* Pods-WorkCalculator.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = UUQTCM99ZH;
@@ -274,6 +413,7 @@
 		};
 		2EDCC5241EA90F560092BD61 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = CE76C94E53A0D480C3B6E62F /* Pods-WorkCalculator.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = UUQTCM99ZH;
@@ -304,6 +444,7 @@
 				2EDCC5241EA90F560092BD61 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
