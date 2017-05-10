@@ -16,6 +16,7 @@
 		2E68F9711EC372C6007CEEF5 /* WorkDay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E68F9701EC372C6007CEEF5 /* WorkDay.swift */; };
 		2E68F9731EC379A0007CEEF5 /* StringExtention.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E68F9721EC379A0007CEEF5 /* StringExtention.swift */; };
 		2E68F9761EC37C4E007CEEF5 /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E68F9751EC37C4E007CEEF5 /* DateExtension.swift */; };
+		2E68F9791EC37E16007CEEF5 /* TimeLoggerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E68F9781EC37E16007CEEF5 /* TimeLoggerViewController.swift */; };
 		2EDCC5111EA90F560092BD61 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EDCC5101EA90F560092BD61 /* AppDelegate.swift */; };
 		2EDCC5161EA90F560092BD61 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2EDCC5141EA90F560092BD61 /* Main.storyboard */; };
 		2EDCC5191EA90F560092BD61 /* WorkCalculator.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2EDCC5171EA90F560092BD61 /* WorkCalculator.xcdatamodeld */; };
@@ -36,6 +37,7 @@
 		2E68F9721EC379A0007CEEF5 /* StringExtention.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringExtention.swift; sourceTree = "<group>"; };
 		2E68F9741EC37B35007CEEF5 /* WorkCalculatorPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = WorkCalculatorPlayground.playground; sourceTree = "<group>"; };
 		2E68F9751EC37C4E007CEEF5 /* DateExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
+		2E68F9781EC37E16007CEEF5 /* TimeLoggerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeLoggerViewController.swift; sourceTree = "<group>"; };
 		2EDCC50D1EA90F560092BD61 /* WorkCalculator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WorkCalculator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2EDCC5101EA90F560092BD61 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2EDCC5151EA90F560092BD61 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -83,6 +85,14 @@
 			path = WorkCalculator;
 			sourceTree = "<group>";
 		};
+		2E68F9771EC37DEA007CEEF5 /* Log Managment */ = {
+			isa = PBXGroup;
+			children = (
+				2E68F9781EC37E16007CEEF5 /* TimeLoggerViewController.swift */,
+			);
+			name = "Log Managment";
+			sourceTree = "<group>";
+		};
 		2EDCC5041EA90F560092BD61 = {
 			isa = PBXGroup;
 			children = (
@@ -107,6 +117,7 @@
 		2EDCC50F1EA90F560092BD61 /* WorkCalculator */ = {
 			isa = PBXGroup;
 			children = (
+				2E68F9771EC37DEA007CEEF5 /* Log Managment */,
 				2E68F9661EC36284007CEEF5 /* Account Managment */,
 				2EDCC5101EA90F560092BD61 /* AppDelegate.swift */,
 				2EDCC5141EA90F560092BD61 /* Main.storyboard */,
@@ -274,6 +285,7 @@
 				2E68F96B1EC3685F007CEEF5 /* WorkUser.swift in Sources */,
 				2E68F9761EC37C4E007CEEF5 /* DateExtension.swift in Sources */,
 				2E68F9731EC379A0007CEEF5 /* StringExtention.swift in Sources */,
+				2E68F9791EC37E16007CEEF5 /* TimeLoggerViewController.swift in Sources */,
 				2E68F9711EC372C6007CEEF5 /* WorkDay.swift in Sources */,
 				2E68F9681EC364F2007CEEF5 /* CreateAccountViewController.swift in Sources */,
 				2E68F96D1EC368C1007CEEF5 /* User.swift in Sources */,
