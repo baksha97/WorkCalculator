@@ -11,8 +11,10 @@ import Firebase
 
 class TimeLoggerViewController: UIViewController {
 
-    @IBOutlet weak var dp1: UIDatePicker!
-    @IBOutlet weak var dp2: UIDatePicker!
+    @IBOutlet weak var lb: UILabel!
+    @IBOutlet weak var tf: UIDateTextField!
+    @IBOutlet weak var tf2: UIDateTextField!
+    
     
     //MARK: FIREBASE
     let ref = FIRDatabase.database().reference()
@@ -27,10 +29,14 @@ class TimeLoggerViewController: UIViewController {
     
     @IBAction func watButton(_ sender: Any) {
         
-        let wd: WorkDay = WorkDay(store_startTime: dp1.date, store_endTime: dp2.date)
-        self.ref.child("users/\(rUser.userRef)/Workdays/\(dp1.date.stringValue)").setValue(wd.toAnyObject())
+        let wd: WorkDay = WorkDay(store_startTime: tf.date, store_endTime: tf2.date)
+        self.ref.child("users/\(rUser.userRef)/Workdays/test").setValue(wd.toAnyObject())
+        
         
     }
 
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
     
 }

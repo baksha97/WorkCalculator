@@ -12,4 +12,10 @@ extension Date {
     var stringValue:String? {
         return Util.DateString(from: self)
     }
+    var oneMonthAgo: Date!{
+        return self.addingTimeInterval(60 * 60 * 24 * -31)
+    }
+    var sevenDaysLater: Date!{
+        return self.addingTimeInterval(60 * 60 * 24 * 7)
+    }
 }

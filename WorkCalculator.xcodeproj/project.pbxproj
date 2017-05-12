@@ -17,6 +17,10 @@
 		2E68F9731EC379A0007CEEF5 /* StringExtention.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E68F9721EC379A0007CEEF5 /* StringExtention.swift */; };
 		2E68F9761EC37C4E007CEEF5 /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E68F9751EC37C4E007CEEF5 /* DateExtension.swift */; };
 		2E68F9791EC37E16007CEEF5 /* TimeLoggerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E68F9781EC37E16007CEEF5 /* TimeLoggerViewController.swift */; };
+		2E68F98B1EC52A47007CEEF5 /* DateCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E68F9881EC52A47007CEEF5 /* DateCollectionViewCell.swift */; };
+		2E68F98C1EC52A47007CEEF5 /* DateTimePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E68F9891EC52A47007CEEF5 /* DateTimePicker.swift */; };
+		2E68F98D1EC52A47007CEEF5 /* StepCollectionViewFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E68F98A1EC52A47007CEEF5 /* StepCollectionViewFlowLayout.swift */; };
+		2E68F98F1EC52D51007CEEF5 /* UIDateTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E68F98E1EC52D51007CEEF5 /* UIDateTextField.swift */; };
 		2EDCC5111EA90F560092BD61 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EDCC5101EA90F560092BD61 /* AppDelegate.swift */; };
 		2EDCC5161EA90F560092BD61 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2EDCC5141EA90F560092BD61 /* Main.storyboard */; };
 		2EDCC5191EA90F560092BD61 /* WorkCalculator.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2EDCC5171EA90F560092BD61 /* WorkCalculator.xcdatamodeld */; };
@@ -34,10 +38,13 @@
 		2E68F96C1EC368C1007CEEF5 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		2E68F96E1EC36B08007CEEF5 /* Util.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Util.swift; path = WorkCalculator/Util.swift; sourceTree = "<group>"; };
 		2E68F9701EC372C6007CEEF5 /* WorkDay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkDay.swift; sourceTree = "<group>"; };
-		2E68F9721EC379A0007CEEF5 /* StringExtention.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringExtention.swift; sourceTree = "<group>"; };
-		2E68F9741EC37B35007CEEF5 /* WorkCalculatorPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = WorkCalculatorPlayground.playground; sourceTree = "<group>"; };
-		2E68F9751EC37C4E007CEEF5 /* DateExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
+		2E68F9721EC379A0007CEEF5 /* StringExtention.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StringExtention.swift; path = WorkCalculator/StringExtention.swift; sourceTree = "<group>"; };
+		2E68F9751EC37C4E007CEEF5 /* DateExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DateExtension.swift; path = WorkCalculator/DateExtension.swift; sourceTree = "<group>"; };
 		2E68F9781EC37E16007CEEF5 /* TimeLoggerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeLoggerViewController.swift; sourceTree = "<group>"; };
+		2E68F9881EC52A47007CEEF5 /* DateCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DateCollectionViewCell.swift; path = WorkCalculator/Source/DateCollectionViewCell.swift; sourceTree = "<group>"; };
+		2E68F9891EC52A47007CEEF5 /* DateTimePicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DateTimePicker.swift; path = WorkCalculator/Source/DateTimePicker.swift; sourceTree = "<group>"; };
+		2E68F98A1EC52A47007CEEF5 /* StepCollectionViewFlowLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StepCollectionViewFlowLayout.swift; path = WorkCalculator/Source/StepCollectionViewFlowLayout.swift; sourceTree = "<group>"; };
+		2E68F98E1EC52D51007CEEF5 /* UIDateTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIDateTextField.swift; sourceTree = "<group>"; };
 		2EDCC50D1EA90F560092BD61 /* WorkCalculator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WorkCalculator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2EDCC5101EA90F560092BD61 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2EDCC5151EA90F560092BD61 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -75,8 +82,6 @@
 		2E68F9691EC36839007CEEF5 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				2E68F9721EC379A0007CEEF5 /* StringExtention.swift */,
-				2E68F9751EC37C4E007CEEF5 /* DateExtension.swift */,
 				2E68F96A1EC3685F007CEEF5 /* WorkUser.swift */,
 				2E68F9701EC372C6007CEEF5 /* WorkDay.swift */,
 				2E68F96C1EC368C1007CEEF5 /* User.swift */,
@@ -93,12 +98,41 @@
 			name = "Log Managment";
 			sourceTree = "<group>";
 		};
+		2E68F9871EC52A29007CEEF5 /* Extensions/Subclasses */ = {
+			isa = PBXGroup;
+			children = (
+				2E68F9931EC5343E007CEEF5 /* Subclasses */,
+				2E68F9921EC5342B007CEEF5 /* Extensions */,
+				2E68F9881EC52A47007CEEF5 /* DateCollectionViewCell.swift */,
+				2E68F9891EC52A47007CEEF5 /* DateTimePicker.swift */,
+				2E68F98A1EC52A47007CEEF5 /* StepCollectionViewFlowLayout.swift */,
+			);
+			name = Extensions/Subclasses;
+			sourceTree = "<group>";
+		};
+		2E68F9921EC5342B007CEEF5 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				2E68F9751EC37C4E007CEEF5 /* DateExtension.swift */,
+				2E68F9721EC379A0007CEEF5 /* StringExtention.swift */,
+			);
+			name = Extensions;
+			sourceTree = "<group>";
+		};
+		2E68F9931EC5343E007CEEF5 /* Subclasses */ = {
+			isa = PBXGroup;
+			children = (
+				2E68F98E1EC52D51007CEEF5 /* UIDateTextField.swift */,
+			);
+			name = Subclasses;
+			sourceTree = "<group>";
+		};
 		2EDCC5041EA90F560092BD61 = {
 			isa = PBXGroup;
 			children = (
 				2EDCC50F1EA90F560092BD61 /* WorkCalculator */,
-				2E68F9741EC37B35007CEEF5 /* WorkCalculatorPlayground.playground */,
 				2E68F9691EC36839007CEEF5 /* Models */,
+				2E68F9871EC52A29007CEEF5 /* Extensions/Subclasses */,
 				2E68F96E1EC36B08007CEEF5 /* Util.swift */,
 				2EDCC50E1EA90F560092BD61 /* Products */,
 				51341D35B7EBEF28AD93C820 /* Pods */,
@@ -285,9 +319,13 @@
 				2E68F96B1EC3685F007CEEF5 /* WorkUser.swift in Sources */,
 				2E68F9761EC37C4E007CEEF5 /* DateExtension.swift in Sources */,
 				2E68F9731EC379A0007CEEF5 /* StringExtention.swift in Sources */,
+				2E68F98C1EC52A47007CEEF5 /* DateTimePicker.swift in Sources */,
 				2E68F9791EC37E16007CEEF5 /* TimeLoggerViewController.swift in Sources */,
+				2E68F98B1EC52A47007CEEF5 /* DateCollectionViewCell.swift in Sources */,
 				2E68F9711EC372C6007CEEF5 /* WorkDay.swift in Sources */,
 				2E68F9681EC364F2007CEEF5 /* CreateAccountViewController.swift in Sources */,
+				2E68F98F1EC52D51007CEEF5 /* UIDateTextField.swift in Sources */,
+				2E68F98D1EC52A47007CEEF5 /* StepCollectionViewFlowLayout.swift in Sources */,
 				2E68F96D1EC368C1007CEEF5 /* User.swift in Sources */,
 				2E68F9651EC36255007CEEF5 /* LoginViewController.swift in Sources */,
 				2E68F96F1EC36B08007CEEF5 /* Util.swift in Sources */,
