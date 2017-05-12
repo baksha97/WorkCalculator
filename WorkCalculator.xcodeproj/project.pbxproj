@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2E014AD81EC600AC005B48F6 /* WorkDayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E014AD71EC600AC005B48F6 /* WorkDayViewController.swift */; };
 		2E021AC91EC3608600B2CA7D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2E021AC81EC3608600B2CA7D /* GoogleService-Info.plist */; };
 		2E68F9651EC36255007CEEF5 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E68F9641EC36255007CEEF5 /* LoginViewController.swift */; };
 		2E68F9681EC364F2007CEEF5 /* CreateAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E68F9671EC364F2007CEEF5 /* CreateAccountViewController.swift */; };
@@ -33,6 +34,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2E014AD71EC600AC005B48F6 /* WorkDayViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkDayViewController.swift; sourceTree = "<group>"; };
 		2E021AC81EC3608600B2CA7D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		2E68F9641EC36255007CEEF5 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		2E68F9671EC364F2007CEEF5 /* CreateAccountViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateAccountViewController.swift; sourceTree = "<group>"; };
@@ -100,6 +102,7 @@
 				2E68F9781EC37E16007CEEF5 /* TimeLoggerViewController.swift */,
 				2E68F9981EC5735C007CEEF5 /* PastWorkDaysTableViewController.swift */,
 				2E68F99A1EC5746C007CEEF5 /* WorkDayTableViewCell.swift */,
+				2E014AD71EC600AC005B48F6 /* WorkDayViewController.swift */,
 			);
 			name = "Log Managment";
 			sourceTree = "<group>";
@@ -334,6 +337,7 @@
 				2E68F9761EC37C4E007CEEF5 /* DateExtension.swift in Sources */,
 				2E68F9731EC379A0007CEEF5 /* StringExtention.swift in Sources */,
 				2E68F9991EC5735C007CEEF5 /* PastWorkDaysTableViewController.swift in Sources */,
+				2E014AD81EC600AC005B48F6 /* WorkDayViewController.swift in Sources */,
 				2E68F98C1EC52A47007CEEF5 /* DateTimePicker.swift in Sources */,
 				2E68F9791EC37E16007CEEF5 /* TimeLoggerViewController.swift in Sources */,
 				2E68F98B1EC52A47007CEEF5 /* DateCollectionViewCell.swift in Sources */,

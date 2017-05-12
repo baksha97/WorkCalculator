@@ -79,12 +79,12 @@ struct WorkDay{
         return [
             "organization":organization,
             "timestamp":timestamp,
-            "store-start":store_startTime,
-            "store-end":store_endTime,
-            "delivery-start":delivery_startTime,
-            "delivery-end":delivery_endTime,
-            "store-duration":storeDuration,
-            "delivery-duration":deliveryDuration
+            "store-start":store_startTime as Any,
+            "store-end":store_endTime as Any,
+            "delivery-start":delivery_startTime as Any,
+            "delivery-end":delivery_endTime as Any,
+            "store-duration":storeDuration as Any,
+            "delivery-duration":deliveryDuration as Any
         ]
     }
 }

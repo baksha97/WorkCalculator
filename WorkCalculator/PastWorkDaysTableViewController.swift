@@ -11,6 +11,7 @@ import Firebase
 
 class PastWorkDaysTableViewController: UITableViewController {
 
+    let workDayViewSegue = "cellToDisplay"
     
     //MARK: FIREBASE
     let ref = FIRDatabase.database().reference()
@@ -120,14 +121,27 @@ class PastWorkDaysTableViewController: UITableViewController {
     }
     */
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print("selected \(indexPath.row)")
+        self.performSegue(withIdentifier: workDayViewSegue, sender: indexPath);
     }
-    */
+    
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == workDayViewSegue {
+            let nextView = segue.destination as! WorkDayViewController
+            if let indexPath = self.tableView.indexPathForSelectedRow{
+                let displayDay = workDays[indexPath.row]
+                print(displayDay.organization)
+                nextView.displayDay = displayDay
+            }
+        }
+    }
+    
 
 }
