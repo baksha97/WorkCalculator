@@ -30,7 +30,7 @@ class TimeLoggerViewController: UIViewController {
     @IBAction func watButton(_ sender: Any) {
         
         let wd: WorkDay = WorkDay(store_startTime: tf.date, store_endTime: tf2.date)
-        self.ref.child("users/\(rUser.userRef)/Workdays/test").setValue(wd.toAnyObject())
+        self.ref.child("users/\(rUser.userRef)/Workdays/\(tf.date.firebaseTitle)").setValue(wd.toAnyObject())
         
         
     }

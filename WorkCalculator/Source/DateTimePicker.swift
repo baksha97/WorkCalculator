@@ -60,7 +60,7 @@ import UIKit
         }
     }
     
-    public var dateFormat = "MMM-d-yy" {
+    public var dateFormat = "EEEE, MMMM d, yyyy" {
         didSet {
             resetDateTitle()
         }

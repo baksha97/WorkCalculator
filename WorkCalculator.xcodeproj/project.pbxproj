@@ -103,9 +103,6 @@
 			children = (
 				2E68F9931EC5343E007CEEF5 /* Subclasses */,
 				2E68F9921EC5342B007CEEF5 /* Extensions */,
-				2E68F9881EC52A47007CEEF5 /* DateCollectionViewCell.swift */,
-				2E68F9891EC52A47007CEEF5 /* DateTimePicker.swift */,
-				2E68F98A1EC52A47007CEEF5 /* StepCollectionViewFlowLayout.swift */,
 			);
 			name = Extensions/Subclasses;
 			sourceTree = "<group>";
@@ -122,9 +119,20 @@
 		2E68F9931EC5343E007CEEF5 /* Subclasses */ = {
 			isa = PBXGroup;
 			children = (
+				2E68F9941EC54811007CEEF5 /* DateTimePicker */,
 				2E68F98E1EC52D51007CEEF5 /* UIDateTextField.swift */,
 			);
 			name = Subclasses;
+			sourceTree = "<group>";
+		};
+		2E68F9941EC54811007CEEF5 /* DateTimePicker */ = {
+			isa = PBXGroup;
+			children = (
+				2E68F9891EC52A47007CEEF5 /* DateTimePicker.swift */,
+				2E68F98A1EC52A47007CEEF5 /* StepCollectionViewFlowLayout.swift */,
+				2E68F9881EC52A47007CEEF5 /* DateCollectionViewCell.swift */,
+			);
+			name = DateTimePicker;
 			sourceTree = "<group>";
 		};
 		2EDCC5041EA90F560092BD61 = {
