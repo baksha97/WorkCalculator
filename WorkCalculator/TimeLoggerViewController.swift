@@ -45,6 +45,10 @@ class TimeLoggerViewController: UIViewController {
             let wd: WorkDay = WorkDay(organization: companyTextField.text!, store_startTime: tf.date, store_endTime: tf2.date)
             self.ref.child("users/\(rUser.userRef)/Workdays/\(tf.date.firebaseTitle)").setValue(wd.toAnyObject())
         }
+        else if(tf.isEmpty == true && dtf.isEmpty == true){
+            let wd: WorkDay = WorkDay(organization: companyTextField.text!, store_startTime: tf.date, store_endTime: tf2.date, delivery_startTime: dtf.date, delivery_endTime: dtf2.date)
+            self.ref.child("users/\(rUser.userRef)/Workdays/\(tf.date.firebaseTitle)").setValue(wd.toAnyObject())
+        }
         else{
             print(".isEmpty = true")
         }
