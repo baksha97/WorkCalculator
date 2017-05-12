@@ -27,8 +27,8 @@ extension Date {
     
     public func minutes(to date: Date) -> Double{
         let userCalendar = Calendar.current
-        let comp = userCalendar.dateComponents([.minute], from: self, to: date)
-        return Double(comp.minute!)
+        let comp = userCalendar.dateComponents([.second], from: self, to: date)
+        return Double(comp.second!)/60
     }
     
     public func minutes(from date: Date) -> Double{

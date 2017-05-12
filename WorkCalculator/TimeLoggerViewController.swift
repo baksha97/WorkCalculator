@@ -55,6 +55,10 @@ class TimeLoggerViewController: UIViewController {
         }
         
     }
+    
+    func switchWorkDayType(storeTextField: UIDateTextField, deliveryTextField: UIDateTextField){
+        
+    }
 
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)

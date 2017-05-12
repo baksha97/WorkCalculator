@@ -30,7 +30,7 @@ struct WorkDay{
         self.store_startTime = store_startTime.stringValue
         self.store_endTime = store_endTime.stringValue
         
-        self.storeDuration = store_startTime.minutes(from: store_endTime)
+        self.storeDuration = store_startTime.minutes(to: store_endTime).rounded(toPlaces: 0)
         
         self.ref = nil
     }
@@ -41,7 +41,7 @@ struct WorkDay{
         self.delivery_startTime = delivery_startTime.stringValue
         self.delivery_endTime = delivery_endTime.stringValue
         
-        self.deliveryDuration = delivery_startTime.minutes(from: delivery_endTime)
+        self.deliveryDuration = delivery_startTime.minutes(to: delivery_endTime).rounded(toPlaces: 0)
         
         self.ref = nil
     }
@@ -54,8 +54,8 @@ struct WorkDay{
         self.delivery_startTime = delivery_startTime.stringValue
         self.delivery_endTime = delivery_endTime.stringValue
         
-        self.storeDuration = store_startTime.minutes(from: store_endTime)
-        self.deliveryDuration = delivery_startTime.minutes(from: delivery_endTime)
+        self.storeDuration = store_startTime.minutes(to: store_endTime).rounded(toPlaces: 0)
+        self.deliveryDuration = delivery_startTime.minutes(to: delivery_endTime).rounded(toPlaces: 0)
         
         self.ref = nil
     }
@@ -69,8 +69,8 @@ struct WorkDay{
         delivery_startTime = snapshotValue["delivery-start"] as? String
         delivery_endTime = snapshotValue["delivery-end"] as? String
         
-        storeDuration = (snapshotValue["store-start"] as? String)?.dateValue?.minutes(from: ((snapshotValue["store-end"] as? String)?.dateValue)!)
-        deliveryDuration = (snapshotValue["delivery-start"] as? String)?.dateValue?.minutes(from: ((snapshotValue["delivery-end"] as? String)?.dateValue)!)
+        storeDuration = (snapshotValue["store-start"] as? String)?.dateValue?.minutes(to: ((snapshotValue["store-end"] as? String)?.dateValue)!).rounded(toPlaces: 0)
+        deliveryDuration = (snapshotValue["delivery-start"] as? String)?.dateValue?.minutes(to: ((snapshotValue["delivery-end"] as? String)?.dateValue)!).rounded(toPlaces: 0)
         
         ref = snapshot.ref
     }

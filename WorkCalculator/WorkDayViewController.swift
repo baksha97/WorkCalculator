@@ -40,11 +40,11 @@ class WorkDayViewController: UIViewController {
         
         storeStartLabel.text = displayDay.store_startTime?.dateValue?.firebaseTitle
         storeEndLabel.text = displayDay.store_endTime?.dateValue?.firebaseTitle
-        storeDuration.text = String(describing: displayDay.storeDuration)
+        storeDuration.text = String(describing: displayDay.storeDuration ?? 0)
         
         deliveryStartLabel.text = displayDay.delivery_startTime?.dateValue?.firebaseTitle
         deliveryEndLabel.text = displayDay.delivery_endTime?.dateValue?.firebaseTitle
-        deliveryDuration.text = String(describing: displayDay.deliveryDuration)
+        deliveryDuration.text = String(describing: displayDay.deliveryDuration ?? 0)
     }
 
     /*

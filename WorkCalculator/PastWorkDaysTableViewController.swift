@@ -127,7 +127,6 @@ class PastWorkDaysTableViewController: UITableViewController {
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("selected \(indexPath.row)")
         self.performSegue(withIdentifier: workDayViewSegue, sender: indexPath);
     }
     
@@ -137,7 +136,6 @@ class PastWorkDaysTableViewController: UITableViewController {
             let nextView = segue.destination as! WorkDayViewController
             if let indexPath = self.tableView.indexPathForSelectedRow{
                 let displayDay = workDays[indexPath.row]
-                print(displayDay.organization)
                 nextView.displayDay = displayDay
             }
         }
