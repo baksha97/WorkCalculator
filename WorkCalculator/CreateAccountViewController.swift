@@ -17,7 +17,6 @@ class CreateAccountViewController: UIViewController {
     @IBOutlet weak var passwordField: UITextField!
     @IBOutlet weak var confirmPasswordField: UITextField!
     
-    @IBOutlet weak var distanceGoalTextField: UITextField!
     //MARK:Firebase
     var user = (FIRAuth.auth()?.currentUser)
     var referencedUser: User? = nil

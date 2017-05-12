@@ -15,7 +15,7 @@ extension Date {
     
     var firebaseTitle: String{
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "EEEE, MMMM dd, yyyy' at 'h:mm a."
+        dateFormatter.dateFormat = "EEEE, MMMM dd, yyyy' at 'h:mm a"
         return dateFormatter.string(from: self)
     }
     var oneMonthAgo: Date!{

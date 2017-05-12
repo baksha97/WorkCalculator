@@ -12,6 +12,7 @@ import Firebase
 class TimeLoggerViewController: UIViewController {
 
     @IBOutlet weak var lb: UILabel!
+    @IBOutlet weak var companyTextField: UITextField!
     @IBOutlet weak var tf: UIDateTextField!
     @IBOutlet weak var tf2: UIDateTextField!
     
@@ -29,7 +30,7 @@ class TimeLoggerViewController: UIViewController {
     
     @IBAction func watButton(_ sender: Any) {
         
-        let wd: WorkDay = WorkDay(store_startTime: tf.date, store_endTime: tf2.date)
+        let wd: WorkDay = WorkDay(organization: companyTextField.text!, delivery_startTime: tf.date, delivery_endTime: tf2.date)
         self.ref.child("users/\(rUser.userRef)/Workdays/\(tf.date.firebaseTitle)").setValue(wd.toAnyObject())
         
         

@@ -11,16 +11,11 @@ import Firebase
 
 class LoginViewController: UIViewController{
     
+    let nextSegue = "postLoginSegue"
     
     @IBOutlet weak var emailField: UITextField!
     @IBOutlet weak var passwordField: UITextField!
     @IBOutlet weak var loginButton: UIButton!
-    
-    
-    
-    
-    
-    //Firebase Buttons
     
     @IBAction func loginDidTouch(_ sender: Any) {
         loginFunction()
@@ -29,7 +24,6 @@ class LoginViewController: UIViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         emailField.text = "travis@dev.com"
         passwordField.text = "myPassword"
     }
@@ -58,7 +52,7 @@ class LoginViewController: UIViewController{
             else{
                // self.dismiss(animated: true, completion: nil)//---->>>>?? why is this here
                 print("signed in")
-                self.performSegue(withIdentifier: "postLoginSegue", sender: nil)
+                self.performSegue(withIdentifier: self.nextSegue, sender: nil)
             }
         })
 
