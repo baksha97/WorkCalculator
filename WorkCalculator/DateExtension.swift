@@ -24,4 +24,16 @@ extension Date {
     var sevenDaysLater: Date!{
         return self.addingTimeInterval(60 * 60 * 24 * 7)
     }
+    
+    public func minutes(to date: Date) -> Double{
+        let userCalendar = Calendar.current
+        let comp = userCalendar.dateComponents([.minute], from: self, to: date)
+        return Double(comp.minute!)
+    }
+    
+    public func minutes(from date: Date) -> Double{
+        let userCalendar = Calendar.current
+        let comp = userCalendar.dateComponents([.minute], from: date, to: self)
+        return Double(comp.minute!)
+    }
 }

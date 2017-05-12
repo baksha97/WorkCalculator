@@ -256,7 +256,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Z1J-Hp-xYH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2988" y="743.47826086956525"/>
+            <point key="canvasLocation" x="3002" y="744"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="HnV-Qr-yUu">
@@ -270,11 +270,79 @@
                     <connections>
                         <segue destination="wVA-WB-CPQ" kind="relationship" relationship="viewControllers" id="Jkd-Dp-wfd"/>
                         <segue destination="eTN-TY-GJt" kind="relationship" relationship="viewControllers" id="DNc-9a-pR2"/>
+                        <segue destination="a6O-t7-ehr" kind="relationship" relationship="viewControllers" id="BUu-Ns-7Sk"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="neb-P1-XbL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2377" y="104"/>
+        </scene>
+        <!--Work Days-->
+        <scene sceneID="n4G-za-AJc">
+            <objects>
+                <navigationController id="a6O-t7-ehr" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Work Days" id="5Li-5A-fRB"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="A36-Jy-vqf">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="3WB-gR-kkd" kind="relationship" relationship="rootViewController" id="nJB-Dr-57K"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Coh-aP-OKy" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3057" y="103"/>
+        </scene>
+        <!--Work Days-->
+        <scene sceneID="Zie-mK-tWc">
+            <objects>
+                <tableViewController storyboardIdentifier="WorkDayTableViewCell" title="Work Days" id="3WB-gR-kkd" customClass="PastWorkDaysTableViewController" customModule="WorkCalculator" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="70" sectionHeaderHeight="28" sectionFooterHeight="28" id="gfb-7x-ITg">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="WorkDayTableViewCell" rowHeight="70" id="4hB-hl-wrU" customClass="WorkDayTableViewCell" customModule="WorkCalculator">
+                                <rect key="frame" x="0.0" y="28" width="375" height="70"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="4hB-hl-wrU" id="Q5G-e4-qx4">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="69"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Date" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T23-En-hxW">
+                                            <rect key="frame" x="8" y="40" width="359" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Company" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jY4-rO-hr8">
+                                            <rect key="frame" x="8" y="11" width="359" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="companyLabel" destination="jY4-rO-hr8" id="rtq-uQ-tto"/>
+                                    <outlet property="dateLabel" destination="T23-En-hxW" id="7js-lb-1xI"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="3WB-gR-kkd" id="xxn-6O-tK7"/>
+                            <outlet property="delegate" destination="3WB-gR-kkd" id="6ck-kL-xCF"/>
+                        </connections>
+                    </tableView>
+                    <tabBarItem key="tabBarItem" title="Work Days" id="wKE-fC-0Ld"/>
+                    <navigationItem key="navigationItem" title="Work Days" id="fS5-Kg-WE0"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ZBk-yn-3zi" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3844" y="103"/>
         </scene>
         <!--Create Account-->
         <scene sceneID="Ezq-xE-Uv7">

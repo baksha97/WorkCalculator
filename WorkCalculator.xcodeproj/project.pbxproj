@@ -21,6 +21,8 @@
 		2E68F98C1EC52A47007CEEF5 /* DateTimePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E68F9891EC52A47007CEEF5 /* DateTimePicker.swift */; };
 		2E68F98D1EC52A47007CEEF5 /* StepCollectionViewFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E68F98A1EC52A47007CEEF5 /* StepCollectionViewFlowLayout.swift */; };
 		2E68F98F1EC52D51007CEEF5 /* UIDateTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E68F98E1EC52D51007CEEF5 /* UIDateTextField.swift */; };
+		2E68F9991EC5735C007CEEF5 /* PastWorkDaysTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E68F9981EC5735C007CEEF5 /* PastWorkDaysTableViewController.swift */; };
+		2E68F99B1EC5746C007CEEF5 /* WorkDayTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E68F99A1EC5746C007CEEF5 /* WorkDayTableViewCell.swift */; };
 		2EDCC5111EA90F560092BD61 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EDCC5101EA90F560092BD61 /* AppDelegate.swift */; };
 		2EDCC5161EA90F560092BD61 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2EDCC5141EA90F560092BD61 /* Main.storyboard */; };
 		2EDCC5191EA90F560092BD61 /* WorkCalculator.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2EDCC5171EA90F560092BD61 /* WorkCalculator.xcdatamodeld */; };
@@ -45,6 +47,8 @@
 		2E68F9891EC52A47007CEEF5 /* DateTimePicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DateTimePicker.swift; path = WorkCalculator/Source/DateTimePicker.swift; sourceTree = "<group>"; };
 		2E68F98A1EC52A47007CEEF5 /* StepCollectionViewFlowLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StepCollectionViewFlowLayout.swift; path = WorkCalculator/Source/StepCollectionViewFlowLayout.swift; sourceTree = "<group>"; };
 		2E68F98E1EC52D51007CEEF5 /* UIDateTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIDateTextField.swift; sourceTree = "<group>"; };
+		2E68F9981EC5735C007CEEF5 /* PastWorkDaysTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PastWorkDaysTableViewController.swift; sourceTree = "<group>"; };
+		2E68F99A1EC5746C007CEEF5 /* WorkDayTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkDayTableViewCell.swift; sourceTree = "<group>"; };
 		2EDCC50D1EA90F560092BD61 /* WorkCalculator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WorkCalculator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2EDCC5101EA90F560092BD61 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2EDCC5151EA90F560092BD61 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -94,6 +98,8 @@
 			isa = PBXGroup;
 			children = (
 				2E68F9781EC37E16007CEEF5 /* TimeLoggerViewController.swift */,
+				2E68F9981EC5735C007CEEF5 /* PastWorkDaysTableViewController.swift */,
+				2E68F99A1EC5746C007CEEF5 /* WorkDayTableViewCell.swift */,
 			);
 			name = "Log Managment";
 			sourceTree = "<group>";
@@ -327,6 +333,7 @@
 				2E68F96B1EC3685F007CEEF5 /* WorkUser.swift in Sources */,
 				2E68F9761EC37C4E007CEEF5 /* DateExtension.swift in Sources */,
 				2E68F9731EC379A0007CEEF5 /* StringExtention.swift in Sources */,
+				2E68F9991EC5735C007CEEF5 /* PastWorkDaysTableViewController.swift in Sources */,
 				2E68F98C1EC52A47007CEEF5 /* DateTimePicker.swift in Sources */,
 				2E68F9791EC37E16007CEEF5 /* TimeLoggerViewController.swift in Sources */,
 				2E68F98B1EC52A47007CEEF5 /* DateCollectionViewCell.swift in Sources */,
@@ -339,6 +346,7 @@
 				2E68F96F1EC36B08007CEEF5 /* Util.swift in Sources */,
 				2EDCC5191EA90F560092BD61 /* WorkCalculator.xcdatamodeld in Sources */,
 				2EDCC5111EA90F560092BD61 /* AppDelegate.swift in Sources */,
+				2E68F99B1EC5746C007CEEF5 /* WorkDayTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
