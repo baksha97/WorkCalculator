@@ -25,6 +25,13 @@ extension Date {
         return self.addingTimeInterval(60 * 60 * 24 * 7)
     }
     
+    var hoursString: String{
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "h:mm a"
+        return dateFormatter.string(from: self)
+
+    }
+    
     public func minutes(to date: Date) -> Double{
         let userCalendar = Calendar.current
         let comp = userCalendar.dateComponents([.second], from: self, to: date)

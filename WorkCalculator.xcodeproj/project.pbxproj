@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		2E014AD81EC600AC005B48F6 /* WorkDayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E014AD71EC600AC005B48F6 /* WorkDayViewController.swift */; };
 		2E014ADA1EC61A08005B48F6 /* BinaryFloatingPointExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E014AD91EC61A08005B48F6 /* BinaryFloatingPointExtension.swift */; };
+		2E014ADC1EC7EC0C005B48F6 /* DisplayAllWorkDaysViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E014ADB1EC7EC0C005B48F6 /* DisplayAllWorkDaysViewController.swift */; };
 		2E021AC91EC3608600B2CA7D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2E021AC81EC3608600B2CA7D /* GoogleService-Info.plist */; };
 		2E68F9651EC36255007CEEF5 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E68F9641EC36255007CEEF5 /* LoginViewController.swift */; };
 		2E68F9681EC364F2007CEEF5 /* CreateAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E68F9671EC364F2007CEEF5 /* CreateAccountViewController.swift */; };
@@ -37,6 +38,7 @@
 /* Begin PBXFileReference section */
 		2E014AD71EC600AC005B48F6 /* WorkDayViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkDayViewController.swift; sourceTree = "<group>"; };
 		2E014AD91EC61A08005B48F6 /* BinaryFloatingPointExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BinaryFloatingPointExtension.swift; sourceTree = "<group>"; };
+		2E014ADB1EC7EC0C005B48F6 /* DisplayAllWorkDaysViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DisplayAllWorkDaysViewController.swift; path = Display/DisplayAllWorkDaysViewController.swift; sourceTree = "<group>"; };
 		2E021AC81EC3608600B2CA7D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		2E68F9641EC36255007CEEF5 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		2E68F9671EC364F2007CEEF5 /* CreateAccountViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateAccountViewController.swift; sourceTree = "<group>"; };
@@ -105,6 +107,7 @@
 				2E68F9981EC5735C007CEEF5 /* PastWorkDaysTableViewController.swift */,
 				2E68F99A1EC5746C007CEEF5 /* WorkDayTableViewCell.swift */,
 				2E014AD71EC600AC005B48F6 /* WorkDayViewController.swift */,
+				2E014ADB1EC7EC0C005B48F6 /* DisplayAllWorkDaysViewController.swift */,
 			);
 			name = "Log Managment";
 			sourceTree = "<group>";
@@ -355,6 +358,7 @@
 				2EDCC5191EA90F560092BD61 /* WorkCalculator.xcdatamodeld in Sources */,
 				2EDCC5111EA90F560092BD61 /* AppDelegate.swift in Sources */,
 				2E68F99B1EC5746C007CEEF5 /* WorkDayTableViewCell.swift in Sources */,
+				2E014ADC1EC7EC0C005B48F6 /* DisplayAllWorkDaysViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
