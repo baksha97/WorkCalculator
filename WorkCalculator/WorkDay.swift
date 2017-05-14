@@ -21,18 +21,20 @@ struct WorkDay{
     
     var storeDuration: Double?
     var deliveryDuration: Double?
+    var breakDuration: Double?
     
     
     let ref: FIRDatabaseReference?
     
-    init(organization: String, store_startTime: Date, store_endTime: Date) {
+    init(organization: String, store_startTime: Date, store_endTime: Date, breakDuration: Double = 30) {
         self.organization = organization
         self.type = .store
         self.timestamp = store_startTime.stringValue
         self.store_startTime = store_startTime.stringValue
         self.store_endTime = store_endTime.stringValue
         
-        self.storeDuration = store_startTime.minutes(to: store_endTime).rounded(toPlaces: 0)
+        self.storeDuration = store_startTime.minutes(to: store_endTime).rounded(toPlaces: 0) - breakDuration
+        self.breakDuration = breakDuration
         
         self.ref = nil
     }
@@ -49,7 +51,7 @@ struct WorkDay{
         self.ref = nil
     }
     
-    init(organization: String, store_startTime: Date, store_endTime: Date, delivery_startTime: Date, delivery_endTime: Date) {
+    init(organization: String, store_startTime: Date, store_endTime: Date, delivery_startTime: Date, delivery_endTime: Date, breakDuration: Double = 30) {
         self.organization = organization
         self.type = .storeAndDelivery
         self.timestamp = store_startTime.stringValue
@@ -58,7 +60,8 @@ struct WorkDay{
         self.delivery_startTime = delivery_startTime.stringValue
         self.delivery_endTime = delivery_endTime.stringValue
         
-        self.storeDuration = store_startTime.minutes(to: store_endTime).rounded(toPlaces: 0)
+        self.storeDuration = store_startTime.minutes(to: store_endTime).rounded(toPlaces: 0) - breakDuration
+        self.breakDuration = breakDuration
         self.deliveryDuration = delivery_startTime.minutes(to: delivery_endTime).rounded(toPlaces: 0)
         
         self.ref = nil
@@ -75,6 +78,7 @@ struct WorkDay{
         delivery_endTime = snapshotValue["delivery-end"] as? String
         
         storeDuration = (snapshotValue["store-start"] as? String)?.dateValue?.minutes(to: ((snapshotValue["store-end"] as? String)?.dateValue)!).rounded(toPlaces: 0)
+        breakDuration = snapshotValue["break-duration"] as? Double
         deliveryDuration = (snapshotValue["delivery-start"] as? String)?.dateValue?.minutes(to: ((snapshotValue["delivery-end"] as? String)?.dateValue)!).rounded(toPlaces: 0)
 
         ref = snapshot.ref
@@ -98,6 +102,7 @@ struct WorkDay{
             "timestamp":timestamp,
             "store-start":store_startTime as Any,
             "store-end":store_endTime as Any,
+            "break-duration":breakDuration as Any,
             "delivery-start":delivery_startTime as Any,
             "delivery-end":delivery_endTime as Any,
             "store-duration":storeDuration as Any,
@@ -112,26 +117,28 @@ struct WorkDay{
             case .store:
                 text += "\n" + self.organization
                 text += "\n Store: " + (self.store_startTime?.dateValue?.hoursString)! + " - " + (self.store_endTime?.dateValue?.hoursString)!
+                text += "\n Store Duration:  \(self.storeDuration!.stringValue) minutes [w/ break]"
             case .delivery:
                 text += "\n" + self.organization
                 text += "\n Delivery: " + (self.delivery_startTime?.dateValue?.hoursString)! + " - " + (self.delivery_endTime?.dateValue?.hoursString)!
+                text += "\n Delivery Duration: " + String(describing: self.deliveryDuration!) + "minutes"
             case .storeAndDelivery:
                 text += "\n" + self.organization
                 text += "\n Store: " + (self.store_startTime?.dateValue?.hoursString)! + " - " + (self.store_endTime?.dateValue?.hoursString)!
+                text += "\n Store Duration:  \(self.storeDuration!.stringValue) minutes [w/ break]"
                 text += "\n Delivery: " + (self.delivery_startTime?.dateValue?.hoursString)! + " - " + (self.delivery_endTime?.dateValue?.hoursString)!
+                text += "\n Delivery Duration: " + String(describing: self.deliveryDuration!) + "minutes"
             default:
                 break
         }
+        
         return text
     }
-    
     /*
-    public func toString() -> String{
-        var s: String = ""
-        s += "\n" + self.organization
-        s += "\n Store: " + (self.store_startTime?.dateValue?.hoursString)! + " - " + (self.store_endTime?.dateValue?.hoursString)!
-        return s
-    }*/
+    public func groupedDescription(dayArray: [WorkDay]) -> String{
+        
+        return ""
+    } */
 }
 
 enum WorkDayType {

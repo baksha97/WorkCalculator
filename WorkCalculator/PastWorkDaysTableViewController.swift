@@ -58,7 +58,7 @@ class PastWorkDaysTableViewController: UITableViewController {
         let day = workDays[indexPath.row]
         
         cell.companyLabel.text = day.organization
-        cell.dateLabel.text = day.store_startTime?.dateValue?.firebaseTitle ?? day.delivery_startTime?.dateValue?.firebaseTitle
+        cell.dateLabel.text = day.store_startTime?.dateValue?.longDescription ?? day.delivery_startTime?.dateValue?.longDescription
 
         
         return cell

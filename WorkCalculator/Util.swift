@@ -33,13 +33,13 @@ class Util{
     //MARK: DATE DATA TO STRING
     class func DateString(from date: Date) -> String{
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss SSSZ"
+        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm"
         return dateFormatter.string(from: date)
     }
     //MARK: CREATE DATE FROM STRING
     class func Date(from dateString: String) -> Date{
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss SSSZ"
+        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm"
         let date = dateFormatter.date(from: dateString)!
         return date
     }

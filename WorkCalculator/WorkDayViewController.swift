@@ -36,14 +36,14 @@ class WorkDayViewController: UIViewController {
     private func configureView() {
         
         organizationLabel.text = displayDay.organization
-        dateLabel.text = displayDay.timestamp.dateValue?.firebaseTitle
+        dateLabel.text = displayDay.timestamp.dateValue?.longDescription
         
-        storeStartLabel.text = displayDay.store_startTime?.dateValue?.firebaseTitle
-        storeEndLabel.text = displayDay.store_endTime?.dateValue?.firebaseTitle
+        storeStartLabel.text = displayDay.store_startTime?.dateValue?.longDescription
+        storeEndLabel.text = displayDay.store_endTime?.dateValue?.longDescription
         storeDuration.text = String(describing: displayDay.storeDuration ?? 0)
         
-        deliveryStartLabel.text = displayDay.delivery_startTime?.dateValue?.firebaseTitle
-        deliveryEndLabel.text = displayDay.delivery_endTime?.dateValue?.firebaseTitle
+        deliveryStartLabel.text = displayDay.delivery_startTime?.dateValue?.longDescription
+        deliveryEndLabel.text = displayDay.delivery_endTime?.dateValue?.longDescription
         deliveryDuration.text = String(describing: displayDay.deliveryDuration ?? 0)
     }
 

@@ -21,4 +21,7 @@ extension BinaryFloatingPoint {
         return (self * divisor).rounded() / divisor
     }
     
+    var stringValue: String{
+        return String(describing: self)
+    }
 }
