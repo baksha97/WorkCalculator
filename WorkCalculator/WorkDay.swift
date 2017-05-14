@@ -77,12 +77,17 @@ struct WorkDay{
         delivery_startTime = snapshotValue["delivery-start"] as? String
         delivery_endTime = snapshotValue["delivery-end"] as? String
         
-        storeDuration = (snapshotValue["store-start"] as? String)?.dateValue?.minutes(to: ((snapshotValue["store-end"] as? String)?.dateValue)!).rounded(toPlaces: 0)
         breakDuration = snapshotValue["break-duration"] as? Double
         deliveryDuration = (snapshotValue["delivery-start"] as? String)?.dateValue?.minutes(to: ((snapshotValue["delivery-end"] as? String)?.dateValue)!).rounded(toPlaces: 0)
 
         ref = snapshot.ref
         
+        if (type! == .store) || (type! == .storeAndDelivery){
+            storeDuration = ((((snapshotValue["store-start"] as? String)?.dateValue?.minutes(to: ((snapshotValue["store-end"] as? String)?.dateValue)!).rounded(toPlaces: 0)))! - breakDuration!)
+        }
+        
+        
+        /*
         if store_startTime != nil  && delivery_startTime == nil{
             type = .store
         }
@@ -92,7 +97,7 @@ struct WorkDay{
         if store_startTime != nil  && delivery_startTime != nil{
             type = .storeAndDelivery
         }
-        
+        */
     }
     
     func toAnyObject() -> Any {
@@ -116,18 +121,21 @@ struct WorkDay{
         switch self.type! {
             case .store:
                 text += "\n" + self.organization
+                text += "\n \(self.timestamp.dateValue!.mediumDescription)"
                 text += "\n Store: " + (self.store_startTime?.dateValue?.hoursString)! + " - " + (self.store_endTime?.dateValue?.hoursString)!
-                text += "\n Store Duration:  \(self.storeDuration!.stringValue) minutes [w/ break]"
+                text += "\n Store Duration: \((self.storeDuration!/60).rounded(toPlaces: 2)) hours, [Break: \(self.breakDuration!) mins]"
             case .delivery:
                 text += "\n" + self.organization
+                text += "\n \(self.timestamp.dateValue!.mediumDescription)"
                 text += "\n Delivery: " + (self.delivery_startTime?.dateValue?.hoursString)! + " - " + (self.delivery_endTime?.dateValue?.hoursString)!
-                text += "\n Delivery Duration: " + String(describing: self.deliveryDuration!) + "minutes"
+                text += "\n Delivery Duration: \((self.deliveryDuration!/60).rounded(toPlaces: 2)) hours"
             case .storeAndDelivery:
                 text += "\n" + self.organization
+                text += "\n \(self.timestamp.dateValue!.mediumDescription)"
                 text += "\n Store: " + (self.store_startTime?.dateValue?.hoursString)! + " - " + (self.store_endTime?.dateValue?.hoursString)!
-                text += "\n Store Duration:  \(self.storeDuration!.stringValue) minutes [w/ break]"
+                text += "\n Store Duration: \((self.storeDuration!/60).rounded(toPlaces: 2)) hours, [Break: \(self.breakDuration!) mins]"
                 text += "\n Delivery: " + (self.delivery_startTime?.dateValue?.hoursString)! + " - " + (self.delivery_endTime?.dateValue?.hoursString)!
-                text += "\n Delivery Duration: " + String(describing: self.deliveryDuration!) + "minutes"
+                text += "\n Delivery Duration: \((self.deliveryDuration!/60).rounded(toPlaces: 2)) hours"
             default:
                 break
         }
