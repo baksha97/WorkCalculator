@@ -25,3 +25,11 @@ extension BinaryFloatingPoint {
         return String(describing: self)
     }
 }
+
+extension Double{
+    var minuteToHours: Double{
+        return (self/60).rounded(toPlaces: 2)
+    }
+    
+    
+}

@@ -121,26 +121,50 @@ struct WorkDay{
         switch self.type! {
             case .store:
                 text += "\n" + self.organization
-                text += "\n \(self.timestamp.dateValue!.mediumDescription)"
+                text += " - \(self.timestamp.dateValue!.mediumDescription)"
                 text += "\n Store: " + (self.store_startTime?.dateValue?.hoursString)! + " - " + (self.store_endTime?.dateValue?.hoursString)!
-                text += "\n Store Duration: \((self.storeDuration!/60).rounded(toPlaces: 2)) hours, [Break: \(self.breakDuration!) mins]"
+                text += "\n Store Duration: \(self.storeDuration!.minuteToHours) hours, [Break: \(self.breakDuration!) mins]"
             case .delivery:
                 text += "\n" + self.organization
-                text += "\n \(self.timestamp.dateValue!.mediumDescription)"
+                text += " - \(self.timestamp.dateValue!.mediumDescription)"
                 text += "\n Delivery: " + (self.delivery_startTime?.dateValue?.hoursString)! + " - " + (self.delivery_endTime?.dateValue?.hoursString)!
-                text += "\n Delivery Duration: \((self.deliveryDuration!/60).rounded(toPlaces: 2)) hours"
+                text += "\n Delivery Duration: \(self.deliveryDuration!.minuteToHours) hours"
             case .storeAndDelivery:
                 text += "\n" + self.organization
-                text += "\n \(self.timestamp.dateValue!.mediumDescription)"
+                text += " - \(self.timestamp.dateValue!.mediumDescription)"
                 text += "\n Store: " + (self.store_startTime?.dateValue?.hoursString)! + " - " + (self.store_endTime?.dateValue?.hoursString)!
-                text += "\n Store Duration: \((self.storeDuration!/60).rounded(toPlaces: 2)) hours, [Break: \(self.breakDuration!) mins]"
+                text += "\n Store Duration: \(self.storeDuration!.minuteToHours) hours, [Break: \(self.breakDuration!) mins]"
                 text += "\n Delivery: " + (self.delivery_startTime?.dateValue?.hoursString)! + " - " + (self.delivery_endTime?.dateValue?.hoursString)!
-                text += "\n Delivery Duration: \((self.deliveryDuration!/60).rounded(toPlaces: 2)) hours"
+                text += "\n Delivery Duration: \(self.deliveryDuration!.minuteToHours) hours"
             default:
                 break
         }
         
         return text
+    }
+    
+    
+    static func totalDurations(arrayOfDays days: [WorkDay]) -> (Double, Double) {
+        
+        var totalStore: Double = 0
+        var totalDelivery: Double = 0
+        
+        for day in days{
+            switch day.type!{
+            case .store:
+                totalStore += day.storeDuration!
+            case .delivery:
+                totalDelivery += day.deliveryDuration!
+            
+            case .storeAndDelivery:
+                totalStore += day.storeDuration!
+                totalDelivery += day.deliveryDuration!
+            default:
+                break
+            }
+        }
+        
+        return (store: totalStore, delivery: totalDelivery)
     }
     /*
     public func groupedDescription(dayArray: [WorkDay]) -> String{

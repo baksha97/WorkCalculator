@@ -52,11 +52,15 @@ class DisplayAllWorkDaysViewController: UIViewController {
     }
     
     private func configureView(){
-         displayTextField.text = ""
+        displayTextField.text = ""
         
         for day in workDays{
             displayTextField.text = displayTextField.text + "\n" + day.description
         }
+        
+        let (storeD, deliveryD) = WorkDay.totalDurations(arrayOfDays: workDays)
+        
+        displayTextField.text = displayTextField.text + "\n\n Store Total: \(storeD.minuteToHours) \n Delivery Total: \(deliveryD.minuteToHours)"
     }
 
 }
