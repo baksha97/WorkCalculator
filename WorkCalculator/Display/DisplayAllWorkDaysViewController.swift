@@ -62,5 +62,9 @@ class DisplayAllWorkDaysViewController: UIViewController {
         
         displayTextField.text = displayTextField.text + "\n\n Store Total: \(storeD.minuteToHours) \n Delivery Total: \(deliveryD.minuteToHours)"
     }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
 
 }
