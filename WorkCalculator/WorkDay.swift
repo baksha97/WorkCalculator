@@ -26,7 +26,7 @@ struct WorkDay{
     
     let ref: FIRDatabaseReference?
     
-    init(organization: String, store_startTime: Date, store_endTime: Date, breakDuration: Double = 30) {
+    init(organization: String, store_startTime: Date, store_endTime: Date, breakDuration: Double = 0) {
         self.organization = organization
         self.type = .store
         self.timestamp = store_startTime.stringValue
@@ -51,7 +51,7 @@ struct WorkDay{
         self.ref = nil
     }
     
-    init(organization: String, store_startTime: Date, store_endTime: Date, delivery_startTime: Date, delivery_endTime: Date, breakDuration: Double = 30) {
+    init(organization: String, store_startTime: Date, store_endTime: Date, delivery_startTime: Date, delivery_endTime: Date, breakDuration: Double = 0) {
         self.organization = organization
         self.type = .storeAndDelivery
         self.timestamp = store_startTime.stringValue

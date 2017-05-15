@@ -9,7 +9,7 @@
 import UIKit
 import Firebase
 
-class DisplayAllWorkDaysViewController: UIViewController {
+class DisplayAllWorkDaysViewController: UIViewController{
 
     @IBOutlet weak var displayTextField: UITextView!
     
@@ -62,6 +62,26 @@ class DisplayAllWorkDaysViewController: UIViewController {
         
         displayTextField.text = displayTextField.text + "\n\n Store Total: \(storeD.minuteToHours) \n Delivery Total: \(deliveryD.minuteToHours)"
     }
+    
+    
+    @IBAction func shareDidClick(_ sender: Any) {
+        // text to share
+        let text = displayTextField.text
+        
+        // set up activity view controller
+        let textToShare = [ text ]
+        let activityViewController = UIActivityViewController(activityItems: textToShare, applicationActivities: nil)
+        activityViewController.popoverPresentationController?.sourceView = self.view // so that iPads won't crash
+        activityViewController.setValue("wat", forKey: "Subject")
+        
+        // exclude some activity types from the list (optional)
+        activityViewController.excludedActivityTypes = [ UIActivityType.airDrop, UIActivityType.postToFacebook ]
+        
+        // present the view controller
+        self.present(activityViewController, animated: true, completion: nil)
+    }
+    
+    
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
