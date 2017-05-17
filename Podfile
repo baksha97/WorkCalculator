@@ -12,6 +12,7 @@ target 'WorkCalculator' do
 	pod ‘Firebase/Auth’
 	pod ‘Firebase/Storage’
 	pod 'DateTimePicker'
+	pod 'JTAppleCalendar'
 
   # Pods for WorkCalculator
 

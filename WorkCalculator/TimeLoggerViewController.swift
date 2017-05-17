@@ -15,6 +15,7 @@ class TimeLoggerViewController: UIViewController {
     @IBOutlet weak var companyTextField: UITextField!
     @IBOutlet weak var tf: UIDateTextField!
     @IBOutlet weak var tf2: UIDateTextField!
+    @IBOutlet var breakTextField: UITimeTextField!
     
     @IBOutlet weak var dtf: UIDateTextField!
     @IBOutlet weak var dtf2: UIDateTextField!
@@ -26,13 +27,17 @@ class TimeLoggerViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        tf.endField = tf2
-        dtf.endField = dtf2
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.companyTextField.text = "Medicine Cabinet"
+    }
+    
+    private func configureTextFields(){
+        tf.endField = tf2
+        tf2.endField = dtf
+        dtf.endField = dtf2
     }
     
     @IBAction func watButton(_ sender: Any) {
@@ -43,14 +48,14 @@ class TimeLoggerViewController: UIViewController {
             
         }
         else if(dtf.isEmpty == true && tf.isEmpty == false){
-            let wd: WorkDay = WorkDay(organization: companyTextField.text!, store_startTime: tf.date, store_endTime: tf2.date)
+            let wd: WorkDay = WorkDay(organization: companyTextField.text!, store_startTime: tf.date, store_endTime: tf2.date, breakDuration: (Double(breakTextField.value)))
             self.ref.child("users/\(rUser.userRef)/Workdays/\(tf.date.firebaseTitle)").setValue(wd.toAnyObject())
         }
         else if(tf.isEmpty == true && dtf.isEmpty == true){
            print(".isEmpty = true")
         }
         else{
-            let wd: WorkDay = WorkDay(organization: companyTextField.text!, store_startTime: tf.date, store_endTime: tf2.date, delivery_startTime: dtf.date, delivery_endTime: dtf2.date)
+            let wd: WorkDay = WorkDay(organization: companyTextField.text!, store_startTime: tf.date, store_endTime: tf2.date, delivery_startTime: dtf.date, delivery_endTime: dtf2.date, breakDuration: (Double(breakTextField.value)))
             self.ref.child("users/\(rUser.userRef)/Workdays/\(tf.date.firebaseTitle)").setValue(wd.toAnyObject())
         }
         

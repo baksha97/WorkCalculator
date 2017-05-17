@@ -481,6 +481,7 @@ import UIKit
                 self.completionHandler?(self.selectedDate)
             }
             self.removeFromSuperview()
+            sender?.endEditing(true)
         }
     }
 }

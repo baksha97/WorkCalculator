@@ -72,7 +72,7 @@ class DisplayAllWorkDaysViewController: UIViewController{
         let textToShare = [ text ]
         let activityViewController = UIActivityViewController(activityItems: textToShare, applicationActivities: nil)
         activityViewController.popoverPresentationController?.sourceView = self.view // so that iPads won't crash
-        activityViewController.setValue("wat", forKey: "Subject")
+        activityViewController.setValue("wat", forKey: "subject")
         
         // exclude some activity types from the list (optional)
         activityViewController.excludedActivityTypes = [ UIActivityType.airDrop, UIActivityType.postToFacebook ]

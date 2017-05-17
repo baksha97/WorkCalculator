@@ -156,21 +156,21 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Delivery Start" textAlignment="center" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="Tmj-XH-cDd" customClass="UIDateTextField" customModule="WorkCalculator" customModuleProvider="target">
-                                <rect key="frame" x="16" y="219" width="343" height="30"/>
+                                <rect key="frame" x="16" y="257" width="343" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Delivery End" textAlignment="center" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="X8e-wA-bxT" customClass="UIDateTextField" customModule="WorkCalculator" customModuleProvider="target">
-                                <rect key="frame" x="17" y="257" width="343" height="30"/>
+                                <rect key="frame" x="17" y="295" width="343" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D5Q-xG-yhc">
-                                <rect key="frame" x="105" y="318" width="166" height="30"/>
+                                <rect key="frame" x="105" y="356" width="166" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.93872937817258884" green="0.0" blue="0.2386738015678409" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" title="Add to Firebase">
@@ -185,11 +185,19 @@
                                     <action selector="watButton:" destination="wVA-WB-CPQ" eventType="touchUpInside" id="r3j-FC-qwx"/>
                                 </connections>
                             </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Break minutes" textAlignment="center" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="b9I-so-vUP" customClass="UITimeTextField" customModule="WorkCalculator" customModuleProvider="target">
+                                <rect key="frame" x="17" y="198" width="342" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Add" id="bXA-vK-Iwf"/>
                     <connections>
+                        <outlet property="breakTextField" destination="b9I-so-vUP" id="HlQ-fr-9D0"/>
                         <outlet property="companyTextField" destination="ZMm-5U-dUH" id="PmP-dP-tsG"/>
                         <outlet property="dtf" destination="Tmj-XH-cDd" id="Pue-iR-Uxs"/>
                         <outlet property="dtf2" destination="X8e-wA-bxT" id="ZVh-BP-hG7"/>

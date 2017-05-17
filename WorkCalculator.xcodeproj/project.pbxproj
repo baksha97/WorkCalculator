@@ -11,6 +11,8 @@
 		2E014ADA1EC61A08005B48F6 /* BinaryFloatingPointExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E014AD91EC61A08005B48F6 /* BinaryFloatingPointExtension.swift */; };
 		2E014ADC1EC7EC0C005B48F6 /* DisplayAllWorkDaysViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E014ADB1EC7EC0C005B48F6 /* DisplayAllWorkDaysViewController.swift */; };
 		2E021AC91EC3608600B2CA7D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2E021AC81EC3608600B2CA7D /* GoogleService-Info.plist */; };
+		2E39517B1ECA448B00B4B8C4 /* UITimePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E39517A1ECA448B00B4B8C4 /* UITimePicker.swift */; };
+		2E39517D1ECA5E1A00B4B8C4 /* UITimeTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E39517C1ECA5E1A00B4B8C4 /* UITimeTextField.swift */; };
 		2E68F9651EC36255007CEEF5 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E68F9641EC36255007CEEF5 /* LoginViewController.swift */; };
 		2E68F9681EC364F2007CEEF5 /* CreateAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E68F9671EC364F2007CEEF5 /* CreateAccountViewController.swift */; };
 		2E68F96B1EC3685F007CEEF5 /* WorkUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E68F96A1EC3685F007CEEF5 /* WorkUser.swift */; };
@@ -26,6 +28,7 @@
 		2E68F98F1EC52D51007CEEF5 /* UIDateTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E68F98E1EC52D51007CEEF5 /* UIDateTextField.swift */; };
 		2E68F9991EC5735C007CEEF5 /* PastWorkDaysTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E68F9981EC5735C007CEEF5 /* PastWorkDaysTableViewController.swift */; };
 		2E68F99B1EC5746C007CEEF5 /* WorkDayTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E68F99A1EC5746C007CEEF5 /* WorkDayTableViewCell.swift */; };
+		2EA112A61ECA872000E77C29 /* myItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EA112A51ECA872000E77C29 /* myItems.swift */; };
 		2EDCC5111EA90F560092BD61 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EDCC5101EA90F560092BD61 /* AppDelegate.swift */; };
 		2EDCC5161EA90F560092BD61 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2EDCC5141EA90F560092BD61 /* Main.storyboard */; };
 		2EDCC5191EA90F560092BD61 /* WorkCalculator.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2EDCC5171EA90F560092BD61 /* WorkCalculator.xcdatamodeld */; };
@@ -40,6 +43,8 @@
 		2E014AD91EC61A08005B48F6 /* BinaryFloatingPointExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BinaryFloatingPointExtension.swift; sourceTree = "<group>"; };
 		2E014ADB1EC7EC0C005B48F6 /* DisplayAllWorkDaysViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DisplayAllWorkDaysViewController.swift; path = Display/DisplayAllWorkDaysViewController.swift; sourceTree = "<group>"; };
 		2E021AC81EC3608600B2CA7D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		2E39517A1ECA448B00B4B8C4 /* UITimePicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UITimePicker.swift; path = Subclasses/UITimePicker.swift; sourceTree = "<group>"; };
+		2E39517C1ECA5E1A00B4B8C4 /* UITimeTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITimeTextField.swift; sourceTree = "<group>"; };
 		2E68F9641EC36255007CEEF5 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		2E68F9671EC364F2007CEEF5 /* CreateAccountViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateAccountViewController.swift; sourceTree = "<group>"; };
 		2E68F96A1EC3685F007CEEF5 /* WorkUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkUser.swift; sourceTree = "<group>"; };
@@ -55,6 +60,7 @@
 		2E68F98E1EC52D51007CEEF5 /* UIDateTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIDateTextField.swift; sourceTree = "<group>"; };
 		2E68F9981EC5735C007CEEF5 /* PastWorkDaysTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PastWorkDaysTableViewController.swift; sourceTree = "<group>"; };
 		2E68F99A1EC5746C007CEEF5 /* WorkDayTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkDayTableViewCell.swift; sourceTree = "<group>"; };
+		2EA112A51ECA872000E77C29 /* myItems.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = myItems.swift; sourceTree = "<group>"; };
 		2EDCC50D1EA90F560092BD61 /* WorkCalculator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WorkCalculator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2EDCC5101EA90F560092BD61 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2EDCC5151EA90F560092BD61 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -115,6 +121,7 @@
 		2E68F9871EC52A29007CEEF5 /* Extensions/Subclasses */ = {
 			isa = PBXGroup;
 			children = (
+				2EA112A41ECA86EC00E77C29 /* Custom Objects */,
 				2E68F9931EC5343E007CEEF5 /* Subclasses */,
 				2E68F9921EC5342B007CEEF5 /* Extensions */,
 			);
@@ -136,6 +143,8 @@
 			children = (
 				2E68F9941EC54811007CEEF5 /* DateTimePicker */,
 				2E68F98E1EC52D51007CEEF5 /* UIDateTextField.swift */,
+				2E39517C1ECA5E1A00B4B8C4 /* UITimeTextField.swift */,
+				2E39517A1ECA448B00B4B8C4 /* UITimePicker.swift */,
 			);
 			name = Subclasses;
 			sourceTree = "<group>";
@@ -148,6 +157,14 @@
 				2E68F9881EC52A47007CEEF5 /* DateCollectionViewCell.swift */,
 			);
 			name = DateTimePicker;
+			sourceTree = "<group>";
+		};
+		2EA112A41ECA86EC00E77C29 /* Custom Objects */ = {
+			isa = PBXGroup;
+			children = (
+				2EA112A51ECA872000E77C29 /* myItems.swift */,
+			);
+			name = "Custom Objects";
 			sourceTree = "<group>";
 		};
 		2EDCC5041EA90F560092BD61 = {
@@ -347,9 +364,12 @@
 				2E68F98C1EC52A47007CEEF5 /* DateTimePicker.swift in Sources */,
 				2E68F9791EC37E16007CEEF5 /* TimeLoggerViewController.swift in Sources */,
 				2E68F98B1EC52A47007CEEF5 /* DateCollectionViewCell.swift in Sources */,
+				2E39517B1ECA448B00B4B8C4 /* UITimePicker.swift in Sources */,
 				2E014ADA1EC61A08005B48F6 /* BinaryFloatingPointExtension.swift in Sources */,
 				2E68F9711EC372C6007CEEF5 /* WorkDay.swift in Sources */,
 				2E68F9681EC364F2007CEEF5 /* CreateAccountViewController.swift in Sources */,
+				2E39517D1ECA5E1A00B4B8C4 /* UITimeTextField.swift in Sources */,
+				2EA112A61ECA872000E77C29 /* myItems.swift in Sources */,
 				2E68F98F1EC52D51007CEEF5 /* UIDateTextField.swift in Sources */,
 				2E68F98D1EC52A47007CEEF5 /* StepCollectionViewFlowLayout.swift in Sources */,
 				2E68F96D1EC368C1007CEEF5 /* User.swift in Sources */,
