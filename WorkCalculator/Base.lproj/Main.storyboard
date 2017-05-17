@@ -279,7 +279,7 @@
                         <segue destination="wVA-WB-CPQ" kind="relationship" relationship="viewControllers" id="Jkd-Dp-wfd"/>
                         <segue destination="eTN-TY-GJt" kind="relationship" relationship="viewControllers" id="DNc-9a-pR2"/>
                         <segue destination="a6O-t7-ehr" kind="relationship" relationship="viewControllers" id="BUu-Ns-7Sk"/>
-                        <segue destination="C0h-zz-am4" kind="show" id="bpv-Ua-dry"/>
+                        <segue destination="C0h-zz-am4" kind="relationship" relationship="viewControllers" id="F0e-Ao-1OF"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="neb-P1-XbL" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -316,7 +316,7 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="70"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="4hB-hl-wrU" id="Q5G-e4-qx4">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="69"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="69.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Date" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T23-En-hxW">
@@ -689,6 +689,7 @@
                             <constraint firstItem="Zhp-jO-GO0" firstAttribute="leading" secondItem="qxx-bV-LSt" secondAttribute="leading" id="urI-Dg-ZoM"/>
                         </constraints>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Item" id="V5B-CV-VRL"/>
                     <navigationItem key="navigationItem" title="Calendar" id="ebC-SX-xUl"/>
                     <connections>
                         <outlet property="calendarView" destination="Zhp-jO-GO0" id="qeX-Wo-fPe"/>

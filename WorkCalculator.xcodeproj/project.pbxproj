@@ -13,7 +13,8 @@
 		2E021AC91EC3608600B2CA7D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2E021AC81EC3608600B2CA7D /* GoogleService-Info.plist */; };
 		2E39517B1ECA448B00B4B8C4 /* UITimePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E39517A1ECA448B00B4B8C4 /* UITimePicker.swift */; };
 		2E39517D1ECA5E1A00B4B8C4 /* UITimeTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E39517C1ECA5E1A00B4B8C4 /* UITimeTextField.swift */; };
-		2E3B28631ECC0E5C00A43781 /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E3B28621ECC0E5C00A43781 /* CalendarViewController.swift */; };
+		2E4541521ECC17540094D332 /* CalendarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E4541511ECC17540094D332 /* CalendarVC.swift */; };
+		2E4541541ECC17B10094D332 /* CustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E4541531ECC17B10094D332 /* CustomCell.swift */; };
 		2E68F9651EC36255007CEEF5 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E68F9641EC36255007CEEF5 /* LoginViewController.swift */; };
 		2E68F9681EC364F2007CEEF5 /* CreateAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E68F9671EC364F2007CEEF5 /* CreateAccountViewController.swift */; };
 		2E68F96B1EC3685F007CEEF5 /* WorkUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E68F96A1EC3685F007CEEF5 /* WorkUser.swift */; };
@@ -48,7 +49,8 @@
 		2E021AC81EC3608600B2CA7D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		2E39517A1ECA448B00B4B8C4 /* UITimePicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UITimePicker.swift; path = Subclasses/UITimePicker.swift; sourceTree = "<group>"; };
 		2E39517C1ECA5E1A00B4B8C4 /* UITimeTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITimeTextField.swift; sourceTree = "<group>"; };
-		2E3B28621ECC0E5C00A43781 /* CalendarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
+		2E4541511ECC17540094D332 /* CalendarVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarVC.swift; sourceTree = "<group>"; };
+		2E4541531ECC17B10094D332 /* CustomCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomCell.swift; sourceTree = "<group>"; };
 		2E68F9641EC36255007CEEF5 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		2E68F9671EC364F2007CEEF5 /* CreateAccountViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateAccountViewController.swift; sourceTree = "<group>"; };
 		2E68F96A1EC3685F007CEEF5 /* WorkUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkUser.swift; sourceTree = "<group>"; };
@@ -120,7 +122,8 @@
 				2E68F99A1EC5746C007CEEF5 /* WorkDayTableViewCell.swift */,
 				2E014AD71EC600AC005B48F6 /* WorkDayViewController.swift */,
 				2E014ADB1EC7EC0C005B48F6 /* DisplayAllWorkDaysViewController.swift */,
-				2E3B28621ECC0E5C00A43781 /* CalendarViewController.swift */,
+				2E4541511ECC17540094D332 /* CalendarVC.swift */,
+				2E4541531ECC17B10094D332 /* CustomCell.swift */,
 			);
 			name = "Log Managment";
 			sourceTree = "<group>";
@@ -340,7 +343,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		E29D1D9A74ADE29B53A5E4D7 /* [CP] Embed Pods Frameworks */ = {
@@ -373,11 +376,12 @@
 				2E68F98C1EC52A47007CEEF5 /* DateTimePicker.swift in Sources */,
 				2E68F9791EC37E16007CEEF5 /* TimeLoggerViewController.swift in Sources */,
 				2E68F98B1EC52A47007CEEF5 /* DateCollectionViewCell.swift in Sources */,
-				2E3B28631ECC0E5C00A43781 /* CalendarViewController.swift in Sources */,
 				2E39517B1ECA448B00B4B8C4 /* UITimePicker.swift in Sources */,
 				2E014ADA1EC61A08005B48F6 /* BinaryFloatingPointExtension.swift in Sources */,
+				2E4541521ECC17540094D332 /* CalendarVC.swift in Sources */,
 				2E68F9711EC372C6007CEEF5 /* WorkDay.swift in Sources */,
 				2E68F9681EC364F2007CEEF5 /* CreateAccountViewController.swift in Sources */,
+				2E4541541ECC17B10094D332 /* CustomCell.swift in Sources */,
 				2EA112AA1ECBF4F200E77C29 /* UIOrganizationTextField.swift in Sources */,
 				2E39517D1ECA5E1A00B4B8C4 /* UITimeTextField.swift in Sources */,
 				2EA112A61ECA872000E77C29 /* myItems.swift in Sources */,

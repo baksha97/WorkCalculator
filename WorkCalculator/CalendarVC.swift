@@ -7,16 +7,15 @@
 //
 
 import UIKit
+import JTAppleCalendar
 
 class CalendarVC: UIViewController {
 
+    @IBOutlet weak var calendarView: JTAppleCalendarView!
     @IBOutlet weak var monthYear: UILabel!
-    @IBOutlet var calendarView: JTAppleCalendarView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
         setupCalendarView()
 
     }
