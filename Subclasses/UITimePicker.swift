@@ -62,10 +62,14 @@ class UITimePicker: UIPickerView, UIPickerViewDelegate, UIPickerViewDataSource{
         toolBar.isUserInteractionEnabled = true
         
         textField.inputAccessoryView = toolBar
-        
-        
-        
-        
+        configureLabels()
+    }
+    
+    func dismiss(){
+        textField.endEditing(true)
+    }
+    
+    func configureLabels(){
         let height = CGFloat(20)
         let offsetX = self.frame.size.width / 3
         let offsetY = self.frame.size.height/2 - height/2
@@ -73,10 +77,10 @@ class UITimePicker: UIPickerView, UIPickerViewDelegate, UIPickerViewDataSource{
         let width = offsetX - marginX
         
         /*
-        let hourLabel = UILabel(frame: CGRectMake(x: marginX, y: offsetY, width: width, height: height))
-        hourLabel.text = "hour"
-        self.addSubview(hourLabel)
-        */
+         let hourLabel = UILabel(frame: CGRectMake(x: marginX, y: offsetY, width: width, height: height))
+         hourLabel.text = "hour"
+         self.addSubview(hourLabel)
+         */
         
         let hourLabel = UILabel(frame: CGRectMake(x: marginX + offsetX - 65, y: offsetY, width: width, height: height))
         hourLabel.text = "hours"
@@ -85,12 +89,6 @@ class UITimePicker: UIPickerView, UIPickerViewDelegate, UIPickerViewDataSource{
         let minsLabel = UILabel(frame: CGRectMake(x: marginX + offsetX + 65, y: offsetY, width: width, height: height))
         minsLabel.text = "mins"
         self.addSubview(minsLabel)
-        
-        
-    }
-    
-    func dismiss(){
-        textField.endEditing(true)
     }
     
     

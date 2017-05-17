@@ -31,7 +31,8 @@ class TimeLoggerViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.companyTextField.text = "Medicine Cabinet"
+        //self.companyTextField.text = "Medicine Cabinet"
+        configureTextFields()
     }
     
     private func configureTextFields(){
@@ -60,6 +61,18 @@ class TimeLoggerViewController: UIViewController {
         }
         
     }
+    
+    
+    func toAnyObject() -> Any {
+        return [
+            "list":["org1", "org2"]
+        ]
+    }
+    
+    
+    
+    
+    
     
     func switchWorkDayType(storeTextField: UIDateTextField, deliveryTextField: UIDateTextField){
         

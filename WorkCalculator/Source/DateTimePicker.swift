@@ -151,7 +151,7 @@ import UIKit
     
     @objc open class func setDefault() -> DateTimePicker {
         let dateTimePicker = DateTimePicker()
-        dateTimePicker.minimumDate = Date().oneMonthAgo
+        dateTimePicker.minimumDate = Date().twoWeeksAgo
         dateTimePicker.maximumDate = Date().sevenDaysLater
         dateTimePicker.selectedDate = dateTimePicker.minimumDate
         assert(dateTimePicker.minimumDate.compare(dateTimePicker.maximumDate) == .orderedAscending, "Minimum date should be earlier than maximum date")

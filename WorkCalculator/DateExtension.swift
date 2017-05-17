@@ -31,8 +31,8 @@ extension Date {
         return dateFormatter.string(from: self)
     }
     
-    var oneMonthAgo: Date!{
-        return self.addingTimeInterval(60 * 60 * 24 * -31)
+    var twoWeeksAgo: Date!{
+        return self.addingTimeInterval(60 * 60 * 24 * -14)
     }
     var sevenDaysLater: Date!{
         return self.addingTimeInterval(60 * 60 * 24 * 7)
