@@ -9,7 +9,7 @@
 import UIKit
 import JTAppleCalendar
 
-class CalendarVC: UIViewController {
+class CalendarVC: UIViewController, JTAppleCalendarViewDelegate, JTAppleCalendarViewDataSource {
 
     @IBOutlet weak var calendarView: JTAppleCalendarView!
     @IBOutlet weak var monthYear: UILabel!
@@ -23,30 +23,13 @@ class CalendarVC: UIViewController {
     func setupCalendarView() {
         calendarView.minimumLineSpacing = 0
         calendarView.minimumInteritemSpacing = 0
-    }
-}
-
-extension UIViewController: JTAppleCalendarViewDataSource {
-    
-    public func configureCalendar(_ calendar: JTAppleCalendarView) -> ConfigurationParameters {
-        let date = Date()
         let formatter = DateFormatter()
-        
-        formatter.dateFormat = "yyyy MM dd"
-        formatter.timeZone = Calendar.current.timeZone
-        formatter.locale = Calendar.current.locale
-        
-        let startDateStr = formatter.string(from: date)
-        
-        let startDate = formatter.date(from: startDateStr)
-        let endDate = formatter.date(from: "2020 01 01")
-        
-        let parameters = ConfigurationParameters(startDate: startDate!, endDate: endDate!)
-        return parameters
+        formatter.dateFormat = "MMMM, YYYY"
+        monthYear.text = formatter.string(from: Date())
+        calendarView.allowsMultipleSelection = true
+        //calendarView.visibleDates().outdates
     }
-}
-
-extension UIViewController: JTAppleCalendarViewDelegate {
+    
     public func calendar(_ calendar: JTAppleCalendarView, cellForItemAt date: Date, cellState: CellState, indexPath: IndexPath) -> JTAppleCell {
         let cell = calendar.dequeueReusableJTAppleCell(withReuseIdentifier: "CustomCell", for: indexPath) as! CustomCell
         cell.dateLabel.text = cellState.text
@@ -83,7 +66,24 @@ extension UIViewController: JTAppleCalendarViewDelegate {
         let monthDateStr = formatter.string(from: monthDate)
         
         print("Calendar scrolled to: \(monthDateStr)")
+        monthYear.text = monthDateStr
         
     }
     
+    public func configureCalendar(_ calendar: JTAppleCalendarView) -> ConfigurationParameters {
+        let date = Date()
+        let formatter = DateFormatter()
+        
+        formatter.dateFormat = "yyyy MM dd"
+        formatter.timeZone = Calendar.current.timeZone
+        formatter.locale = Calendar.current.locale
+        
+        let startDateStr = formatter.string(from: date)
+        
+        let startDate = formatter.date(from: startDateStr)
+        let endDate = formatter.date(from: "2020 01 01")
+        
+        let parameters = ConfigurationParameters(startDate: startDate!, endDate: endDate!)
+        return parameters
+    }
 }

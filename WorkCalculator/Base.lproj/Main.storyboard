@@ -316,7 +316,7 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="70"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="4hB-hl-wrU" id="Q5G-e4-qx4">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="69.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="69"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Date" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T23-En-hxW">
@@ -578,7 +578,7 @@
                                             <subviews>
                                                 <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XLL-Mt-8qX">
                                                     <rect key="frame" x="25" y="16" width="45" height="45"/>
-                                                    <color key="backgroundColor" red="0.81568627449999997" green="0.47843137250000001" blue="0.2901960784" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="backgroundColor" red="0.73089378240000002" green="0.13496298749999999" blue="0.1122910837" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="45" id="Mdn-rl-WU3"/>
                                                         <constraint firstAttribute="height" constant="45" id="sdl-MP-7fH"/>
