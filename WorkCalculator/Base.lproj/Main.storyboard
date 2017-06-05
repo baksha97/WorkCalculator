@@ -578,16 +578,24 @@
                                             <subviews>
                                                 <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XLL-Mt-8qX">
                                                     <rect key="frame" x="25" y="16" width="45" height="45"/>
-                                                    <color key="backgroundColor" red="0.73089378240000002" green="0.13496298749999999" blue="0.1122910837" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <color key="backgroundColor" red="0.72336632013320923" green="0.22943549398115687" blue="0.18379578512993439" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="45" id="Mdn-rl-WU3"/>
                                                         <constraint firstAttribute="height" constant="45" id="sdl-MP-7fH"/>
                                                     </constraints>
                                                     <userDefinedRuntimeAttributes>
                                                         <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                            <integer key="value" value="20"/>
+                                                            <integer key="value" value="4"/>
                                                         </userDefinedRuntimeAttribute>
                                                     </userDefinedRuntimeAttributes>
+                                                </view>
+                                                <view hidden="YES" alpha="0.050000000000000003" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hOu-sB-J3X" userLabel="Work View">
+                                                    <rect key="frame" x="24" y="16" width="45" height="45"/>
+                                                    <color key="backgroundColor" red="0.47277866703796434" green="0.64553553046044521" blue="0.73089378240000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="45" id="bzg-tC-AaH"/>
+                                                        <constraint firstAttribute="height" constant="45" id="hDj-mY-NdD"/>
+                                                    </constraints>
                                                 </view>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r9S-MN-CLu">
                                                     <rect key="frame" x="24" y="16" width="45" height="45"/>
@@ -599,17 +607,33 @@
                                                     <color key="textColor" white="0.10000000000000001" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wk0-JR-ZhT" userLabel="Work View">
+                                                    <rect key="frame" x="25" y="44" width="45" height="17"/>
+                                                    <color key="backgroundColor" red="0.47277866699999999" green="0.64553553050000001" blue="0.73089378240000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                            <integer key="value" value="0"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                </view>
                                             </subviews>
                                         </view>
                                         <constraints>
-                                            <constraint firstItem="XLL-Mt-8qX" firstAttribute="centerX" secondItem="oHQ-jz-gy5" secondAttribute="centerX" id="70M-sm-7wO"/>
-                                            <constraint firstItem="r9S-MN-CLu" firstAttribute="centerY" secondItem="oHQ-jz-gy5" secondAttribute="centerY" id="ATd-dZ-OAf"/>
-                                            <constraint firstItem="XLL-Mt-8qX" firstAttribute="centerY" secondItem="oHQ-jz-gy5" secondAttribute="centerY" id="NrW-UC-Pr9"/>
-                                            <constraint firstItem="r9S-MN-CLu" firstAttribute="centerX" secondItem="oHQ-jz-gy5" secondAttribute="centerX" id="Vft-G1-Glx"/>
+                                            <constraint firstItem="r9S-MN-CLu" firstAttribute="bottom" secondItem="wk0-JR-ZhT" secondAttribute="bottom" id="5fh-ao-xgh"/>
+                                            <constraint firstItem="wk0-JR-ZhT" firstAttribute="top" secondItem="oHQ-jz-gy5" secondAttribute="topMargin" constant="36" id="8xD-tw-I0l"/>
+                                            <constraint firstItem="wk0-JR-ZhT" firstAttribute="centerX" secondItem="oHQ-jz-gy5" secondAttribute="centerX" id="Bq3-0m-kWL"/>
+                                            <constraint firstItem="r9S-MN-CLu" firstAttribute="centerX" secondItem="oHQ-jz-gy5" secondAttribute="centerX" id="OMP-A2-XjW"/>
+                                            <constraint firstItem="wk0-JR-ZhT" firstAttribute="trailing" secondItem="XLL-Mt-8qX" secondAttribute="trailing" id="RFD-ls-SUb"/>
+                                            <constraint firstItem="r9S-MN-CLu" firstAttribute="top" secondItem="hOu-sB-J3X" secondAttribute="top" id="S2h-td-BMt"/>
+                                            <constraint firstItem="r9S-MN-CLu" firstAttribute="centerY" secondItem="oHQ-jz-gy5" secondAttribute="centerY" id="VTq-Tz-yd5"/>
+                                            <constraint firstItem="r9S-MN-CLu" firstAttribute="top" secondItem="XLL-Mt-8qX" secondAttribute="top" id="VeY-vF-nTE"/>
+                                            <constraint firstItem="r9S-MN-CLu" firstAttribute="leading" secondItem="hOu-sB-J3X" secondAttribute="leading" id="WYj-pB-cBf"/>
+                                            <constraint firstItem="wk0-JR-ZhT" firstAttribute="leading" secondItem="XLL-Mt-8qX" secondAttribute="leading" id="cf0-gH-fsb"/>
                                         </constraints>
                                         <connections>
                                             <outlet property="dateLabel" destination="r9S-MN-CLu" id="IaV-qv-afU"/>
                                             <outlet property="selectedView" destination="XLL-Mt-8qX" id="tfM-uF-FT8"/>
+                                            <outlet property="workView" destination="wk0-JR-ZhT" id="1cm-Kg-9MK"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -621,45 +645,45 @@
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="feI-eN-0Mo">
                                 <rect key="frame" x="0.0" y="90" width="375" height="30"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mon" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sFi-X8-tjk">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sun" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sFi-X8-tjk">
                                         <rect key="frame" x="0.0" y="0.0" width="53.5" height="30"/>
-                                        <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="18"/>
+                                        <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="18"/>
                                         <color key="textColor" white="0.10000000000000001" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tue" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m6o-KQ-uQ8">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mon" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m6o-KQ-uQ8">
                                         <rect key="frame" x="53.5" y="0.0" width="53.5" height="30"/>
-                                        <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="18"/>
+                                        <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="18"/>
                                         <color key="textColor" white="0.10000000000000001" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Wed" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aay-up-1cy">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tue" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aay-up-1cy">
                                         <rect key="frame" x="107" y="0.0" width="53.5" height="30"/>
-                                        <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="18"/>
+                                        <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="18"/>
                                         <color key="textColor" white="0.10000000000000001" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Thu" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ma5-Mk-cy0">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Wed" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ma5-Mk-cy0">
                                         <rect key="frame" x="160.5" y="0.0" width="54" height="30"/>
-                                        <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="18"/>
+                                        <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="18"/>
                                         <color key="textColor" white="0.10000000000000001" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Fri" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fPW-Lf-Ydo">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Thu" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fPW-Lf-Ydo">
                                         <rect key="frame" x="214.5" y="0.0" width="53.5" height="30"/>
-                                        <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="18"/>
+                                        <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="18"/>
                                         <color key="textColor" white="0.10000000000000001" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sat" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SQ4-78-9CO">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Fri" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SQ4-78-9CO">
                                         <rect key="frame" x="268" y="0.0" width="53.5" height="30"/>
-                                        <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="18"/>
+                                        <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="18"/>
                                         <color key="textColor" white="0.10000000000000001" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sun" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5gs-yZ-vpa">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sat" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5gs-yZ-vpa">
                                         <rect key="frame" x="321.5" y="0.0" width="53.5" height="30"/>
-                                        <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="18"/>
+                                        <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="18"/>
                                         <color key="textColor" white="0.10000000000000001" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -670,7 +694,7 @@
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="September 2020" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sl4-LN-N0c">
                                 <rect key="frame" x="56" y="40" width="263" height="42"/>
-                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="30"/>
+                                <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="30"/>
                                 <color key="textColor" white="0.10000000000000001" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -698,7 +722,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eME-3I-aoD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2343" y="-691"/>
+            <point key="canvasLocation" x="2341.5999999999999" y="-691.304347826087"/>
         </scene>
     </scenes>
     <resources>
