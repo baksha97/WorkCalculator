@@ -26,6 +26,15 @@ class UIDateTextField: UITextField, UITextFieldDelegate {
         }
     }
     
+    var hasNoText: Bool{
+        if self.text == ""{
+            return true
+        }
+        else{
+            return false
+        }
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         self.text = ""

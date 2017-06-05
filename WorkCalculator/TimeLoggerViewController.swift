@@ -20,10 +20,14 @@ class TimeLoggerViewController: UIViewController {
     @IBOutlet weak var dtf: UIDateTextField!
     @IBOutlet weak var dtf2: UIDateTextField!
     
+    @IBOutlet var saveButton: UIButton!
+    @IBOutlet var loadButton: UIButton!
     //MARK: FIREBASE
     let ref = FIRDatabase.database().reference()
     let user = FIRAuth.auth()?.currentUser
     let rUser = User(authData: (FIRAuth.auth()?.currentUser)!)
+    
+    var stringOfDays: [String] = [String]()
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -63,20 +67,40 @@ class TimeLoggerViewController: UIViewController {
     }
     
     
-    func toAnyObject() -> Any {
-        return [
-            "list":["org1", "org2"]
-        ]
+    private func saveInputToFirebase(from startingTextField: UIDateTextField){
+        var input = [String]()
+        
+        var current: UIDateTextField = startingTextField
+        
+        while(!current.hasNoText){
+            input.append(current.picker.selectedDate.stringValue!)
+            current = (current.endField)!
+        }
+        if(!startingTextField.hasNoText){
+            self.ref.child("users/\(rUser.userRef)/unsaved-workday/current/").setValue(input)
+        }
     }
-    
-    
-    
-    
-    
     
     func switchWorkDayType(storeTextField: UIDateTextField, deliveryTextField: UIDateTextField){
         
     }
+    
+    @IBAction func saveDidTouch(_ sender: Any) {
+        saveInputToFirebase(from: tf)
+    }
+    
+    @IBAction func loadDidTouch(_ sender: Any) {
+        /*
+        self.ref.child("users/\(rUser.userRef)/unsaved-workday/current/").observeSingleEvent(of: .value, with: { snapshot in
+                let value = snapshot.value as? NSDictionary
+                print(value)
+            })
+        */
+        
+       // breakDuration = snapshotValue["break-duration"] as? Double
+        
+    }
+    
 
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
