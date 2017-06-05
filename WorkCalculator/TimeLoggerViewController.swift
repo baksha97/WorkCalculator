@@ -67,8 +67,26 @@ class TimeLoggerViewController: UIViewController {
         }
         
         self.ref.child("users/\(rUser.userRef)/unsaved-workday/current/").setValue(nil)
-        
+        clearFields()
     }
+    
+    
+    private func clearFields(){
+        var current = tf
+        
+        while(!(current?.hasNoText)!){
+            current?.awakeFromNib()
+            if let endfield = (current?.endField) {
+                current = endfield
+            } else {
+                break
+            }
+        }
+    }
+    
+    
+    
+    
     
     
     private func saveInputToFirebase(from startingTextField: UIDateTextField){
@@ -78,13 +96,19 @@ class TimeLoggerViewController: UIViewController {
         
         while(!current.hasNoText){
             input.append(current.picker.selectedDate.stringValue!)
-            current = (current.endField)!
+            
+            if let endfield = (current.endField) {
+                current = endfield
+            } else {
+                break
+            }
         }
+        
+        
         if(!startingTextField.hasNoText){
             self.ref.child("users/\(rUser.userRef)/unsaved-workday/current/").setValue(input)
         }
     }
-    
     private func loadInputFromFirebase(with dates: [String]){
         var current = tf
         for dateString in dates{

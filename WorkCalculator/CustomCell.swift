@@ -15,4 +15,6 @@ class CustomCell: JTAppleCell {
     @IBOutlet weak var selectedView: UIView!
     @IBOutlet var workView: UIView!
     
+    var workDay: WorkDay?
+    
 }

@@ -19,6 +19,12 @@ extension Date {
         return dateFormatter.string(from: self)
     }
     
+    var shortDescription: String{
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "MMMM dd yyyy"
+        return dateFormatter.string(from: self)
+    }
+    
     var mediumDescription: String{
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "EEEE, MMMM dd, yyyy"

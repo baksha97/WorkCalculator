@@ -15,6 +15,8 @@ class CalendarVC: UIViewController, JTAppleCalendarViewDelegate, JTAppleCalendar
     @IBOutlet weak var calendarView: JTAppleCalendarView!
     @IBOutlet weak var monthYear: UILabel!
     
+    let displayRangeSegue = "displayRangeSegue"
+    
     //MARK: FIREBASE
     let ref = FIRDatabase.database().reference()
     let user = FIRAuth.auth()?.currentUser
@@ -22,6 +24,7 @@ class CalendarVC: UIViewController, JTAppleCalendarViewDelegate, JTAppleCalendar
     
     //MARK: Array of WorkDays
     var workDays = [WorkDay]()
+    var selectedDays = [WorkDay]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,7 +53,18 @@ class CalendarVC: UIViewController, JTAppleCalendarViewDelegate, JTAppleCalendar
             currentWorkDays.sort(by: { $0.timestamp.dateValue?.compare($1.timestamp.dateValue!) == ComparisonResult.orderedAscending})
             self.workDays = currentWorkDays;
             self.calendarView.reloadData()
+            /*
+            for day in self.workDays{
+                self.calendarView.selectDates([day.timestamp.dateValue!])
+            } */// doesn't work as intended because i want to show workview not selected view :/
         })
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == displayRangeSegue {
+            let nextView = segue.destination as! DisplayRangedWorkdaysViewController
+            nextView.workDays = selectedDays
+        }
     }
     
     func setupCalendarView() {
@@ -72,7 +86,6 @@ class CalendarVC: UIViewController, JTAppleCalendarViewDelegate, JTAppleCalendar
         cell.workView.isHidden = true
         cell.dateLabel.alpha = 1
         
-        
         if cellState.isSelected {
             cell.selectedView.isHidden = false
         } else {
@@ -90,6 +103,10 @@ class CalendarVC: UIViewController, JTAppleCalendarViewDelegate, JTAppleCalendar
         } else {
             cell.dateLabel.alpha = 0.1
         }
+        
+        if date.mediumDescription == Date().mediumDescription{
+            cell.dateLabel.textColor = UIColor.darkGray
+        }
         return cell
         
     }
@@ -101,11 +118,25 @@ class CalendarVC: UIViewController, JTAppleCalendarViewDelegate, JTAppleCalendar
         formatter.dateFormat = "yyyy-MM-dd"
         let dateFormattedStr = formatter.string(from: date)
         print("Calendar selected date: \(dateFormattedStr)")
+        
+        for day in workDays{
+            if day.timestamp.dateValue?.mediumDescription == date.mediumDescription {
+                selectedDays.append(day)
+            }
+        }
+        
     }
     
     public func calendar(_ calendar: JTAppleCalendarView, didDeselectDate date: Date, cell: JTAppleCell?, cellState: CellState) {
         guard let validCell = cell as? CustomCell else { return }
         validCell.selectedView.isHidden = true
+        
+        for (index, day) in selectedDays.enumerated() {
+            if day.timestamp.dateValue?.mediumDescription == date.mediumDescription {
+                selectedDays.remove(at: index)
+            }
+        }
+        
     }
     
     public func calendar(_ calendar: JTAppleCalendarView, didScrollToDateSegmentWith visibleDates: DateSegmentInfo) {

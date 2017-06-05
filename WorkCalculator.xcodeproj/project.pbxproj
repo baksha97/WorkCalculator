@@ -15,6 +15,7 @@
 		2E39517D1ECA5E1A00B4B8C4 /* UITimeTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E39517C1ECA5E1A00B4B8C4 /* UITimeTextField.swift */; };
 		2E4541521ECC17540094D332 /* CalendarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E4541511ECC17540094D332 /* CalendarVC.swift */; };
 		2E4541541ECC17B10094D332 /* CustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E4541531ECC17B10094D332 /* CustomCell.swift */; };
+		2E56DC281EE50F9E007C450E /* DisplayRangedWorkdaysViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E56DC271EE50F9E007C450E /* DisplayRangedWorkdaysViewController.swift */; };
 		2E68F9651EC36255007CEEF5 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E68F9641EC36255007CEEF5 /* LoginViewController.swift */; };
 		2E68F9681EC364F2007CEEF5 /* CreateAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E68F9671EC364F2007CEEF5 /* CreateAccountViewController.swift */; };
 		2E68F96B1EC3685F007CEEF5 /* WorkUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E68F96A1EC3685F007CEEF5 /* WorkUser.swift */; };
@@ -51,6 +52,7 @@
 		2E39517C1ECA5E1A00B4B8C4 /* UITimeTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITimeTextField.swift; sourceTree = "<group>"; };
 		2E4541511ECC17540094D332 /* CalendarVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarVC.swift; sourceTree = "<group>"; };
 		2E4541531ECC17B10094D332 /* CustomCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomCell.swift; sourceTree = "<group>"; };
+		2E56DC271EE50F9E007C450E /* DisplayRangedWorkdaysViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DisplayRangedWorkdaysViewController.swift; path = Display/DisplayRangedWorkdaysViewController.swift; sourceTree = "<group>"; };
 		2E68F9641EC36255007CEEF5 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		2E68F9671EC364F2007CEEF5 /* CreateAccountViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateAccountViewController.swift; sourceTree = "<group>"; };
 		2E68F96A1EC3685F007CEEF5 /* WorkUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkUser.swift; sourceTree = "<group>"; };
@@ -124,6 +126,7 @@
 				2E014ADB1EC7EC0C005B48F6 /* DisplayAllWorkDaysViewController.swift */,
 				2E4541511ECC17540094D332 /* CalendarVC.swift */,
 				2E4541531ECC17B10094D332 /* CustomCell.swift */,
+				2E56DC271EE50F9E007C450E /* DisplayRangedWorkdaysViewController.swift */,
 			);
 			name = "Log Managment";
 			sourceTree = "<group>";
@@ -390,6 +393,7 @@
 				2E68F96D1EC368C1007CEEF5 /* User.swift in Sources */,
 				2E68F9651EC36255007CEEF5 /* LoginViewController.swift in Sources */,
 				2E68F96F1EC36B08007CEEF5 /* Util.swift in Sources */,
+				2E56DC281EE50F9E007C450E /* DisplayRangedWorkdaysViewController.swift in Sources */,
 				2EA112A81ECBF1D900E77C29 /* UIFirebaseOrganizationPicker.swift in Sources */,
 				2EDCC5191EA90F560092BD61 /* WorkCalculator.xcdatamodeld in Sources */,
 				2EDCC5111EA90F560092BD61 /* AppDelegate.swift in Sources */,

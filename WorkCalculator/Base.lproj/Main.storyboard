@@ -169,10 +169,33 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D5Q-xG-yhc">
-                                <rect key="frame" x="105" y="356" width="166" height="30"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Break minutes" textAlignment="center" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="b9I-so-vUP" customClass="UITimeTextField" customModule="WorkCalculator" customModuleProvider="target">
+                                <rect key="frame" x="17" y="198" width="342" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.93872937817258884" green="0.0" blue="0.2386738015678409" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WCZ-qa-I31">
+                                <rect key="frame" x="194" y="577" width="166" height="33"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="Save Workday Progress">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="6"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="saveDidTouch:" destination="wVA-WB-CPQ" eventType="touchUpInside" id="G1X-Ix-7vQ"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D5Q-xG-yhc">
+                                <rect key="frame" x="16" y="577" width="166" height="33"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.75888324873096447" green="0.0025938557369980602" blue="0.19675130431856866" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" title="Add to Firebase">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -183,29 +206,6 @@
                                 </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="watButton:" destination="wVA-WB-CPQ" eventType="touchUpInside" id="r3j-FC-qwx"/>
-                                </connections>
-                            </button>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Break minutes" textAlignment="center" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="b9I-so-vUP" customClass="UITimeTextField" customModule="WorkCalculator" customModuleProvider="target">
-                                <rect key="frame" x="17" y="198" width="342" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WCZ-qa-I31">
-                                <rect key="frame" x="193" y="580" width="166" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.93872937820000002" green="0.0" blue="0.23867380160000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <state key="normal" title="Save as working day">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                        <integer key="value" value="6"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <action selector="saveDidTouch:" destination="wVA-WB-CPQ" eventType="touchUpInside" id="G1X-Ix-7vQ"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -281,7 +281,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Z1J-Hp-xYH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3056.8000000000002" y="743.47826086956525"/>
+            <point key="canvasLocation" x="3057" y="871"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="HnV-Qr-yUu">
@@ -296,12 +296,12 @@
                         <segue destination="wVA-WB-CPQ" kind="relationship" relationship="viewControllers" id="Jkd-Dp-wfd"/>
                         <segue destination="eTN-TY-GJt" kind="relationship" relationship="viewControllers" id="DNc-9a-pR2"/>
                         <segue destination="a6O-t7-ehr" kind="relationship" relationship="viewControllers" id="BUu-Ns-7Sk"/>
-                        <segue destination="C0h-zz-am4" kind="relationship" relationship="viewControllers" id="F0e-Ao-1OF"/>
+                        <segue destination="SGs-Kf-vyg" kind="relationship" relationship="viewControllers" id="Ywv-s7-icI"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="neb-P1-XbL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2377" y="104"/>
+            <point key="canvasLocation" x="2377" y="72"/>
         </scene>
         <!--Work Days-->
         <scene sceneID="n4G-za-AJc">
@@ -318,7 +318,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Coh-aP-OKy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3057" y="103"/>
+            <point key="canvasLocation" x="3100" y="103"/>
         </scene>
         <!--Work Days-->
         <scene sceneID="Zie-mK-tWc">
@@ -573,7 +573,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Zhp-jO-GO0" customClass="JTAppleCalendarView" customModule="JTAppleCalendar">
-                                <rect key="frame" x="0.0" y="120" width="375" height="350"/>
+                                <rect key="frame" x="0.0" y="164" width="375" height="350"/>
                                 <color key="backgroundColor" white="0.90000000000000002" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="350" id="V1n-pZ-CX9"/>
@@ -660,7 +660,7 @@
                                 </connections>
                             </collectionView>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="feI-eN-0Mo">
-                                <rect key="frame" x="0.0" y="90" width="375" height="30"/>
+                                <rect key="frame" x="0.0" y="134" width="375" height="30"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sun" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sFi-X8-tjk">
                                         <rect key="frame" x="0.0" y="0.0" width="53.5" height="30"/>
@@ -710,11 +710,19 @@
                                 </constraints>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="September 2020" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sl4-LN-N0c">
-                                <rect key="frame" x="56" y="40" width="263" height="42"/>
+                                <rect key="frame" x="56" y="84" width="263" height="42"/>
                                 <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="30"/>
                                 <color key="textColor" white="0.10000000000000001" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sLa-iy-iGC">
+                                <rect key="frame" x="100" y="522" width="174" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Show Selected Workdays"/>
+                                <connections>
+                                    <segue destination="VEO-Lq-EVm" kind="show" identifier="displayRangeSegue" id="X8j-9q-08b"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -739,7 +747,77 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eME-3I-aoD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2341.5999999999999" y="-691.304347826087"/>
+            <point key="canvasLocation" x="3116" y="-674"/>
+        </scene>
+        <!--Display Ranged Workdays View Controller-->
+        <scene sceneID="ps3-ed-5vH">
+            <objects>
+                <viewController id="VEO-Lq-EVm" customClass="DisplayRangedWorkdaysViewController" customModule="WorkCalculator" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y6s-2q-HFl"/>
+                        <viewControllerLayoutGuide type="bottom" id="4r2-Ro-vTD"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="FJ6-CS-xjK">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hGZ-zk-E6y">
+                                <rect key="frame" x="87" y="564" width="201" height="46"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.73089378240000002" green="0.13496298749999999" blue="0.1122910837" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="15"/>
+                                <state key="normal" title="Share this range?">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="6"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="shareDidClick:" destination="eTN-TY-GJt" eventType="touchUpInside" id="f4A-XQ-Ke4"/>
+                                    <action selector="shareDidTouch:" destination="VEO-Lq-EVm" eventType="touchUpInside" id="sTV-9p-pE1"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fKh-xs-C7c">
+                                <rect key="frame" x="294" y="629" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                            </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Loading..." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="1me-YC-brL">
+                                <rect key="frame" x="16" y="72" width="343" height="484"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="displayTextField" destination="1me-YC-brL" id="d0L-g2-IrR"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wfX-RN-b2M" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3925.5999999999999" y="-674.21289355322347"/>
+        </scene>
+        <!--Calendar-->
+        <scene sceneID="1gd-qq-uGi">
+            <objects>
+                <navigationController id="SGs-Kf-vyg" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Calendar" id="Usd-qu-irJ"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="uwP-u4-Sqj">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="C0h-zz-am4" kind="relationship" relationship="rootViewController" id="r07-79-Nsg"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="KYQ-az-tar" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2377" y="-674"/>
         </scene>
     </scenes>
     <resources>
