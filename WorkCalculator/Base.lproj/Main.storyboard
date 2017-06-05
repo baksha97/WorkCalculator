@@ -193,7 +193,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WCZ-qa-I31">
-                                <rect key="frame" x="16" y="580" width="166" height="30"/>
+                                <rect key="frame" x="193" y="580" width="166" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.93872937820000002" green="0.0" blue="0.23867380160000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" title="Save as working day">
@@ -206,24 +206,6 @@
                                 </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="saveDidTouch:" destination="wVA-WB-CPQ" eventType="touchUpInside" id="G1X-Ix-7vQ"/>
-                                    <action selector="watButton:" destination="wVA-WB-CPQ" eventType="touchUpInside" id="lpD-tp-sgM"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y9f-L2-3Xn">
-                                <rect key="frame" x="194" y="580" width="166" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.93872937820000002" green="0.0" blue="0.23867380160000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <state key="normal" title="Load Working Day">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                        <integer key="value" value="6"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <action selector="loadDidTouch:" destination="wVA-WB-CPQ" eventType="touchUpInside" id="Ugm-eB-zQg"/>
-                                    <action selector="watButton:" destination="wVA-WB-CPQ" eventType="touchUpInside" id="e3s-kf-fVL"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -236,8 +218,6 @@
                         <outlet property="dtf" destination="Tmj-XH-cDd" id="Pue-iR-Uxs"/>
                         <outlet property="dtf2" destination="X8e-wA-bxT" id="ZVh-BP-hG7"/>
                         <outlet property="lb" destination="mgT-dE-h97" id="6Qx-ZD-R5N"/>
-                        <outlet property="loadButton" destination="y9f-L2-3Xn" id="9Qc-ZE-Rd5"/>
-                        <outlet property="loadDidTouch" destination="y9f-L2-3Xn" id="qWm-Md-Ck8"/>
                         <outlet property="saveButton" destination="WCZ-qa-I31" id="0Z2-tp-8wm"/>
                         <outlet property="tf" destination="KZE-Iu-Fof" id="cqX-4h-vnW"/>
                         <outlet property="tf2" destination="WXl-oa-VjB" id="xBT-bb-kcI"/>

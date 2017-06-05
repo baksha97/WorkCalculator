@@ -73,8 +73,8 @@ class PastWorkDaysTableViewController: UITableViewController {
     }
     
     private func load(){
-        let runRef = FIRDatabase.database().reference(withPath: "users//\(rUser.userRef)/Workdays/")
-        runRef.observe(.value, with: { snapshot in
+        let dayRef = FIRDatabase.database().reference(withPath: "users//\(rUser.userRef)/Workdays/")
+        dayRef.observe(.value, with: { snapshot in
             var currentWorkDays = [WorkDay]()
             for day in snapshot.children{
                 let oldDay = WorkDay(snapshot: day as! FIRDataSnapshot)

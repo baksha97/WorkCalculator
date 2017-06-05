@@ -31,18 +31,19 @@ class TimeLoggerViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        configureTextFields()
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         //self.companyTextField.text = "Medicine Cabinet"
-        configureTextFields()
     }
     
     private func configureTextFields(){
         tf.endField = tf2
         tf2.endField = dtf
         dtf.endField = dtf2
+        loadWorkdayInProgress()
     }
     
     @IBAction func watButton(_ sender: Any) {
@@ -58,11 +59,14 @@ class TimeLoggerViewController: UIViewController {
         }
         else if(tf.isEmpty == true && dtf.isEmpty == true){
            print(".isEmpty = true")
+            return
         }
         else{
             let wd: WorkDay = WorkDay(organization: companyTextField.text!, store_startTime: tf.date, store_endTime: tf2.date, delivery_startTime: dtf.date, delivery_endTime: dtf2.date, breakDuration: (Double(breakTextField.value)))
             self.ref.child("users/\(rUser.userRef)/Workdays/\(tf.date.firebaseTitle)").setValue(wd.toAnyObject())
         }
+        
+        self.ref.child("users/\(rUser.userRef)/unsaved-workday/current/").setValue(nil)
         
     }
     
@@ -81,29 +85,35 @@ class TimeLoggerViewController: UIViewController {
         }
     }
     
-    func switchWorkDayType(storeTextField: UIDateTextField, deliveryTextField: UIDateTextField){
-        
+    private func loadInputFromFirebase(with dates: [String]){
+        var current = tf
+        for dateString in dates{
+            
+            let formatter = DateFormatter()
+            formatter.dateFormat = "EEEE, MMMM dd, yyyy' at 'h:mm a."
+            
+            current?.date = dateString.dateValue!
+            current?.picker.selectedDate = dateString.dateValue!
+            current?.text = formatter.string(from: dateString.dateValue!)
+            current?.endField?.picker.selectedDate = dateString.dateValue!
+
+            current = current?.endField
+        }
     }
+    
     
     @IBAction func saveDidTouch(_ sender: Any) {
         saveInputToFirebase(from: tf)
     }
     
-    @IBAction func loadDidTouch(_ sender: Any) {
-        /*
-        self.ref.child("users/\(rUser.userRef)/unsaved-workday/current/").observeSingleEvent(of: .value, with: { snapshot in
-                let value = snapshot.value as? NSDictionary
-                print(value)
-            })
-        */
-        
-       // breakDuration = snapshotValue["break-duration"] as? Double
-        
-    }
     
-
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        self.view.endEditing(true)
+    private func loadWorkdayInProgress(){
+        self.ref.child("users/\(rUser.userRef)/unsaved-workday/current").observeSingleEvent(of: .value, with: { snapshot in
+            let value = snapshot.value as? [String]
+            if value?.first != nil{
+                self.loadInputFromFirebase(with: value!)
+            }
+        })
     }
     
 }
