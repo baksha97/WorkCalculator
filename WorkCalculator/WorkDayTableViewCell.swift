@@ -10,8 +10,8 @@ import UIKit
 
 class WorkDayTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var companyLabel: UILabel!
-    @IBOutlet weak var dateLabel: UILabel!
+    @IBOutlet var descriptionTextField: UITextView!
+    
     
     
     override func awakeFromNib() {

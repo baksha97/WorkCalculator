@@ -56,6 +56,7 @@ class DisplayAllWorkDaysViewController: UIViewController{
         
         for day in workDays{
             displayTextField.text = displayTextField.text + "\n" + day.description
+            displayTextField.text.append("\n")
         }
         
         let (storeD, deliveryD) = WorkDay.totalDurations(arrayOfDays: workDays)

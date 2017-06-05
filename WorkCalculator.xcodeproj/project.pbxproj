@@ -31,6 +31,7 @@
 		2E68F98F1EC52D51007CEEF5 /* UIDateTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E68F98E1EC52D51007CEEF5 /* UIDateTextField.swift */; };
 		2E68F9991EC5735C007CEEF5 /* PastWorkDaysTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E68F9981EC5735C007CEEF5 /* PastWorkDaysTableViewController.swift */; };
 		2E68F99B1EC5746C007CEEF5 /* WorkDayTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E68F99A1EC5746C007CEEF5 /* WorkDayTableViewCell.swift */; };
+		2E6903E01EE5B47E00625F1A /* SelectedDatesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E6903DF1EE5B47E00625F1A /* SelectedDatesTableViewController.swift */; };
 		2EA112A61ECA872000E77C29 /* myItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EA112A51ECA872000E77C29 /* myItems.swift */; };
 		2EA112A81ECBF1D900E77C29 /* UIFirebaseOrganizationPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EA112A71ECBF1D900E77C29 /* UIFirebaseOrganizationPicker.swift */; };
 		2EA112AA1ECBF4F200E77C29 /* UIOrganizationTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EA112A91ECBF4F200E77C29 /* UIOrganizationTextField.swift */; };
@@ -68,6 +69,7 @@
 		2E68F98E1EC52D51007CEEF5 /* UIDateTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIDateTextField.swift; sourceTree = "<group>"; };
 		2E68F9981EC5735C007CEEF5 /* PastWorkDaysTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PastWorkDaysTableViewController.swift; sourceTree = "<group>"; };
 		2E68F99A1EC5746C007CEEF5 /* WorkDayTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkDayTableViewCell.swift; sourceTree = "<group>"; };
+		2E6903DF1EE5B47E00625F1A /* SelectedDatesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SelectedDatesTableViewController.swift; path = Display/SelectedDatesTableViewController.swift; sourceTree = "<group>"; };
 		2EA112A51ECA872000E77C29 /* myItems.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = myItems.swift; sourceTree = "<group>"; };
 		2EA112A71ECBF1D900E77C29 /* UIFirebaseOrganizationPicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIFirebaseOrganizationPicker.swift; sourceTree = "<group>"; };
 		2EA112A91ECBF4F200E77C29 /* UIOrganizationTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIOrganizationTextField.swift; path = Subclasses/UIOrganizationTextField.swift; sourceTree = "<group>"; };
@@ -119,14 +121,12 @@
 		2E68F9771EC37DEA007CEEF5 /* Log Managment */ = {
 			isa = PBXGroup;
 			children = (
+				2E6903DE1EE5B3F300625F1A /* CalendarManagment */,
 				2E68F9781EC37E16007CEEF5 /* TimeLoggerViewController.swift */,
 				2E68F9981EC5735C007CEEF5 /* PastWorkDaysTableViewController.swift */,
 				2E68F99A1EC5746C007CEEF5 /* WorkDayTableViewCell.swift */,
 				2E014AD71EC600AC005B48F6 /* WorkDayViewController.swift */,
 				2E014ADB1EC7EC0C005B48F6 /* DisplayAllWorkDaysViewController.swift */,
-				2E4541511ECC17540094D332 /* CalendarVC.swift */,
-				2E4541531ECC17B10094D332 /* CustomCell.swift */,
-				2E56DC271EE50F9E007C450E /* DisplayRangedWorkdaysViewController.swift */,
 			);
 			name = "Log Managment";
 			sourceTree = "<group>";
@@ -172,6 +172,17 @@
 				2E68F9881EC52A47007CEEF5 /* DateCollectionViewCell.swift */,
 			);
 			name = DateTimePicker;
+			sourceTree = "<group>";
+		};
+		2E6903DE1EE5B3F300625F1A /* CalendarManagment */ = {
+			isa = PBXGroup;
+			children = (
+				2E4541531ECC17B10094D332 /* CustomCell.swift */,
+				2E4541511ECC17540094D332 /* CalendarVC.swift */,
+				2E56DC271EE50F9E007C450E /* DisplayRangedWorkdaysViewController.swift */,
+				2E6903DF1EE5B47E00625F1A /* SelectedDatesTableViewController.swift */,
+			);
+			name = CalendarManagment;
 			sourceTree = "<group>";
 		};
 		2EA112A41ECA86EC00E77C29 /* Custom Objects */ = {
@@ -399,6 +410,7 @@
 				2EDCC5111EA90F560092BD61 /* AppDelegate.swift in Sources */,
 				2E68F99B1EC5746C007CEEF5 /* WorkDayTableViewCell.swift in Sources */,
 				2E014ADC1EC7EC0C005B48F6 /* DisplayAllWorkDaysViewController.swift in Sources */,
+				2E6903E01EE5B47E00625F1A /* SelectedDatesTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -520,11 +532,14 @@
 			baseConfigurationReference = D0037C03F5984507DB5EA9D3 /* Pods-WorkCalculator.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = UUQTCM99ZH;
 				INFOPLIST_FILE = WorkCalculator/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ab.WorkCalculator;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -534,6 +549,7 @@
 			baseConfigurationReference = CE76C94E53A0D480C3B6E62F /* Pods-WorkCalculator.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = UUQTCM99ZH;
 				INFOPLIST_FILE = WorkCalculator/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

@@ -60,10 +60,19 @@ class CalendarVC: UIViewController, JTAppleCalendarViewDelegate, JTAppleCalendar
         })
     }
     
+    
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == displayRangeSegue {
-            let nextView = segue.destination as! DisplayRangedWorkdaysViewController
+        
+        if segue.identifier == displayRangeSegue{
+            let nextView = segue.destination as! SelectedDatesTableViewController
             nextView.workDays = selectedDays
+        }
+    }
+
+    @IBAction func showSelectedDidTouch(_ sender: Any) {
+        if selectedDays.first != nil{
+            self.performSegue(withIdentifier: displayRangeSegue, sender: nil)
         }
     }
     
@@ -75,6 +84,7 @@ class CalendarVC: UIViewController, JTAppleCalendarViewDelegate, JTAppleCalendar
         monthYear.text = formatter.string(from: Date())
         calendarView.allowsMultipleSelection = true
         calendarView.scrollToDate(Date())
+        calendarView.isRangeSelectionUsed = true
         //calendarView.visibleDates().outdates
         
         //validCell.workView.isHidden = false
@@ -85,6 +95,7 @@ class CalendarVC: UIViewController, JTAppleCalendarViewDelegate, JTAppleCalendar
         cell.dateLabel.text = cellState.text
         cell.workView.isHidden = true
         cell.dateLabel.alpha = 1
+        cell.alpha = 1
         
         if cellState.isSelected {
             cell.selectedView.isHidden = false
@@ -98,13 +109,11 @@ class CalendarVC: UIViewController, JTAppleCalendarViewDelegate, JTAppleCalendar
             }
         }
         
-        if cellState.dateBelongsTo == .thisMonth {
-            cell.dateLabel.textColor = UIColor.black
-        } else {
-            cell.dateLabel.alpha = 0.1
+        if cellState.dateBelongsTo != .thisMonth {
+            cell.alpha = 0.1
         }
         
-        if date.mediumDescription == Date().mediumDescription{
+        if date.shortDescription == Date().shortDescription{
             cell.dateLabel.textColor = UIColor.darkGray
         }
         return cell

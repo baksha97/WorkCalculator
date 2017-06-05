@@ -11,6 +11,8 @@ import Firebase
 
 class DisplayRangedWorkdaysViewController: UIViewController {
     
+    let storeRate = 11.0
+    let deliveryRate = 15.0
     
     //MARK: Outlets
     @IBOutlet var displayTextField: UITextView!
@@ -38,6 +40,22 @@ class DisplayRangedWorkdaysViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    @IBAction func payDidTouch(_ sender: Any) {
+        let (storeD, deliveryD) = WorkDay.totalDurations(arrayOfDays: workDays)
+        let storeEarnings = storeD.minuteToHours*storeRate
+        let deliveryEarnings = deliveryD.minuteToHours*deliveryRate
+        let total = storeEarnings + deliveryEarnings
+        
+        let alert = UIAlertController(title: "Your payment calculations...",
+                                      message: "Store Hours: \(storeD.minuteToHours) \nDelivery Hours: \(deliveryD.minuteToHours) \n\n Store Earnings \(storeEarnings) \n Delivery Earnings \(deliveryEarnings) \n\n Total Earnings: \(total)",
+                                      preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "Okay",
+                                     style: .default){ action in
+                                        
+        }
+        alert.addAction(okAction)
+        present(alert, animated: true, completion: nil)
+    }
 
     
     private func configureView(){
@@ -47,6 +65,7 @@ class DisplayRangedWorkdaysViewController: UIViewController {
         
         for day in workDays{
             displayTextField.text = displayTextField.text + "\n" + day.description
+            displayTextField.text.append("\n")
         }
         
         let (storeD, deliveryD) = WorkDay.totalDurations(arrayOfDays: workDays)

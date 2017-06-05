@@ -324,37 +324,29 @@
         <scene sceneID="Zie-mK-tWc">
             <objects>
                 <tableViewController storyboardIdentifier="WorkDayTableViewCell" title="Work Days" id="3WB-gR-kkd" customClass="PastWorkDaysTableViewController" customModule="WorkCalculator" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="70" sectionHeaderHeight="28" sectionFooterHeight="28" id="gfb-7x-ITg">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="130" sectionHeaderHeight="28" sectionFooterHeight="28" id="gfb-7x-ITg">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="WorkDayTableViewCell" rowHeight="70" id="4hB-hl-wrU" customClass="WorkDayTableViewCell" customModule="WorkCalculator">
-                                <rect key="frame" x="0.0" y="28" width="375" height="70"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="WorkDayTableViewCell" rowHeight="130" id="4hB-hl-wrU" customClass="WorkDayTableViewCell" customModule="WorkCalculator">
+                                <rect key="frame" x="0.0" y="28" width="375" height="130"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="4hB-hl-wrU" id="Q5G-e4-qx4">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="69"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="129"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Date" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T23-En-hxW">
-                                            <rect key="frame" x="8" y="40" width="359" height="21"/>
+                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="DDY-B2-zyw">
+                                            <rect key="frame" x="8" y="16" width="359" height="105"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Company" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jY4-rO-hr8">
-                                            <rect key="frame" x="8" y="11" width="359" height="21"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                        </textView>
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="companyLabel" destination="jY4-rO-hr8" id="rtq-uQ-tto"/>
-                                    <outlet property="dateLabel" destination="T23-En-hxW" id="7js-lb-1xI"/>
+                                    <outlet property="descriptionTextField" destination="DDY-B2-zyw" id="uNY-vc-wBm"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -371,7 +363,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZBk-yn-3zi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3844" y="103"/>
+            <point key="canvasLocation" x="3844" y="102.99850074962519"/>
         </scene>
         <!--Work Day View Controller-->
         <scene sceneID="XwK-gT-eje">
@@ -563,7 +555,7 @@
         <!--Ib Calendar Data Source-->
         <scene sceneID="Q2G-6y-LsH">
             <objects>
-                <viewController id="C0h-zz-am4" customClass="CalendarVC" customModule="WorkCalculator" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="C0h-zz-am4" customClass="CalendarVC" customModule="WorkCalculator" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="UAA-9K-2VZ"/>
                         <viewControllerLayoutGuide type="bottom" id="VP0-c3-9sr"/>
@@ -595,7 +587,7 @@
                                             <subviews>
                                                 <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XLL-Mt-8qX">
                                                     <rect key="frame" x="25" y="16" width="45" height="45"/>
-                                                    <color key="backgroundColor" red="0.72336632013320923" green="0.22943549398115687" blue="0.18379578512993439" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <color key="backgroundColor" red="0.8983798385642443" green="1" blue="0.72699454663980445" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="45" id="Mdn-rl-WU3"/>
                                                         <constraint firstAttribute="height" constant="45" id="sdl-MP-7fH"/>
@@ -716,11 +708,11 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sLa-iy-iGC">
-                                <rect key="frame" x="100" y="522" width="174" height="30"/>
+                                <rect key="frame" x="16" y="522" width="343" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Show Selected Workdays"/>
                                 <connections>
-                                    <segue destination="VEO-Lq-EVm" kind="show" identifier="displayRangeSegue" id="X8j-9q-08b"/>
+                                    <action selector="showSelectedDidTouch:" destination="C0h-zz-am4" eventType="touchUpInside" id="Xaw-Ye-ftH"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -743,13 +735,14 @@
                     <connections>
                         <outlet property="calendarView" destination="Zhp-jO-GO0" id="qeX-Wo-fPe"/>
                         <outlet property="monthYear" destination="sl4-LN-N0c" id="Wus-Yd-QnD"/>
+                        <segue destination="ffn-oP-uvH" kind="show" identifier="displayRangeSegue" id="OyV-1F-wQL"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eME-3I-aoD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3116" y="-674"/>
+            <point key="canvasLocation" x="3116" y="-674.21289355322347"/>
         </scene>
-        <!--Display Ranged Workdays View Controller-->
+        <!--Selected Day's Description-->
         <scene sceneID="ps3-ed-5vH">
             <objects>
                 <viewController id="VEO-Lq-EVm" customClass="DisplayRangedWorkdaysViewController" customModule="WorkCalculator" customModuleProvider="target" sceneMemberID="viewController">
@@ -779,11 +772,6 @@
                                     <action selector="shareDidTouch:" destination="VEO-Lq-EVm" eventType="touchUpInside" id="sTV-9p-pE1"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fKh-xs-C7c">
-                                <rect key="frame" x="294" y="629" width="46" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                            </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Loading..." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="1me-YC-brL">
                                 <rect key="frame" x="16" y="72" width="343" height="484"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -794,13 +782,20 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Selected Day's Description" id="9AE-0o-FUn">
+                        <barButtonItem key="rightBarButtonItem" title="Pay" id="305-cS-BXt">
+                            <connections>
+                                <action selector="payDidTouch:" destination="VEO-Lq-EVm" id="7W3-oO-drk"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="displayTextField" destination="1me-YC-brL" id="d0L-g2-IrR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wfX-RN-b2M" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3925.5999999999999" y="-674.21289355322347"/>
+            <point key="canvasLocation" x="4503" y="-675"/>
         </scene>
         <!--Calendar-->
         <scene sceneID="1gd-qq-uGi">
@@ -818,6 +813,55 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KYQ-az-tar" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2377" y="-674"/>
+        </scene>
+        <!--Work Days-->
+        <scene sceneID="FwC-pO-BjS">
+            <objects>
+                <tableViewController storyboardIdentifier="SelectedDaysTableViewCell" title="Work Days" id="ffn-oP-uvH" customClass="SelectedDatesTableViewController" customModule="WorkCalculator" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="130" sectionHeaderHeight="28" sectionFooterHeight="28" id="cZc-PK-zMO">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="WorkDayTableViewCell" rowHeight="130" id="dhB-Hy-Zyk" customClass="WorkDayTableViewCell" customModule="WorkCalculator">
+                                <rect key="frame" x="0.0" y="28" width="375" height="130"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="dhB-Hy-Zyk" id="40u-c0-lYF">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="129"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Uuj-Kg-eJG">
+                                            <rect key="frame" x="8" y="16" width="359" height="105"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                        </textView>
+                                    </subviews>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="descriptionTextField" destination="Uuj-Kg-eJG" id="Q4U-AM-zaQ"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="ffn-oP-uvH" id="nSc-2h-2Io"/>
+                            <outlet property="delegate" destination="ffn-oP-uvH" id="ldS-Lu-l4g"/>
+                        </connections>
+                    </tableView>
+                    <tabBarItem key="tabBarItem" title="Work Days" id="juG-v9-I2C"/>
+                    <navigationItem key="navigationItem" title="Selected Days" id="LsO-2H-oXd">
+                        <barButtonItem key="rightBarButtonItem" title="Share" id="oqc-1B-2iY">
+                            <connections>
+                                <action selector="shareDidTouch:" destination="ffn-oP-uvH" id="JF3-Aq-WZi"/>
+                                <segue destination="VEO-Lq-EVm" kind="show" identifier="shareSelectedDaysSegue" id="2m3-vc-iZD"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fSL-UE-TOv" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3741.5999999999999" y="-675.11244377811101"/>
         </scene>
     </scenes>
     <resources>
