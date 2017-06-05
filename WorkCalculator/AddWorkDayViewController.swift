@@ -111,11 +111,11 @@ class TimeLoggerViewController: UIViewController {
     }
     private func loadInputFromFirebase(with dates: [String]){
         var current = tf
+        
+        let formatter = DateFormatter()
+        formatter.dateFormat = "EEEE, MMMM dd, yyyy' at 'h:mm a."
+        
         for dateString in dates{
-            
-            let formatter = DateFormatter()
-            formatter.dateFormat = "EEEE, MMMM dd, yyyy' at 'h:mm a."
-            
             current?.date = dateString.dateValue!
             current?.picker.selectedDate = dateString.dateValue!
             current?.text = formatter.string(from: dateString.dateValue!)
@@ -130,6 +130,9 @@ class TimeLoggerViewController: UIViewController {
         saveInputToFirebase(from: tf)
     }
     
+    @IBAction func resetProgressDidTouch(_ sender: Any) {
+        self.ref.child("users/\(rUser.userRef)/unsaved-workday/current/").setValue(nil)
+    }
     
     private func loadWorkdayInProgress(){
         self.ref.child("users/\(rUser.userRef)/unsaved-workday/current").observeSingleEvent(of: .value, with: { snapshot in

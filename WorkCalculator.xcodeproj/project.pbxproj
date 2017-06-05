@@ -24,7 +24,7 @@
 		2E68F9711EC372C6007CEEF5 /* WorkDay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E68F9701EC372C6007CEEF5 /* WorkDay.swift */; };
 		2E68F9731EC379A0007CEEF5 /* StringExtention.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E68F9721EC379A0007CEEF5 /* StringExtention.swift */; };
 		2E68F9761EC37C4E007CEEF5 /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E68F9751EC37C4E007CEEF5 /* DateExtension.swift */; };
-		2E68F9791EC37E16007CEEF5 /* TimeLoggerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E68F9781EC37E16007CEEF5 /* TimeLoggerViewController.swift */; };
+		2E68F9791EC37E16007CEEF5 /* AddWorkDayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E68F9781EC37E16007CEEF5 /* AddWorkDayViewController.swift */; };
 		2E68F98B1EC52A47007CEEF5 /* DateCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E68F9881EC52A47007CEEF5 /* DateCollectionViewCell.swift */; };
 		2E68F98C1EC52A47007CEEF5 /* DateTimePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E68F9891EC52A47007CEEF5 /* DateTimePicker.swift */; };
 		2E68F98D1EC52A47007CEEF5 /* StepCollectionViewFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E68F98A1EC52A47007CEEF5 /* StepCollectionViewFlowLayout.swift */; };
@@ -62,7 +62,7 @@
 		2E68F9701EC372C6007CEEF5 /* WorkDay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkDay.swift; sourceTree = "<group>"; };
 		2E68F9721EC379A0007CEEF5 /* StringExtention.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StringExtention.swift; path = WorkCalculator/StringExtention.swift; sourceTree = "<group>"; };
 		2E68F9751EC37C4E007CEEF5 /* DateExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DateExtension.swift; path = WorkCalculator/DateExtension.swift; sourceTree = "<group>"; };
-		2E68F9781EC37E16007CEEF5 /* TimeLoggerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeLoggerViewController.swift; sourceTree = "<group>"; };
+		2E68F9781EC37E16007CEEF5 /* AddWorkDayViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddWorkDayViewController.swift; sourceTree = "<group>"; };
 		2E68F9881EC52A47007CEEF5 /* DateCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DateCollectionViewCell.swift; path = WorkCalculator/Source/DateCollectionViewCell.swift; sourceTree = "<group>"; };
 		2E68F9891EC52A47007CEEF5 /* DateTimePicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DateTimePicker.swift; path = WorkCalculator/Source/DateTimePicker.swift; sourceTree = "<group>"; };
 		2E68F98A1EC52A47007CEEF5 /* StepCollectionViewFlowLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StepCollectionViewFlowLayout.swift; path = WorkCalculator/Source/StepCollectionViewFlowLayout.swift; sourceTree = "<group>"; };
@@ -122,7 +122,7 @@
 			isa = PBXGroup;
 			children = (
 				2E6903DE1EE5B3F300625F1A /* CalendarManagment */,
-				2E68F9781EC37E16007CEEF5 /* TimeLoggerViewController.swift */,
+				2E68F9781EC37E16007CEEF5 /* AddWorkDayViewController.swift */,
 				2E68F9981EC5735C007CEEF5 /* PastWorkDaysTableViewController.swift */,
 				2E68F99A1EC5746C007CEEF5 /* WorkDayTableViewCell.swift */,
 				2E014AD71EC600AC005B48F6 /* WorkDayViewController.swift */,
@@ -388,7 +388,7 @@
 				2E68F9991EC5735C007CEEF5 /* PastWorkDaysTableViewController.swift in Sources */,
 				2E014AD81EC600AC005B48F6 /* WorkDayViewController.swift in Sources */,
 				2E68F98C1EC52A47007CEEF5 /* DateTimePicker.swift in Sources */,
-				2E68F9791EC37E16007CEEF5 /* TimeLoggerViewController.swift in Sources */,
+				2E68F9791EC37E16007CEEF5 /* AddWorkDayViewController.swift in Sources */,
 				2E68F98B1EC52A47007CEEF5 /* DateCollectionViewCell.swift in Sources */,
 				2E39517B1ECA448B00B4B8C4 /* UITimePicker.swift in Sources */,
 				2E014ADA1EC61A08005B48F6 /* BinaryFloatingPointExtension.swift in Sources */,
