@@ -19,7 +19,8 @@ class PastWorkDaysTableViewController: UITableViewController {
     let rUser = User(authData: (FIRAuth.auth()?.currentUser)!)
     
     //MARK: Array of WorkDays
-    var workDays = [WorkDay]()
+   // var workDays = [WorkDay]()
+    var segmentedWorkDays = [[WorkDay]]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,7 +29,7 @@ class PastWorkDaysTableViewController: UITableViewController {
         
         userRef.observe(.value, with: { snapshot in
             self.load()
-            self.tableView.reloadData()
+          //  self.tableView.reloadData()
         })
     }
 
@@ -37,12 +38,18 @@ class PastWorkDaysTableViewController: UITableViewController {
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 1
+        return segmentedWorkDays.count
     }
+    
+    
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return workDays.count
+        return segmentedWorkDays[section].count
+    }
+    
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return segmentedWorkDays[section].first?.timestamp.dateValue?.mediumDescription ?? "Error loading title for this segment [nil]"
     }
 
     
@@ -55,7 +62,7 @@ class PastWorkDaysTableViewController: UITableViewController {
         }
         
         // Fetches the appropriate run for the data source layout.
-        let day = workDays[indexPath.row]
+        let day = segmentedWorkDays[indexPath.section][indexPath.row]
         
         cell.descriptionTextField.text = day.description
         
@@ -64,7 +71,7 @@ class PastWorkDaysTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            let day = workDays[indexPath.row]
+            let day = segmentedWorkDays[indexPath.section][indexPath.row]
             day.ref?.removeValue()
             self.tableView.reloadData()
         }
@@ -79,7 +86,10 @@ class PastWorkDaysTableViewController: UITableViewController {
                 currentWorkDays.append(oldDay)
             }
             currentWorkDays.sort(by: { $0.timestamp.dateValue?.compare($1.timestamp.dateValue!) == ComparisonResult.orderedAscending})
-            self.workDays = currentWorkDays;
+        //    self.workDays = currentWorkDays
+            
+            self.segmentedWorkDays = WorkDay.getBiWeeklySegments(from: currentWorkDays)
+            
             self.tableView.reloadData()
         })
     }
@@ -133,7 +143,7 @@ class PastWorkDaysTableViewController: UITableViewController {
         if segue.identifier == workDayViewSegue {
             let nextView = segue.destination as! WorkDayViewController
             if let indexPath = self.tableView.indexPathForSelectedRow{
-                let displayDay = workDays[indexPath.row]
+                let displayDay = segmentedWorkDays[indexPath.section][indexPath.row]
                 nextView.displayDay = displayDay
             }
         }

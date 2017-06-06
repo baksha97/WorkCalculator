@@ -166,11 +166,63 @@ struct WorkDay{
         
         return (store: totalStore, delivery: totalDelivery)
     }
-    /*
-    public func groupedDescription(dayArray: [WorkDay]) -> String{
+    
+    private func getBiWeeklyAnchors(startAnchor: Date, days: [Date]){
+        var anchors: [Date] = [Date]()
+        var anchor = startAnchor
         
-        return ""
-    } */
+        while(days.first! > anchor){
+            anchor = anchor.twoWeeksLater
+        }
+        
+        anchors.append(anchor.twoWeeksAgo)
+        anchors
+        
+    }
+    
+    static func getBiWeeklySegments(from workDay: [WorkDay]) -> [[WorkDay]]{
+        
+        let sortedDays = workDay.sorted(by: { $0.timestamp.dateValue?.compare($1.timestamp.dateValue!) == ComparisonResult.orderedAscending})
+        
+        print("dumping sorted days")
+        dump(sortedDays)
+        
+        
+        var segmentedWorkDays: [[WorkDay]] = [[WorkDay]]()
+        segmentedWorkDays.append([WorkDay]())
+        
+        let startingDaySegment = workDay.first?.timestamp.dateValue
+        var endingDaySegment = startingDaySegment?.twoWeeksLater
+        
+        var indexArray = 0
+        
+        
+        for (_, day) in sortedDays.enumerated(){
+        
+            if day.timestamp.dateValue! < endingDaySegment! {
+                segmentedWorkDays[indexArray].append(day)
+            }
+            else if day.timestamp.dateValue! >= endingDaySegment! {
+                segmentedWorkDays.append([WorkDay]())
+                indexArray += 1
+                
+                segmentedWorkDays[indexArray].append(day)
+                
+                endingDaySegment = endingDaySegment!.twoWeeksLater
+            }
+            else{
+                print("Error creating segments in Workday.getBiWeeklySegments")
+            }
+            
+        }
+        print("dumping segmented days")
+        dump(segmentedWorkDays)
+        
+        return segmentedWorkDays
+        
+    }
+    
+    
 }
 
 enum WorkDayType {

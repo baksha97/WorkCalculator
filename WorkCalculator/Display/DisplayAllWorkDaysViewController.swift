@@ -10,6 +10,9 @@ import UIKit
 import Firebase
 
 class DisplayAllWorkDaysViewController: UIViewController{
+    
+    let storeRate = 11.0
+    let deliveryRate = 15.0
 
     @IBOutlet weak var displayTextField: UITextView!
     
@@ -64,6 +67,22 @@ class DisplayAllWorkDaysViewController: UIViewController{
         displayTextField.text = displayTextField.text + "\n\n Store Total: \(storeD.minuteToHours) \n Delivery Total: \(deliveryD.minuteToHours)"
     }
     
+    @IBAction func payDidTouch(_ sender: Any) {
+        let (storeD, deliveryD) = WorkDay.totalDurations(arrayOfDays: workDays)
+        let storeEarnings = storeD.minuteToHours*storeRate
+        let deliveryEarnings = deliveryD.minuteToHours*deliveryRate
+        let total = storeEarnings + deliveryEarnings
+        
+        let alert = UIAlertController(title: "Your payment calculations...",
+                                      message: "Store Hours: \(storeD.minuteToHours) \nDelivery Hours: \(deliveryD.minuteToHours) \n\n Store Earnings \(storeEarnings) \n Delivery Earnings \(deliveryEarnings) \n\n Total Earnings: \(total)",
+            preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "Okay",
+                                     style: .default){ action in
+                                        
+        }
+        alert.addAction(okAction)
+        present(alert, animated: true, completion: nil)
+    }
     
     @IBAction func shareDidClick(_ sender: Any) {
         // text to share

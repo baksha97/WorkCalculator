@@ -39,6 +39,8 @@ class CalendarVC: UIViewController, JTAppleCalendarViewDelegate, JTAppleCalendar
         userRef.observe(.value, with: { snapshot in
             self.load()
         })
+        
+       // calendarView.cell
 
     }
     
@@ -90,6 +92,22 @@ class CalendarVC: UIViewController, JTAppleCalendarViewDelegate, JTAppleCalendar
         //validCell.workView.isHidden = false
     }
     
+    /*
+    
+    func calendar(_ calendar: JTAppleCalendarView, willDisplayCell cell: JTAppleDayCellView, date: Date, cellState: CellState) {
+        //(cell as? CellView)?.setupCellBeforeDisplay(cellState, date: date)
+    }
+    
+
+    func setupCellBeforeDisplay(cellState: CellState, date: Date) {
+        let dateString = self.calendarView.string(from: date)
+        if workDays.contains(dateString.dateValue){  {
+            print(eventDate, eventItem.date)
+        } else {
+            //makeBackgroundHidden()
+        }
+    }*/
+    
     public func calendar(_ calendar: JTAppleCalendarView, cellForItemAt date: Date, cellState: CellState, indexPath: IndexPath) -> JTAppleCell {
         let cell = calendar.dequeueReusableJTAppleCell(withReuseIdentifier: "CustomCell", for: indexPath) as! CustomCell
         cell.dateLabel.text = cellState.text
@@ -108,7 +126,7 @@ class CalendarVC: UIViewController, JTAppleCalendarViewDelegate, JTAppleCalendar
                 cell.workView.isHidden = false
             }
         }
-        
+ 
         if cellState.dateBelongsTo != .thisMonth {
             cell.alpha = 0.1
         }
