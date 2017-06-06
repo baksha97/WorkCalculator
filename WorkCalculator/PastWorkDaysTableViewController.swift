@@ -39,6 +39,10 @@ class PastWorkDaysTableViewController: UITableViewController {
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
+        /*
+        print("sWD.count: \(segmentedWorkDays.count)")
+        print("sT.count: \(segmentedTitles.count)")
+        */
         return segmentedTitles.count//segmentedWorkDays.count
     }
     

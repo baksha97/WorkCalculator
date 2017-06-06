@@ -202,14 +202,13 @@ struct WorkDay{
             anchors.append(anchor.twoWeeksAgo)
         }
         
-        anchors.append(anchor)
         
         for day in sortedDays{
             
-            if day.timestamp.dateValue! < anchors[anchorIndex + 1]{// && anchorIndex < anchors.count - 1 {
+            if day.timestamp.dateValue! < anchors[anchorIndex].twoWeeksLater{// && anchorIndex < anchors.count - 1 {
                 segmentedWorkDays[indexArray].append(day)
             }
-            else if day.timestamp.dateValue! >= anchors[anchorIndex + 1]  {
+            else if day.timestamp.dateValue! >= anchors[anchorIndex].twoWeeksLater  {
                 
                 segmentedWorkDays.append([WorkDay]())
                 indexArray += 1
