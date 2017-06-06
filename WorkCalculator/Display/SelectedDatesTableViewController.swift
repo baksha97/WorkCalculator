@@ -36,6 +36,12 @@ class SelectedDatesTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        let userRef = FIRDatabase.database().reference(withPath: "users/\(rUser.userRef))/")
+        
+        userRef.observe(.value, with: { snapshot in
+            self.tableView.reloadData()
+        })
+        
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -88,6 +94,7 @@ class SelectedDatesTableViewController: UITableViewController {
         if editingStyle == .delete {
             let day = workDays[indexPath.row]
             day.ref?.removeValue()
+            workDays.remove(at: indexPath.row)
             self.tableView.reloadData()
         }
     }

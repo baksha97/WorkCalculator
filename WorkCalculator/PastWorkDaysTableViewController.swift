@@ -21,6 +21,7 @@ class PastWorkDaysTableViewController: UITableViewController {
     //MARK: Array of WorkDays
    // var workDays = [WorkDay]()
     var segmentedWorkDays = [[WorkDay]]()
+    var segmentedTitles = [Date]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,7 +39,7 @@ class PastWorkDaysTableViewController: UITableViewController {
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return segmentedWorkDays.count
+        return segmentedTitles.count//segmentedWorkDays.count
     }
     
     
@@ -49,7 +50,7 @@ class PastWorkDaysTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return segmentedWorkDays[section].first?.timestamp.dateValue?.mediumDescription ?? "Error loading title for this segment [nil]"
+        return segmentedTitles[section].longDescription //segmentedWorkDays[section].first?.timestamp.dateValue?.mediumDescription ?? "Error loading title for this segment [nil]"
     }
 
     
@@ -88,7 +89,10 @@ class PastWorkDaysTableViewController: UITableViewController {
             currentWorkDays.sort(by: { $0.timestamp.dateValue?.compare($1.timestamp.dateValue!) == ComparisonResult.orderedAscending})
         //    self.workDays = currentWorkDays
             
-            self.segmentedWorkDays = WorkDay.getBiWeeklySegments(from: currentWorkDays)
+            let (anchors, segementedWorkdays) = WorkDay.customBiWeeklyAnchor(from: currentWorkDays)
+            
+            self.segmentedWorkDays = segementedWorkdays
+            self.segmentedTitles = anchors
             
             self.tableView.reloadData()
         })

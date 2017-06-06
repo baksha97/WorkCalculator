@@ -167,31 +167,90 @@ struct WorkDay{
         return (store: totalStore, delivery: totalDelivery)
     }
     
-    private func getBiWeeklyAnchors(startAnchor: Date, days: [Date]){
-        var anchors: [Date] = [Date]()
-        var anchor = startAnchor
+    static func customBiWeeklyAnchor(from days: [WorkDay]) -> ([Date], [[WorkDay]]){
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "MM dd yyyy"
+        let anchor = dateFormatter.date(from: "04 23 2017")
         
-        while(days.first! > anchor){
-            anchor = anchor.twoWeeksLater
-        }
-        
-        anchors.append(anchor.twoWeeksAgo)
-        anchors
-        
+        return biweeklyAnchorsAndSegments(startAnchor: anchor!, days: days)
     }
     
-    static func getBiWeeklySegments(from workDay: [WorkDay]) -> [[WorkDay]]{
+    static func biweeklyAnchorsAndSegments(startAnchor: Date, days: [WorkDay]) -> (anchors: [Date], segmentedWorkDays: [[WorkDay]]){
         
-        let sortedDays = workDay.sorted(by: { $0.timestamp.dateValue?.compare($1.timestamp.dateValue!) == ComparisonResult.orderedAscending})
-        
-        print("dumping sorted days")
-        dump(sortedDays)
-        
-        
+        //
+        let sortedDays = days.sorted(by: {$0.timestamp.dateValue?.compare($1.timestamp.dateValue!) == ComparisonResult.orderedAscending})
         var segmentedWorkDays: [[WorkDay]] = [[WorkDay]]()
         segmentedWorkDays.append([WorkDay]())
         
-        let startingDaySegment = workDay.first?.timestamp.dateValue
+        var indexArray = 0
+        var anchorIndex = 0
+        //
+        
+        var anchors: [Date] = [Date]()
+        var anchor = startAnchor
+        
+        for day in sortedDays{
+            
+            if(day.timestamp.dateValue! < anchor){
+                continue
+            }
+            
+            while(day.timestamp.dateValue! > anchor){
+                anchor = anchor.twoWeeksLater
+            }
+            
+            anchors.append(anchor.twoWeeksAgo)
+        }
+        
+        anchors.append(anchor)
+        
+        for day in sortedDays{
+            
+            if day.timestamp.dateValue! < anchors[anchorIndex + 1]{// && anchorIndex < anchors.count - 1 {
+                segmentedWorkDays[indexArray].append(day)
+            }
+            else if day.timestamp.dateValue! >= anchors[anchorIndex + 1]  {
+                
+                segmentedWorkDays.append([WorkDay]())
+                indexArray += 1
+                
+                segmentedWorkDays[indexArray].append(day)
+                
+                anchorIndex += 1
+                
+             //   endingDaySegment = endingDaySegment!.twoWeeksLater
+                
+                /*
+                segmentedWorkDays.append([WorkDay]())
+                indexArray += 1
+                
+                segmentedWorkDays[indexArray].append(day)
+                
+                anchorIndex += 1*/
+            }
+            else{
+                print("Error creating segments in Workday.getBiWeeklySegments")
+            }
+            
+        }
+        
+        return (anchors, segmentedWorkDays)
+    }
+
+    /*
+    static func getBiWeeklySegments(from workDay: [WorkDay]) -> (anchors: [Date], workDays: [[WorkDay]]){
+        
+        let sortedDays = workDay.sorted(by: { $0.timestamp.dateValue?.compare($1.timestamp.dateValue!) == ComparisonResult.orderedAscending})
+        var segmentedWorkDays: [[WorkDay]] = [[WorkDay]]()
+        segmentedWorkDays.append([WorkDay]())
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "MM dd yyyy"
+        let anchor = dateFormatter.date(from: "04 23 2017")
+        let anchors = getBiWeeklyAnchors(startAnchor: anchor!, days: sortedDays)
+        
+        
+        let startingDaySegment = anchors.first
         var endingDaySegment = startingDaySegment?.twoWeeksLater
         
         var indexArray = 0
@@ -215,12 +274,10 @@ struct WorkDay{
             }
             
         }
-        print("dumping segmented days")
-        dump(segmentedWorkDays)
         
-        return segmentedWorkDays
+        return (anchors, segmentedWorkDays)
         
-    }
+    } */
     
     
 }
