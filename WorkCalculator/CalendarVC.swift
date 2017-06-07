@@ -141,11 +141,6 @@ class CalendarVC: UIViewController, JTAppleCalendarViewDelegate, JTAppleCalendar
     public func calendar(_ calendar: JTAppleCalendarView, didSelectDate date: Date, cell: JTAppleCell?, cellState: CellState) {
         guard let validCell = cell as? CustomCell else { return }
         validCell.selectedView.isHidden = false
-        let formatter = DateFormatter()
-        formatter.dateFormat = "yyyy-MM-dd"
-        let dateFormattedStr = formatter.string(from: date)
-        print("Calendar selected date: \(dateFormattedStr)")
-        
         for day in workDays{
             if day.timestamp.dateValue?.mediumDescription == date.mediumDescription {
                 selectedDays.append(day)

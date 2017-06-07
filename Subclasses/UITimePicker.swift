@@ -66,7 +66,8 @@ class UITimePicker: UIPickerView, UIPickerViewDelegate, UIPickerViewDataSource{
     }
     
     func dismiss(){
-        textField.endEditing(true)
+        textField.inputView?.endEditing(true)
+       // textField.se//view.endEditing(true)
     }
     
     func configureLabels(){

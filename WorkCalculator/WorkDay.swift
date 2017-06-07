@@ -235,6 +235,16 @@ struct WorkDay{
         
         return (anchors, segmentedWorkDays)
     }
+    
+    public func AVLTreeDates(from workDays: [WorkDay]) -> AVLTree<Date, String>{
+        let tree = AVLTree<Date, String>()
+        
+        for day in workDays{
+            tree.insert(key: day.timestamp.dateValue!, payload: day.timestamp.dateValue?.longDescription)
+        }
+        
+        return tree
+    }
 
     /*
     static func getBiWeeklySegments(from workDay: [WorkDay]) -> (anchors: [Date], workDays: [[WorkDay]]){

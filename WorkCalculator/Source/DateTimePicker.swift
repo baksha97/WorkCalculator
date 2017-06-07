@@ -480,8 +480,9 @@ import UIKit
             if sender == self.doneButton {
                 self.completionHandler?(self.selectedDate)
             }
-            self.removeFromSuperview()
+            sender?.inputView?.endEditing(true)
             sender?.endEditing(true)
+            self.removeFromSuperview()
         }
     }
 }
