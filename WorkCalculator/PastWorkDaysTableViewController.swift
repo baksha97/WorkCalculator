@@ -10,6 +10,13 @@ import UIKit
 import Firebase
 
 class PastWorkDaysTableViewController: UITableViewController {
+    
+    let selectedDaysSegue = "pastToSelectedDays"
+    
+    //MARK: Outlets
+    @IBOutlet var leftButton: UIBarButtonItem!
+    @IBOutlet var rightButton: UIBarButtonItem!
+    
 
     let workDayViewSegue = "cellToDisplay"
     
@@ -19,12 +26,15 @@ class PastWorkDaysTableViewController: UITableViewController {
     let rUser = User(authData: (FIRAuth.auth()?.currentUser)!)
     
     //MARK: Array of WorkDays
-   // var workDays = [WorkDay]()
+    var selectedDays = [WorkDay]() // for segue
     var segmentedWorkDays = [[WorkDay]]()
     var segmentedTitles = [Date]()
     
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         
         let userRef = FIRDatabase.database().reference(withPath: "users/\(rUser.userRef))/")
         
@@ -33,7 +43,59 @@ class PastWorkDaysTableViewController: UITableViewController {
           //  self.tableView.reloadData()
         })
     }
-
+    
+    private func reconfigureNavigationButtons(){
+        //selected clicked
+        if(leftButton.title == "Select"){
+            
+            //left button changes
+            leftButton.title = "Cancel"
+            leftButton.tintColor = UIColor.red
+            tableView.allowsMultipleSelectionDuringEditing = true
+            tableView.setEditing(true, animated: false)
+            
+            //right button changes
+            rightButton.title = "Send"
+        }
+            //cancel clicked
+        else if(leftButton.title == "Cancel"){
+            //left button changes
+            leftButton.title = "Select"
+            leftButton.tintColor = self.view.tintColor
+            tableView.allowsMultipleSelectionDuringEditing = false
+            tableView.setEditing(false, animated: true)
+            
+            //right button changes
+            rightButton.title = "+"
+        }
+    }
+    
+    
+    @IBAction func leftDidTouch(_ sender: Any) {
+        reconfigureNavigationButtons()
+        
+    }
+    
+    @IBAction func rightDidTouch(_ sender: Any) {
+        //adding a new day
+        if(rightButton.title == "+"){
+            print("TODO: Add a way to add a new workday with this button")
+        }
+        else if(rightButton.title == "Send"){
+            if selectedDays.first != nil{
+                self.performSegue(withIdentifier: selectedDaysSegue, sender: nil)
+            }
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if segue.identifier == selectedDaysSegue{
+            let nextView = segue.destination as! SelectedDatesTableViewController
+            selectedDays.sort(by: { $0.timestamp.dateValue?.compare($1.timestamp.dateValue!) == ComparisonResult.orderedAscending});           nextView.workDays = selectedDays
+        }
+    }
+    
     
     // MARK: - Table view data source
 
@@ -143,10 +205,18 @@ class PastWorkDaysTableViewController: UITableViewController {
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        self.performSegue(withIdentifier: workDayViewSegue, sender: indexPath);
+       selectedDays.append(segmentedWorkDays[indexPath.section][indexPath.row])
+    }
+    override func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
+        for (index, day) in selectedDays.enumerated() {
+            if (day.timestamp.dateValue?.longDescription)! == (segmentedWorkDays[indexPath.section][indexPath.row]).timestamp.dateValue!.longDescription {
+                selectedDays.remove(at: index)
+                break
+            }
+        }
     }
     
-    
+    /*
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == workDayViewSegue {
             let nextView = segue.destination as! WorkDayViewController
@@ -155,7 +225,7 @@ class PastWorkDaysTableViewController: UITableViewController {
                 nextView.displayDay = displayDay
             }
         }
-    }
+    }*/
     
 
 }

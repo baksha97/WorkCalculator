@@ -15,7 +15,7 @@ class CalendarVC: UIViewController, JTAppleCalendarViewDelegate, JTAppleCalendar
     @IBOutlet weak var calendarView: JTAppleCalendarView!
     @IBOutlet weak var monthYear: UILabel!
     
-    let displayRangeSegue = "displayRangeSegue"
+    let selectedDaysSegue = "calendarToTableView"
     
     //MARK: FIREBASE
     let ref = FIRDatabase.database().reference()
@@ -66,7 +66,7 @@ class CalendarVC: UIViewController, JTAppleCalendarViewDelegate, JTAppleCalendar
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
-        if segue.identifier == displayRangeSegue{
+        if segue.identifier == selectedDaysSegue{
             let nextView = segue.destination as! SelectedDatesTableViewController
             nextView.workDays = selectedDays
         }
@@ -74,7 +74,7 @@ class CalendarVC: UIViewController, JTAppleCalendarViewDelegate, JTAppleCalendar
 
     @IBAction func showSelectedDidTouch(_ sender: Any) {
         if selectedDays.first != nil{
-            self.performSegue(withIdentifier: displayRangeSegue, sender: nil)
+            self.performSegue(withIdentifier: selectedDaysSegue, sender: nil)
         }
     }
     

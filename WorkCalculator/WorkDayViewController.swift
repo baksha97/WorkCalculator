@@ -40,11 +40,11 @@ class WorkDayViewController: UIViewController {
         
         storeStartLabel.text = displayDay.store_startTime?.dateValue?.longDescription
         storeEndLabel.text = displayDay.store_endTime?.dateValue?.longDescription
-        storeDuration.text = String(describing: displayDay.storeDuration ?? 0)
+        storeDuration.text = "Store minutes: " + String(describing: displayDay.storeDuration ?? 0)
         
         deliveryStartLabel.text = displayDay.delivery_startTime?.dateValue?.longDescription
         deliveryEndLabel.text = displayDay.delivery_endTime?.dateValue?.longDescription
-        deliveryDuration.text = String(describing: displayDay.deliveryDuration ?? 0)
+        deliveryDuration.text = "Delivery minutes: " + String(describing: displayDay.deliveryDuration ?? 0)
     }
 
     /*
