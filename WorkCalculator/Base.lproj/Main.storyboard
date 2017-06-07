@@ -396,7 +396,7 @@
                         <outlet property="leftButton" destination="MWy-6A-tAJ" id="af5-Uy-Jh1"/>
                         <outlet property="rightButton" destination="8D1-Tp-jaw" id="r3K-Ei-UNM"/>
                         <segue destination="lBs-k0-ZUf" kind="show" identifier="cellToDisplay" id="9Na-8Y-fIM"/>
-                        <segue destination="TMC-Nk-hE7" kind="show" identifier="pastToSelectedDays" id="zb7-HS-0mB"/>
+                        <segue destination="ffn-oP-uvH" kind="show" identifier="pastToSelectedDays" id="a9q-KX-pts"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZBk-yn-3zi" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -806,13 +806,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Loading..." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="1me-YC-brL">
-                                <rect key="frame" x="16" y="72" width="343" height="484"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hGZ-zk-E6y">
                                 <rect key="frame" x="99" y="576" width="177" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -831,6 +824,13 @@
                                     <action selector="shareDidTouch:" destination="VEO-Lq-EVm" eventType="touchUpInside" id="sTV-9p-pE1"/>
                                 </connections>
                             </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="Please wait" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ye1-xr-9Ss">
+                                <rect key="frame" x="16" y="72" width="343" height="496"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -842,12 +842,12 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="displayTextField" destination="1me-YC-brL" id="d0L-g2-IrR"/>
+                        <outlet property="displayTextField" destination="ye1-xr-9Ss" id="Ybl-i6-SOl"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wfX-RN-b2M" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5737" y="-274"/>
+            <point key="canvasLocation" x="5573.6000000000004" y="-674.21289355322347"/>
         </scene>
         <!--Calendar-->
         <scene sceneID="1gd-qq-uGi">
@@ -915,60 +915,11 @@
             </objects>
             <point key="canvasLocation" x="4649" y="-674"/>
         </scene>
-        <!--Work Days-->
-        <scene sceneID="jAz-ZZ-xe1">
-            <objects>
-                <tableViewController storyboardIdentifier="SelectedDaysTableViewCell2" title="Work Days" id="TMC-Nk-hE7" customClass="SelectedDatesTableViewController" customModule="WorkCalculator" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="130" sectionHeaderHeight="28" sectionFooterHeight="28" id="6yk-65-NXC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="WorkDayTableViewCell" rowHeight="130" id="JKS-wU-sd2" customClass="WorkDayTableViewCell" customModule="WorkCalculator">
-                                <rect key="frame" x="0.0" y="28" width="375" height="130"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="JKS-wU-sd2" id="dlt-qD-zzB">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="129.5"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mcv-9o-njj">
-                                            <rect key="frame" x="8" y="16" width="359" height="105"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                        </textView>
-                                    </subviews>
-                                </tableViewCellContentView>
-                                <connections>
-                                    <outlet property="descriptionTextField" destination="Mcv-9o-njj" id="nIK-gL-PJI"/>
-                                </connections>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="TMC-Nk-hE7" id="xvt-6H-VPF"/>
-                            <outlet property="delegate" destination="TMC-Nk-hE7" id="hzK-7x-4Sh"/>
-                        </connections>
-                    </tableView>
-                    <tabBarItem key="tabBarItem" title="Work Days" id="t5D-Kz-WdO"/>
-                    <navigationItem key="navigationItem" title="Selected Days" id="cLP-I0-YSO">
-                        <barButtonItem key="rightBarButtonItem" title="Share" id="TQ6-dF-cua">
-                            <connections>
-                                <action selector="shareDidTouch:" destination="TMC-Nk-hE7" id="bo3-wC-i4V"/>
-                                <segue destination="VEO-Lq-EVm" kind="show" identifier="shareSelectedDaysSegue" id="VVb-OT-0bG"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="d6q-Eg-wxF" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="4650" y="103"/>
-        </scene>
     </scenes>
     <resources>
         <image name="work.jpg" width="344" height="201"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="2m3-vc-iZD"/>
+        <segue reference="a9q-KX-pts"/>
     </inferredMetricsTieBreakers>
 </document>

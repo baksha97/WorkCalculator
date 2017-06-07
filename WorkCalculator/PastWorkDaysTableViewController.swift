@@ -67,6 +67,9 @@ class PastWorkDaysTableViewController: UITableViewController {
             
             //right button changes
             rightButton.title = "+"
+            
+            //reset selected days
+            selectedDays = [WorkDay]()
         }
     }
     
