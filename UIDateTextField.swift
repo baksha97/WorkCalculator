@@ -14,6 +14,8 @@ class UIDateTextField: UITextField, UITextFieldDelegate {
     
     var endField: UIDateTextField?
     
+    var hasPickerDate: Bool?
+    
     var date = Date()
     let picker = DateTimePicker.setDefault()
     
@@ -38,6 +40,7 @@ class UIDateTextField: UITextField, UITextFieldDelegate {
     override func awakeFromNib() {
         super.awakeFromNib()
         self.text = ""
+        self.hasPickerDate = nil
         self.inputView = picker
         picker.completionHandler = { date in
             let formatter = DateFormatter()
@@ -45,6 +48,7 @@ class UIDateTextField: UITextField, UITextFieldDelegate {
             self.date = date
             self.endField?.picker.selectedDate = date
             self.text = formatter.string(from: date)
+            self.hasPickerDate = true
         }
     }
     

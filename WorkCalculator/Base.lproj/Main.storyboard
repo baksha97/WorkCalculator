@@ -230,7 +230,7 @@
                     <tabBarItem key="tabBarItem" title="Add" id="bXA-vK-Iwf"/>
                     <connections>
                         <outlet property="breakTextField" destination="b9I-so-vUP" id="HlQ-fr-9D0"/>
-                        <outlet property="companyTextField" destination="ZMm-5U-dUH" id="PmP-dP-tsG"/>
+                        <outlet property="companyTextField" destination="ZMm-5U-dUH" id="tQg-jk-EWS"/>
                         <outlet property="dtf" destination="Tmj-XH-cDd" id="Pue-iR-Uxs"/>
                         <outlet property="dtf2" destination="X8e-wA-bxT" id="ZVh-BP-hG7"/>
                         <outlet property="lb" destination="mgT-dE-h97" id="6Qx-ZD-R5N"/>
@@ -356,7 +356,7 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="130"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="4hB-hl-wrU" id="Q5G-e4-qx4">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="129.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="129"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DDY-B2-zyw">
@@ -879,7 +879,7 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="130"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="dhB-Hy-Zyk" id="40u-c0-lYF">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="129.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="129"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uuj-Kg-eJG">

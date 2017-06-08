@@ -79,8 +79,7 @@ class UIFirebaseOrganizationPicker: UIPickerView, UIPickerViewDelegate, UIPicker
     }
     
     func dismiss(){
-        textField.inputView?.endEditing(true)
-        //textField.endEditing(true)
+        textField.endEditing(true)
     }
     
     /*/MARK: ALERTVIEW FUNCTION

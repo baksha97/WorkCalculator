@@ -228,6 +228,97 @@ struct WorkDay{
         return (anchors, segmentedWorkDays)
     }
     
+    static func configureFields(storeStart: UIDateTextField, storeEnd: UIDateTextField, deliveryStart: UIDateTextField, deliveryEnd: UIDateTextField){
+        storeStart.endField = storeEnd
+        storeEnd.endField = deliveryStart
+        deliveryStart.endField = deliveryEnd
+    }
+    
+    static func addToFirebase(companyTextField: UIOrganizationTextField, storeStart: UIDateTextField, storeEnd: UIDateTextField, breakTextField: UITimeTextField, deliveryStart: UIDateTextField, deliveryEnd: UIDateTextField){
+        let rUser = User(authData: (FIRAuth.auth()?.currentUser)!)
+        let ref = FIRDatabase.database().reference()
+        
+        if(storeStart.isEmpty == true && deliveryStart.isEmpty == false){
+            let wd: WorkDay = WorkDay(organization: companyTextField.text!, delivery_startTime: deliveryStart.date, delivery_endTime: deliveryEnd.date)
+            ref.child("users/\(rUser.userRef)/Workdays/\(deliveryStart.date.firebaseTitle)").setValue(wd.toAnyObject())
+            
+        }
+        else if(deliveryStart.isEmpty == true && storeStart.isEmpty == false){
+            let wd: WorkDay = WorkDay(organization: companyTextField.text!, store_startTime: storeStart.date, store_endTime: storeEnd.date, breakDuration: (Double(breakTextField.value)))
+            ref.child("users/\(rUser.userRef)/Workdays/\(storeStart.date.firebaseTitle)").setValue(wd.toAnyObject())
+        }
+        else if(storeStart.isEmpty == true && deliveryStart.isEmpty == true){
+            print(".isEmpty = true")
+            return
+        }
+        else{
+            let wd: WorkDay = WorkDay(organization: companyTextField.text!, store_startTime: storeStart.date, store_endTime: storeEnd.date, delivery_startTime: deliveryStart.date, delivery_endTime: deliveryEnd.date, breakDuration: (Double(breakTextField.value)))
+            ref.child("users/\(rUser.userRef)/Workdays/\(storeStart.date.firebaseTitle)").setValue(wd.toAnyObject())
+        }
+        
+        ref.child("users/\(rUser.userRef)/unsaved-workday/current/").setValue(nil)
+    }
+    
+    static func saveInputToFirebase(companyTextField: UIOrganizationTextField, storeStart: UIDateTextField, storeEnd: UIDateTextField, breakTextField: UITimeTextField, deliveryStart: UIDateTextField, deliveryEnd: UIDateTextField){
+        
+        let rUser = User(authData: (FIRAuth.auth()?.currentUser)!)
+        let ref = FIRDatabase.database().reference()
+        
+        var input = [String]()
+        
+        input.append(storeStart.date.stringValue!)
+        input.append(storeEnd.date.stringValue!)
+        input.append(deliveryStart.date.stringValue!)
+        input.append(deliveryEnd.date.stringValue!)
+        
+        if(!storeStart.hasNoText || !deliveryStart.hasNoText ){
+            ref.child("users/\(rUser.userRef)/unsaved-workday/company/").setValue(companyTextField.text)
+            ref.child("users/\(rUser.userRef)/unsaved-workday/fields/").setValue(input)
+            ref.child("users/\(rUser.userRef)/unsaved-workday/break-minutes/").setValue(breakTextField.value)
+            
+        }
+    }
+    
+    static func resetCurrentWorkdayProgress(){
+        let rUser = User(authData: (FIRAuth.auth()?.currentUser)!)
+        let ref = FIRDatabase.database().reference()
+        ref.child("users/\(rUser.userRef)/unsaved-workday/").setValue(nil)
+    }
+    /*
+     IN A CLASS USAGE AS A CLASS METHOD!:
+     private func configureTextFields(){
+        WorkDay.configureFields(storeStart: tf, storeEnd: tf2, deliveryStart: dtf, deliveryEnd: dtf2)
+        WorkDay.loadWorkdayInProgress(){ (company, fields, breakMin) -> () in
+            if company != "" && company != nil{
+                self.companyTextField.text = company
+            }
+         
+            if let dateFields = fields{
+                self.loadFieldsFromFirebase(with: dateFields)
+            }
+            if let breakMinutes = breakMin{
+                self.breakTextField.value = breakMinutes
+            }
+        }
+     }
+     */
+    
+    static func loadWorkdayInProgress(completion: @escaping (String?, [String]?, Int?) ->()){
+        
+        let rUser = User(authData: (FIRAuth.auth()?.currentUser)!)
+        let ref = FIRDatabase.database().reference()
+        
+        ref.child("users/\(rUser.userRef)/unsaved-workday/").observeSingleEvent(of: .value, with: { snapshot in
+            let value = snapshot.value as? NSDictionary
+            
+            let company = value?["company"] as? String
+            let fields = value?["fields"] as? [String]
+            let breakMinutes = value?["break-minutes"] as? Int
+            completion(company, fields, breakMinutes)
+        })
+        
+    }
+    
     public func AVLTreeDates(from workDays: [WorkDay]) -> AVLTree<Date, String>{
         let tree = AVLTree<Date, String>()
         
@@ -237,49 +328,6 @@ struct WorkDay{
         
         return tree
     }
-
-    /*
-    static func getBiWeeklySegments(from workDay: [WorkDay]) -> (anchors: [Date], workDays: [[WorkDay]]){
-        
-        let sortedDays = workDay.sorted(by: { $0.timestamp.dateValue?.compare($1.timestamp.dateValue!) == ComparisonResult.orderedAscending})
-        var segmentedWorkDays: [[WorkDay]] = [[WorkDay]]()
-        segmentedWorkDays.append([WorkDay]())
-        
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "MM dd yyyy"
-        let anchor = dateFormatter.date(from: "04 23 2017")
-        let anchors = getBiWeeklyAnchors(startAnchor: anchor!, days: sortedDays)
-        
-        
-        let startingDaySegment = anchors.first
-        var endingDaySegment = startingDaySegment?.twoWeeksLater
-        
-        var indexArray = 0
-        
-        
-        for (_, day) in sortedDays.enumerated(){
-        
-            if day.timestamp.dateValue! < endingDaySegment! {
-                segmentedWorkDays[indexArray].append(day)
-            }
-            else if day.timestamp.dateValue! >= endingDaySegment! {
-                segmentedWorkDays.append([WorkDay]())
-                indexArray += 1
-                
-                segmentedWorkDays[indexArray].append(day)
-                
-                endingDaySegment = endingDaySegment!.twoWeeksLater
-            }
-            else{
-                print("Error creating segments in Workday.getBiWeeklySegments")
-            }
-            
-        }
-        
-        return (anchors, segmentedWorkDays)
-        
-    } */
-    
     
 }
 

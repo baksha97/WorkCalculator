@@ -14,11 +14,16 @@ class UITimeTextField: UITextField, UITextFieldDelegate {
     let picker = UITimePicker.defaultPicker()
     
     var value: Int{
-        if(self.text == ""){
-            return 0
+        get{
+            if(self.text == ""){
+                return 0
+            }
+            else{
+                return picker.selectedOption
+            }
         }
-        else{
-            return picker.selectedOption
+        set(value){
+            picker.selectedOption = value
         }
     }
     
@@ -45,6 +50,11 @@ class UITimeTextField: UITextField, UITextFieldDelegate {
             return false
         }
         return true
+    }
+    
+    public func clear(){
+        self.text = ""
+        self.value = 0
     }
     
 }
