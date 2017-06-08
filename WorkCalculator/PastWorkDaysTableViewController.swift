@@ -175,60 +175,34 @@ class PastWorkDaysTableViewController: UITableViewController {
     }
     */
 
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
     
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-       selectedDays.append(segmentedWorkDays[indexPath.section][indexPath.row])
+        if (tableView.isEditing == true){
+            selectedDays.append(segmentedWorkDays[indexPath.section][indexPath.row])
+        }
+        else{
+            tableView.deselectRow(at: indexPath, animated: true)
+        }
     }
     override func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
-        for (index, day) in selectedDays.enumerated() {
-            if (day.timestamp.dateValue?.longDescription)! == (segmentedWorkDays[indexPath.section][indexPath.row]).timestamp.dateValue!.longDescription {
-                selectedDays.remove(at: index)
-                break
+        if (tableView.isEditing == true){
+            for (index, day) in selectedDays.enumerated() {
+                if (day.timestamp.dateValue?.longDescription)! == (segmentedWorkDays[indexPath.section][indexPath.row]).timestamp.dateValue!.longDescription {
+                    selectedDays.remove(at: index)
+                    break
+                }
             }
+        }
+        else{
+            
         }
     }
     
-    /*
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == workDayViewSegue {
-            let nextView = segue.destination as! WorkDayViewController
-            if let indexPath = self.tableView.indexPathForSelectedRow{
-                let displayDay = segmentedWorkDays[indexPath.section][indexPath.row]
-                nextView.displayDay = displayDay
-            }
-        }
-    }*/
+    
     
 
 }

@@ -200,6 +200,8 @@ struct WorkDay{
             }
             
             anchors.append(anchor.twoWeeksAgo)
+            
+            
         }
         
         
@@ -216,16 +218,6 @@ struct WorkDay{
                 segmentedWorkDays[indexArray].append(day)
                 
                 anchorIndex += 1
-                
-             //   endingDaySegment = endingDaySegment!.twoWeeksLater
-                
-                /*
-                segmentedWorkDays.append([WorkDay]())
-                indexArray += 1
-                
-                segmentedWorkDays[indexArray].append(day)
-                
-                anchorIndex += 1*/
             }
             else{
                 print("Error creating segments in Workday.getBiWeeklySegments")
