@@ -27,8 +27,6 @@ class TimeLoggerViewController: UIViewController {
     let user = FIRAuth.auth()?.currentUser
     let rUser = User(authData: (FIRAuth.auth()?.currentUser)!)
     
-    var stringOfDays: [String] = [String]()
-    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         configureTextFields()
