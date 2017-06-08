@@ -56,8 +56,9 @@ class TimeLoggerViewController: UIViewController {
     }
     
     @IBAction func watButton(_ sender: Any) {
-        WorkDay.addToFirebase(companyTextField: companyTextField, storeStart: tf, storeEnd: tf2, breakTextField: breakTextField, deliveryStart: dtf, deliveryEnd: dtf2)
-        clearFields()
+        if(WorkDay.addToFirebase(companyTextField: companyTextField, storeStart: tf, storeEnd: tf2, breakTextField: breakTextField, deliveryStart: dtf, deliveryEnd: dtf2)){
+            clearFields()
+        }
     }
     
     
@@ -92,6 +93,7 @@ class TimeLoggerViewController: UIViewController {
     
     @IBAction func resetProgressDidTouch(_ sender: Any) {
         WorkDay.resetCurrentWorkdayProgress()
+        clearFields()
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {

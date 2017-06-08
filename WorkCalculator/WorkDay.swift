@@ -234,7 +234,7 @@ struct WorkDay{
         deliveryStart.endField = deliveryEnd
     }
     
-    static func addToFirebase(companyTextField: UIOrganizationTextField, storeStart: UIDateTextField, storeEnd: UIDateTextField, breakTextField: UITimeTextField, deliveryStart: UIDateTextField, deliveryEnd: UIDateTextField){
+    static func addToFirebase(companyTextField: UIOrganizationTextField, storeStart: UIDateTextField, storeEnd: UIDateTextField, breakTextField: UITimeTextField, deliveryStart: UIDateTextField, deliveryEnd: UIDateTextField) -> Bool{
         let rUser = User(authData: (FIRAuth.auth()?.currentUser)!)
         let ref = FIRDatabase.database().reference()
         
@@ -249,7 +249,7 @@ struct WorkDay{
         }
         else if(storeStart.isEmpty == true && deliveryStart.isEmpty == true){
             print(".isEmpty = true")
-            return
+            return false
         }
         else{
             let wd: WorkDay = WorkDay(organization: companyTextField.text!, store_startTime: storeStart.date, store_endTime: storeEnd.date, delivery_startTime: deliveryStart.date, delivery_endTime: deliveryEnd.date, breakDuration: (Double(breakTextField.value)))
@@ -257,6 +257,7 @@ struct WorkDay{
         }
         
         ref.child("users/\(rUser.userRef)/unsaved-workday/current/").setValue(nil)
+        return true
     }
     
     static func saveInputToFirebase(companyTextField: UIOrganizationTextField, storeStart: UIDateTextField, storeEnd: UIDateTextField, breakTextField: UITimeTextField, deliveryStart: UIDateTextField, deliveryEnd: UIDateTextField){
