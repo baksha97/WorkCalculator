@@ -35,6 +35,7 @@
 		2EA112A61ECA872000E77C29 /* myItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EA112A51ECA872000E77C29 /* myItems.swift */; };
 		2EA112A81ECBF1D900E77C29 /* UIFirebaseOrganizationPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EA112A71ECBF1D900E77C29 /* UIFirebaseOrganizationPicker.swift */; };
 		2EA112AA1ECBF4F200E77C29 /* UIOrganizationTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EA112A91ECBF4F200E77C29 /* UIOrganizationTextField.swift */; };
+		2EB41D561EEA552700F5D781 /* UINavigationController+previewActionItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EB41D551EEA552700F5D781 /* UINavigationController+previewActionItems.swift */; };
 		2EC259241EE7952D00B07249 /* AVLTree.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EC259231EE7952D00B07249 /* AVLTree.swift */; };
 		2EDCC5111EA90F560092BD61 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EDCC5101EA90F560092BD61 /* AppDelegate.swift */; };
 		2EDCC5161EA90F560092BD61 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2EDCC5141EA90F560092BD61 /* Main.storyboard */; };
@@ -74,6 +75,7 @@
 		2EA112A51ECA872000E77C29 /* myItems.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = myItems.swift; sourceTree = "<group>"; };
 		2EA112A71ECBF1D900E77C29 /* UIFirebaseOrganizationPicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIFirebaseOrganizationPicker.swift; sourceTree = "<group>"; };
 		2EA112A91ECBF4F200E77C29 /* UIOrganizationTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIOrganizationTextField.swift; path = Subclasses/UIOrganizationTextField.swift; sourceTree = "<group>"; };
+		2EB41D551EEA552700F5D781 /* UINavigationController+previewActionItems.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UINavigationController+previewActionItems.swift"; path = "Extensions/UINavigationController+previewActionItems.swift"; sourceTree = "<group>"; };
 		2EC259231EE7952D00B07249 /* AVLTree.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AVLTree.swift; sourceTree = SOURCE_ROOT; };
 		2EDCC50D1EA90F560092BD61 /* WorkCalculator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WorkCalculator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2EDCC5101EA90F560092BD61 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -147,6 +149,7 @@
 		2E68F9921EC5342B007CEEF5 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				2EB41D551EEA552700F5D781 /* UINavigationController+previewActionItems.swift */,
 				2E68F9751EC37C4E007CEEF5 /* DateExtension.swift */,
 				2E68F9721EC379A0007CEEF5 /* StringExtention.swift */,
 				2E014AD91EC61A08005B48F6 /* BinaryFloatingPointExtension.swift */,
@@ -398,6 +401,7 @@
 				2E4541521ECC17540094D332 /* CalendarVC.swift in Sources */,
 				2E68F9711EC372C6007CEEF5 /* WorkDay.swift in Sources */,
 				2E68F9681EC364F2007CEEF5 /* CreateAccountViewController.swift in Sources */,
+				2EB41D561EEA552700F5D781 /* UINavigationController+previewActionItems.swift in Sources */,
 				2E4541541ECC17B10094D332 /* CustomCell.swift in Sources */,
 				2EC259241EE7952D00B07249 /* AVLTree.swift in Sources */,
 				2EA112AA1ECBF4F200E77C29 /* UIOrganizationTextField.swift in Sources */,

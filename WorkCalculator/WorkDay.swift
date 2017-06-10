@@ -143,6 +143,12 @@ struct WorkDay{
         return text
     }
     
+    var firebaseTitle: String{
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "EEEE, MMMM dd, yyyy' at 'h:mm a"
+        return "\(self.organization!): \(dateFormatter.string(from: timestamp.dateValue!))"
+    }
+    
     
     static func totalDurations(arrayOfDays days: [WorkDay]) -> (Double, Double) {
         
@@ -201,7 +207,6 @@ struct WorkDay{
             
             anchors.append(anchor.twoWeeksAgo)
             
-            
         }
         
         
@@ -240,12 +245,12 @@ struct WorkDay{
         
         if(storeStart.isEmpty == true && deliveryStart.isEmpty == false){
             let wd: WorkDay = WorkDay(organization: companyTextField.text!, delivery_startTime: deliveryStart.date, delivery_endTime: deliveryEnd.date)
-            ref.child("users/\(rUser.userRef)/Workdays/\(deliveryStart.date.firebaseTitle)").setValue(wd.toAnyObject())
+            ref.child("users/\(rUser.userRef)/Workdays/\(wd.firebaseTitle)").setValue(wd.toAnyObject())
             
         }
         else if(deliveryStart.isEmpty == true && storeStart.isEmpty == false){
             let wd: WorkDay = WorkDay(organization: companyTextField.text!, store_startTime: storeStart.date, store_endTime: storeEnd.date, breakDuration: (Double(breakTextField.value)))
-            ref.child("users/\(rUser.userRef)/Workdays/\(storeStart.date.firebaseTitle)").setValue(wd.toAnyObject())
+            ref.child("users/\(rUser.userRef)/Workdays/\(wd.firebaseTitle)").setValue(wd.toAnyObject())
         }
         else if(storeStart.isEmpty == true && deliveryStart.isEmpty == true){
             print(".isEmpty = true")
@@ -253,10 +258,9 @@ struct WorkDay{
         }
         else{
             let wd: WorkDay = WorkDay(organization: companyTextField.text!, store_startTime: storeStart.date, store_endTime: storeEnd.date, delivery_startTime: deliveryStart.date, delivery_endTime: deliveryEnd.date, breakDuration: (Double(breakTextField.value)))
-            ref.child("users/\(rUser.userRef)/Workdays/\(storeStart.date.firebaseTitle)").setValue(wd.toAnyObject())
+            ref.child("users/\(rUser.userRef)/Workdays/\(wd.firebaseTitle)").setValue(wd.toAnyObject())
         }
-        
-        ref.child("users/\(rUser.userRef)/unsaved-workday/current/").setValue(nil)
+        self.resetCurrentWorkdayProgress()
         return true
     }
     

@@ -16,6 +16,7 @@ class PastWorkDaysTableViewController: UITableViewController {
     //MARK: Outlets
     @IBOutlet var leftButton: UIBarButtonItem!
     @IBOutlet var rightButton: UIBarButtonItem!
+    @IBOutlet var organizationTextField: UIOrganizationTextField!
     
 
     let workDayViewSegue = "cellToDisplay"
@@ -42,6 +43,7 @@ class PastWorkDaysTableViewController: UITableViewController {
             self.load()
           //  self.tableView.reloadData()
         })
+        organizationTextField.text = "Displaying all days"
     }
     
     private func reconfigureNavigationButtons(){
@@ -90,6 +92,11 @@ class PastWorkDaysTableViewController: UITableViewController {
             }
         }
     }
+    
+    @IBAction func editingEnd(_ sender: Any) {
+        changeOrganization(newOrganization: organizationTextField.organization)
+    }
+    
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
@@ -159,6 +166,33 @@ class PastWorkDaysTableViewController: UITableViewController {
         //    self.workDays = currentWorkDays
             
             let (anchors, segementedWorkdays) = WorkDay.customBiWeeklyAnchor(from: currentWorkDays)
+            
+            self.segmentedWorkDays = segementedWorkdays
+            self.segmentedTitles = anchors
+            
+            self.tableView.reloadData()
+        })
+    }
+    
+    private func changeOrganization(newOrganization: String){
+        let dayRef = FIRDatabase.database().reference(withPath: "users//\(rUser.userRef)/Workdays/")
+        dayRef.observe(.value, with: { snapshot in
+            var currentWorkDays = [WorkDay]()
+            for day in snapshot.children{
+                let oldDay = WorkDay(snapshot: day as! FIRDataSnapshot)
+                currentWorkDays.append(oldDay)
+            }
+            currentWorkDays.sort(by: { $0.timestamp.dateValue?.compare($1.timestamp.dateValue!) == ComparisonResult.orderedAscending})
+            
+            
+            var selectedCompanyDays = [WorkDay]()
+            for (_, day) in currentWorkDays.enumerated(){
+                if day.organization == newOrganization{
+                    selectedCompanyDays.append(day)
+                }
+            }
+            
+            let (anchors, segementedWorkdays) = WorkDay.customBiWeeklyAnchor(from: selectedCompanyDays)
             
             self.segmentedWorkDays = segementedWorkdays
             self.segmentedTitles = anchors
