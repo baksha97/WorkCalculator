@@ -37,6 +37,16 @@ class UIDateTextField: UITextField, UITextFieldDelegate {
         }
     }
     
+    public func loadDate(date: Date){
+        let formatter = DateFormatter()
+        formatter.dateFormat = "EEEE, MMMM dd, yyyy' at 'h:mm a." /// this is a very expensive operation :/
+        
+        self.date = date
+        self.picker.selectedDate = date
+        self.text = formatter.string(from: date)
+        self.endField?.picker.selectedDate = date
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         self.text = ""

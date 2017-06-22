@@ -14,11 +14,16 @@ class UIOrganizationTextField: UITextField, UITextFieldDelegate {
     let picker = UIFirebaseOrganizationPicker.defaultPicker()
     
     var organization: String{
-        if(self.text == ""){
-            fatalError("Organization cannot be empty!!!!!!")
+        get{
+            if(self.text == ""){
+                fatalError("Organization cannot be empty!!!!!!")
+            }
+            else{
+                return picker.selectedOption
+            }
         }
-        else{
-            return picker.selectedOption
+        set(value){
+            picker.selectedOption = value
         }
     }
     

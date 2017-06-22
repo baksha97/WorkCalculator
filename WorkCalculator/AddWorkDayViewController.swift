@@ -39,17 +39,25 @@ class TimeLoggerViewController: UIViewController {
     
     private func configureTextFields(){
         WorkDay.configureFields(storeStart: tf, storeEnd: tf2, deliveryStart: dtf, deliveryEnd: dtf2)
-        WorkDay.loadWorkdayInProgress(){ (company, fields, breakMin) -> () in
+        WorkDay.loadWorkdayInProgress(){ (company, storeFields, deliveryFields, breakMin) -> () in
             
             if company != "" && company != nil{
                 self.companyTextField.text = company
+                self.companyTextField.organization = company!
             }
             
-            if let dateFields = fields{
-                self.loadFieldsFromFirebase(with: dateFields)
+            if let storeFields = storeFields{
+                self.loadStoreFieldsFromFirebase(with: storeFields)
             }
+            
+            if let deliveryFields = deliveryFields{
+                self.loadDeliveryFieldsFromFirebase(with: deliveryFields)
+            }
+            
             if let breakMinutes = breakMin{
                 self.breakTextField.value = breakMinutes
+                self.breakTextField.text = "\(breakMinutes) minutes"
+                
             }
         }
         
@@ -70,18 +78,24 @@ class TimeLoggerViewController: UIViewController {
         breakTextField.clear()
     }
     
-    private func loadFieldsFromFirebase(with dates: [String]){
+    private func loadStoreFieldsFromFirebase(with store: [String]?){
         var current = tf
         
         let formatter = DateFormatter()
         formatter.dateFormat = "EEEE, MMMM dd, yyyy' at 'h:mm a."
         
-        for dateString in dates{
-            current?.date = dateString.dateValue!
-            current?.picker.selectedDate = dateString.dateValue!
-            current?.text = formatter.string(from: dateString.dateValue!)
-            current?.endField?.picker.selectedDate = dateString.dateValue!
-
+        for dateString in store!{
+            current?.loadDate(date: dateString.dateValue!)
+            current = current?.endField
+        }
+    }
+    
+    private func loadDeliveryFieldsFromFirebase(with delivery: [String]?){
+        var current = dtf
+        
+        for dateString in delivery!{
+            current?.loadDate(date: dateString.dateValue!)
+            
             current = current?.endField
         }
     }

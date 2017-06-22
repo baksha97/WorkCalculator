@@ -269,18 +269,27 @@ struct WorkDay{
         let rUser = User(authData: (FIRAuth.auth()?.currentUser)!)
         let ref = FIRDatabase.database().reference()
         
-        var input = [String]()
+        ref.child("users/\(rUser.userRef)/unsaved-workday/company/").setValue(companyTextField.text)
         
-        input.append(storeStart.date.stringValue!)
-        input.append(storeEnd.date.stringValue!)
-        input.append(deliveryStart.date.stringValue!)
-        input.append(deliveryEnd.date.stringValue!)
         
-        if(!storeStart.hasNoText || !deliveryStart.hasNoText ){
-            ref.child("users/\(rUser.userRef)/unsaved-workday/company/").setValue(companyTextField.text)
-            ref.child("users/\(rUser.userRef)/unsaved-workday/fields/").setValue(input)
+        var storeInput = [String]()
+        var deliveryInput = [String]()
+        
+        if(!storeStart.hasNoText){
+            storeInput.append(storeStart.date.stringValue!)
+            storeInput.append(storeEnd.date.stringValue!)
             ref.child("users/\(rUser.userRef)/unsaved-workday/break-minutes/").setValue(breakTextField.value)
-            
+        }
+        
+        if(!deliveryStart.hasNoText){
+            deliveryInput.append(deliveryStart.date.stringValue!)
+            deliveryInput.append(deliveryEnd.date.stringValue!)
+        }
+        
+        
+        if(!storeStart.hasNoText || !deliveryStart.hasNoText){
+            ref.child("users/\(rUser.userRef)/unsaved-workday/store-fields/").setValue(storeInput)
+            ref.child("users/\(rUser.userRef)/unsaved-workday/delivery-fields/").setValue(deliveryInput)
         }
     }
     
@@ -308,7 +317,7 @@ struct WorkDay{
      }
      */
     
-    static func loadWorkdayInProgress(completion: @escaping (String?, [String]?, Int?) ->()){
+    static func loadWorkdayInProgress(completion: @escaping (String?, [String]?, [String]?, Int?) ->()){
         
         let rUser = User(authData: (FIRAuth.auth()?.currentUser)!)
         let ref = FIRDatabase.database().reference()
@@ -317,9 +326,10 @@ struct WorkDay{
             let value = snapshot.value as? NSDictionary
             
             let company = value?["company"] as? String
-            let fields = value?["fields"] as? [String]
+            let storeFields = value?["store-fields"] as? [String]
+            let deliveryFields = value?["delivery-fields"] as? [String]
             let breakMinutes = value?["break-minutes"] as? Int
-            completion(company, fields, breakMinutes)
+            completion(company, storeFields, deliveryFields, breakMinutes)
         })
         
     }
