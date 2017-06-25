@@ -297,8 +297,8 @@
 				TargetAttributes = {
 					2EDCC50C1EA90F560092BD61 = {
 						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = UUQTCM99ZH;
-						ProvisioningStyle = Automatic;
+						DevelopmentTeam = 896PH5VHX4;
+						ProvisioningStyle = Manual;
 					};
 				};
 			};
@@ -541,13 +541,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = UUQTCM99ZH;
+				DEVELOPMENT_TEAM = 896PH5VHX4;
 				INFOPLIST_FILE = WorkCalculator/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.ab.WorkCalculator;
+				PRODUCT_BUNDLE_IDENTIFIER = edu.stjohns.mHealth;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE = "5b85e23c-ead6-4e70-997e-e68b40e93246";
+				PROVISIONING_PROFILE_SPECIFIER = cus1194;
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -558,11 +558,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = UUQTCM99ZH;
+				DEVELOPMENT_TEAM = 896PH5VHX4;
 				INFOPLIST_FILE = WorkCalculator/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.ab.WorkCalculator;
+				PRODUCT_BUNDLE_IDENTIFIER = edu.stjohns.mHealth;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "5b85e23c-ead6-4e70-997e-e68b40e93246";
+				PROVISIONING_PROFILE_SPECIFIER = cus1194;
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;

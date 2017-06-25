@@ -52,6 +52,7 @@ class UIDateTextField: UITextField, UITextFieldDelegate {
         self.text = ""
         self.hasPickerDate = nil
         self.inputView = picker
+        picker.textField = self
         picker.completionHandler = { date in
             let formatter = DateFormatter()
             formatter.dateFormat = "EEEE, MMMM dd, yyyy' at 'h:mm a."

@@ -55,6 +55,7 @@ class DisplayAllWorkDaysViewController: UIViewController{
     }
     
     private func configureView(){
+        /* OLD WAY
         displayTextField.text = ""
         
         for day in workDays{
@@ -65,6 +66,24 @@ class DisplayAllWorkDaysViewController: UIViewController{
         let (storeD, deliveryD) = WorkDay.totalDurations(arrayOfDays: workDays)
         
         displayTextField.text = displayTextField.text + "\n\n Store Total: \(storeD.minuteToHours) \n Delivery Total: \(deliveryD.minuteToHours)"
+         */
+        
+        displayTextField.text = ""
+        
+        for (i, day) in workDays.enumerated(){
+            if(workDays[i+1].timestamp.dateValue?.shortDescription == day.timestamp.dateValue?.shortDescription){
+                
+            }
+            displayTextField.text = displayTextField.text + "\n" + day.description
+            displayTextField.text.append("\n")
+        }
+        
+        let (storeD, deliveryD) = WorkDay.totalDurations(arrayOfDays: workDays)
+        
+        displayTextField.text = displayTextField.text + "\n\n Store Total: \(storeD.minuteToHours) \n Delivery Total: \(deliveryD.minuteToHours)"
+        
+ 
+ 
     }
     
     @IBAction func payDidTouch(_ sender: Any) {

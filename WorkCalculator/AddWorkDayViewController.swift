@@ -34,8 +34,27 @@ class TimeLoggerViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        configureSave()
     }
+    
+    private func configureSave(){
+        tf.addTarget(self, action: #selector(TimeLoggerViewController.textFieldDidChange(_:)),
+                     for: UIControlEvents.editingDidEnd)
+        tf2.addTarget(self, action: #selector(TimeLoggerViewController.textFieldDidChange(_:)),
+                      for: UIControlEvents.editingDidEnd)
+        dtf.addTarget(self, action: #selector(TimeLoggerViewController.textFieldDidChange(_:)),
+                      for: UIControlEvents.editingDidEnd)
+        dtf2.addTarget(self, action: #selector(TimeLoggerViewController.textFieldDidChange(_:)),
+                       for: UIControlEvents.editingDidEnd)
+    }
+    /*
+    func textFieldDidChange(textField: UITextField) {
+        WorkDay.saveInputToFirebase(companyTextField: companyTextField, storeStart: tf, storeEnd: tf2, breakTextField: breakTextField, deliveryStart: dtf, deliveryEnd: dtf2)
+    } */
+    func textFieldDidChange(_ textField: UIDateTextField) {
+        WorkDay.saveInputToFirebase(companyTextField: companyTextField, storeStart: tf, storeEnd: tf2, breakTextField: breakTextField, deliveryStart: dtf, deliveryEnd: dtf2)
+    }
+    
     
     private func configureTextFields(){
         WorkDay.configureFields(storeStart: tf, storeEnd: tf2, deliveryStart: dtf, deliveryEnd: dtf2)
@@ -56,8 +75,10 @@ class TimeLoggerViewController: UIViewController {
             
             if let breakMinutes = breakMin{
                 self.breakTextField.value = breakMinutes
-                self.breakTextField.text = "\(breakMinutes) minutes"
                 
+                if breakMinutes != 0{
+                    self.breakTextField.text = "\(breakMinutes) minutes"
+                }
             }
         }
         
@@ -98,11 +119,6 @@ class TimeLoggerViewController: UIViewController {
             
             current = current?.endField
         }
-    }
-    
-    
-    @IBAction func saveDidTouch(_ sender: Any) {
-        WorkDay.saveInputToFirebase(companyTextField: companyTextField, storeStart: tf, storeEnd: tf2, breakTextField: breakTextField, deliveryStart: dtf, deliveryEnd: dtf2)
     }
     
     @IBAction func resetProgressDidTouch(_ sender: Any) {

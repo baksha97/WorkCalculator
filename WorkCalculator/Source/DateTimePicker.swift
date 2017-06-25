@@ -11,6 +11,8 @@ import UIKit
 
 @objc public class DateTimePicker: UIView {
     
+    var textField: UIDateTextField?
+    
     var contentHeight: CGFloat = 310
     
     // public vars
@@ -480,9 +482,11 @@ import UIKit
             if sender == self.doneButton {
                 self.completionHandler?(self.selectedDate)
             }
-            sender?.inputView?.endEditing(true)
-            sender?.endEditing(true)
-            self.removeFromSuperview()
+            
+            self.textField?.endEditing(true)
+          //  sender?.inputView?.endEditing(true)
+         //   sender?.endEditing(true)
+        //    self.removeFromSuperview()
         }
     }
 }

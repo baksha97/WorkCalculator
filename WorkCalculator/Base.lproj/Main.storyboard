@@ -128,7 +128,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Add WorkDay" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mgT-dE-h97">
-                                <rect key="frame" x="136" y="28" width="105" height="37"/>
+                                <rect key="frame" x="17" y="20" width="105" height="37"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.73089378240000002" green="0.24535428155696959" blue="0.32657126700249706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -177,7 +177,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D5Q-xG-yhc">
-                                <rect key="frame" x="16" y="577" width="343" height="33"/>
+                                <rect key="frame" x="17" y="577" width="343" height="33"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" title="Add to Firebase">
@@ -193,7 +193,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nkJ-9V-7es">
-                                <rect key="frame" x="13" y="475" width="346" height="33"/>
+                                <rect key="frame" x="259" y="32" width="116" height="25"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" title="Reset Progress">
@@ -208,22 +208,6 @@
                                     <action selector="resetProgressDidTouch:" destination="wVA-WB-CPQ" eventType="touchUpInside" id="FJs-eZ-mX2"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WCZ-qa-I31">
-                                <rect key="frame" x="13" y="516" width="346" height="33"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <state key="normal" title="Save Workday Progress">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                        <integer key="value" value="6"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <action selector="saveDidTouch:" destination="wVA-WB-CPQ" eventType="touchUpInside" id="G1X-Ix-7vQ"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -234,14 +218,13 @@
                         <outlet property="dtf" destination="Tmj-XH-cDd" id="Pue-iR-Uxs"/>
                         <outlet property="dtf2" destination="X8e-wA-bxT" id="ZVh-BP-hG7"/>
                         <outlet property="lb" destination="mgT-dE-h97" id="6Qx-ZD-R5N"/>
-                        <outlet property="saveButton" destination="WCZ-qa-I31" id="0Z2-tp-8wm"/>
                         <outlet property="tf" destination="KZE-Iu-Fof" id="cqX-4h-vnW"/>
                         <outlet property="tf2" destination="WXl-oa-VjB" id="xBT-bb-kcI"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2IL-br-7mf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2052" y="870"/>
+            <point key="canvasLocation" x="2052" y="869.41529235382313"/>
         </scene>
         <!--Text Description-->
         <scene sceneID="fPz-3X-rVJ">
@@ -366,7 +349,7 @@
                                 <rect key="frame" x="0.0" y="58" width="375" height="130"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="4hB-hl-wrU" id="Q5G-e4-qx4">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="129"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="129.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DDY-B2-zyw">
@@ -890,7 +873,7 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="130"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="dhB-Hy-Zyk" id="40u-c0-lYF">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="129"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="129.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uuj-Kg-eJG">
