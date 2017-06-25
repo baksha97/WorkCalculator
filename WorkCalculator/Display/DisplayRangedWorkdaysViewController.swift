@@ -63,9 +63,19 @@ class DisplayRangedWorkdaysViewController: UIViewController {
         displayTextField.text = ""
         self.title = (workDays.first?.timestamp.dateValue?.shortDescription)! + " - " + (workDays.last?.timestamp.dateValue?.shortDescription)!
         
-        for day in workDays{
-            displayTextField.text = displayTextField.text + "\n" + day.description
-            displayTextField.text.append("\n")
+        var previousDay: WorkDay?
+        for (_, day) in workDays.enumerated(){
+            
+            if(previousDay == nil){
+                displayTextField.text = displayTextField.text + "\n" + day.description
+            }
+            else if(day.timestamp.dateValue?.shortDescription == previousDay?.timestamp.dateValue?.shortDescription){
+                displayTextField.text = displayTextField.text + day.noTitleDescription
+            }
+            else if(day.timestamp.dateValue?.shortDescription != previousDay?.timestamp.dateValue?.shortDescription){
+                displayTextField.text = displayTextField.text + "\n\n" + day.description
+            }
+            previousDay = day
         }
         
         let (storeD, deliveryD) = WorkDay.totalDurations(arrayOfDays: workDays)

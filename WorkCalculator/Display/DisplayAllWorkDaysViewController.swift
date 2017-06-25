@@ -68,14 +68,22 @@ class DisplayAllWorkDaysViewController: UIViewController{
         displayTextField.text = displayTextField.text + "\n\n Store Total: \(storeD.minuteToHours) \n Delivery Total: \(deliveryD.minuteToHours)"
          */
         
-        displayTextField.text = ""
+        var previousDay: WorkDay?
         
-        for (i, day) in workDays.enumerated(){
-            if(workDays[i+1].timestamp.dateValue?.shortDescription == day.timestamp.dateValue?.shortDescription){
-                
+        for (_, day) in workDays.enumerated(){
+            
+            if(previousDay == nil){
+                displayTextField.text = displayTextField.text + "\n" + day.description
             }
-            displayTextField.text = displayTextField.text + "\n" + day.description
-            displayTextField.text.append("\n")
+            else if(day.timestamp.dateValue?.shortDescription == previousDay?.timestamp.dateValue?.shortDescription){
+                displayTextField.text = displayTextField.text + day.noTitleDescription
+            }
+            else if(day.timestamp.dateValue?.shortDescription != previousDay?.timestamp.dateValue?.shortDescription){
+                displayTextField.text = displayTextField.text + "\n\n" + day.description
+            }
+            
+            previousDay = day
+            //displayTextField.text.append("\n")
         }
         
         let (storeD, deliveryD) = WorkDay.totalDurations(arrayOfDays: workDays)

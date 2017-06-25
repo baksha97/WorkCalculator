@@ -148,15 +148,12 @@ struct WorkDay{
         
         switch self.type! {
         case .store:
-            text += " - \(self.timestamp.dateValue!.mediumDescription)"
             text += "\n Store: " + (self.store_startTime?.dateValue?.hoursString)! + " - " + (self.store_endTime?.dateValue?.hoursString)!
             text += "\n Store Duration: \(self.storeDuration!.minuteToHours) hours, [Break: \(self.breakDuration!) mins]"
         case .delivery:
-            text += " - \(self.timestamp.dateValue!.mediumDescription)"
             text += "\n Delivery: " + (self.delivery_startTime?.dateValue?.hoursString)! + " - " + (self.delivery_endTime?.dateValue?.hoursString)!
             text += "\n Delivery Duration: \(self.deliveryDuration!.minuteToHours) hours"
         case .storeAndDelivery:
-            text += " - \(self.timestamp.dateValue!.mediumDescription)"
             text += "\n Store: " + (self.store_startTime?.dateValue?.hoursString)! + " - " + (self.store_endTime?.dateValue?.hoursString)!
             text += "\n Store Duration: \(self.storeDuration!.minuteToHours) hours, [Break: \(self.breakDuration!) mins]"
             text += "\n Delivery: " + (self.delivery_startTime?.dateValue?.hoursString)! + " - " + (self.delivery_endTime?.dateValue?.hoursString)!
