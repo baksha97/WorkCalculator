@@ -14,9 +14,9 @@ class SelectedDatesTableViewController: UITableViewController {
     let shareSelectedSegue = "shareSelectedDaysSegue"
     
     //MARK: FIREBASE
-    let ref = FIRDatabase.database().reference()
-    let user = FIRAuth.auth()?.currentUser
-    let rUser = User(authData: (FIRAuth.auth()?.currentUser)!)
+    let ref = Database.database().reference()
+    let user = Auth.auth().currentUser
+    let rUser = UserData(authData: (Auth.auth().currentUser)!)
     
     //MARK: Array of WorkDays
     var workDays = [WorkDay]()
@@ -36,7 +36,7 @@ class SelectedDatesTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        let userRef = FIRDatabase.database().reference(withPath: "users/\(rUser.userRef))/")
+        let userRef = Database.database().reference(withPath: "users/\(rUser.userRef))/")
         
         userRef.observe(.value, with: { snapshot in
             self.tableView.reloadData()

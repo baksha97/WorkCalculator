@@ -14,7 +14,7 @@ class UIFirebaseOrganizationPicker: UIPickerView, UIPickerViewDelegate, UIPicker
     
     var picks: [String] = ["Medicine Cabinet"]
     var selectedOption: String = ""
-    let orgRef = FIRDatabase.database().reference(withPath: "organizations/")
+    let orgRef = Database.database().reference(withPath: "organizations/")
     
     var textField = UITextField()
     
@@ -78,7 +78,7 @@ class UIFirebaseOrganizationPicker: UIPickerView, UIPickerViewDelegate, UIPicker
         return picker
     }
     
-    func dismiss(){
+    @objc func dismiss(){
         textField.endEditing(true)
     }
     

@@ -37,7 +37,7 @@ class LoginViewController: UIViewController{
     }
 
     func loginFunction(){
-        FIRAuth.auth()!.signIn(withEmail: emailField.text!,
+        Auth.auth().signIn(withEmail: emailField.text!,
                                password: passwordField.text!, completion: { user, error in
                                 
             if error != nil { //unsucessful

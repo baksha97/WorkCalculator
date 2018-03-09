@@ -17,9 +17,9 @@ class DisplayAllWorkDaysViewController: UIViewController{
     @IBOutlet weak var displayTextField: UITextView!
     
     //MARK: FIREBASE
-    let ref = FIRDatabase.database().reference()
-    let user = FIRAuth.auth()?.currentUser
-    let rUser = User(authData: (FIRAuth.auth()?.currentUser)!)
+    let ref = Database.database().reference()
+    let user = Auth.auth().currentUser
+    let rUser = UserData(authData: (Auth.auth().currentUser)!)
     
     //MARK: Array of WorkDays
     var workDays = [WorkDay]()
@@ -27,7 +27,7 @@ class DisplayAllWorkDaysViewController: UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let userRef = FIRDatabase.database().reference(withPath: "users/\(rUser.userRef))/")
+        let userRef = Database.database().reference(withPath: "users/\(rUser.userRef))/")
         
         userRef.observe(.value, with: { snapshot in
             self.load()
@@ -41,11 +41,11 @@ class DisplayAllWorkDaysViewController: UIViewController{
     
 
     private func load(){
-        let runRef = FIRDatabase.database().reference(withPath: "users//\(rUser.userRef)/Workdays/")
+        let runRef = Database.database().reference(withPath: "users//\(rUser.userRef)/Workdays/")
         runRef.observe(.value, with: { snapshot in
             var currentWorkDays = [WorkDay]()
             for day in snapshot.children{
-                let oldDay = WorkDay(snapshot: day as! FIRDataSnapshot)
+                let oldDay = WorkDay(snapshot: day as! DataSnapshot)
                 currentWorkDays.append(oldDay)
             }
             currentWorkDays.sort(by: { $0.timestamp.dateValue?.compare($1.timestamp.dateValue!) == ComparisonResult.orderedAscending})
@@ -117,7 +117,7 @@ class DisplayAllWorkDaysViewController: UIViewController{
         
         // set up activity view controller
         let textToShare = [ text ]
-        let activityViewController = UIActivityViewController(activityItems: textToShare, applicationActivities: nil)
+        let activityViewController = UIActivityViewController(activityItems: [textToShare as Any], applicationActivities: nil)
         activityViewController.popoverPresentationController?.sourceView = self.view // so that iPads won't crash
         activityViewController.setValue("subject test", forKey: "subject")
         

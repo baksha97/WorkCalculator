@@ -9,13 +9,13 @@
 import Foundation
 import Firebase
 
-struct User {
+struct UserData {
     
     let uid: String
     let email: String
     let userRef: String
     
-    init(authData: FIRUser) {
+    init(authData: User) {
         uid = authData.uid
         email = authData.email!
         userRef = Util.replacePeriod(s: authData.email!)

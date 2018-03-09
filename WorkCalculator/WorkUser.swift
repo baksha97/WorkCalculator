@@ -15,7 +15,7 @@ struct WorkUser{
     let email: String
     let name: String
     
-    let ref: FIRDatabaseReference?
+    let ref: DatabaseReference?
     
     init(uid: String, email: String, name: String = " "){
         self.uid = uid
@@ -32,7 +32,7 @@ struct WorkUser{
             ]
     }
     
-    init(snapshot: FIRDataSnapshot) {
+    init(snapshot: DataSnapshot) {
         let snapshotValue = snapshot.value as! [String: AnyObject]
         uid = snapshotValue["uid"] as! String
         email = snapshotValue["email"] as! String

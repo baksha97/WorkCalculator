@@ -23,9 +23,9 @@ class TimeLoggerViewController: UIViewController {
     @IBOutlet var saveButton: UIButton!
     @IBOutlet var loadButton: UIButton!
     //MARK: FIREBASE
-    let ref = FIRDatabase.database().reference()
-    let user = FIRAuth.auth()?.currentUser
-    let rUser = User(authData: (FIRAuth.auth()?.currentUser)!)
+    let ref = Database.database().reference()
+    let user = Auth.auth().currentUser
+    let rUser = UserData(authData: (Auth.auth().currentUser!))
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -51,7 +51,7 @@ class TimeLoggerViewController: UIViewController {
     func textFieldDidChange(textField: UITextField) {
         WorkDay.saveInputToFirebase(companyTextField: companyTextField, storeStart: tf, storeEnd: tf2, breakTextField: breakTextField, deliveryStart: dtf, deliveryEnd: dtf2)
     } */
-    func textFieldDidChange(_ textField: UIDateTextField) {
+    @objc func textFieldDidChange(_ textField: UIDateTextField) {
         WorkDay.saveInputToFirebase(companyTextField: companyTextField, storeStart: tf, storeEnd: tf2, breakTextField: breakTextField, deliveryStart: dtf, deliveryEnd: dtf2)
     }
     

@@ -24,7 +24,7 @@ struct WorkDay{
     var breakDuration: Double?
     
     
-    let ref: FIRDatabaseReference?
+    let ref: DatabaseReference?
     
     init(organization: String, store_startTime: Date, store_endTime: Date, breakDuration: Double = 0) {
         self.organization = organization
@@ -67,7 +67,7 @@ struct WorkDay{
         self.ref = nil
     }
     
-    init(snapshot: FIRDataSnapshot) {
+    init(snapshot: DataSnapshot) {
         let snapshotValue = snapshot.value as! [String: AnyObject]
         organization = snapshotValue["organization"] as! String
         type = WorkDayType(rawValue: snapshotValue["type"] as! String)
@@ -262,8 +262,8 @@ struct WorkDay{
     }
     
     static func addToFirebase(companyTextField: UIOrganizationTextField, storeStart: UIDateTextField, storeEnd: UIDateTextField, breakTextField: UITimeTextField, deliveryStart: UIDateTextField, deliveryEnd: UIDateTextField) -> Bool{
-        let rUser = User(authData: (FIRAuth.auth()?.currentUser)!)
-        let ref = FIRDatabase.database().reference()
+        let rUser = UserData(authData: (Auth.auth().currentUser)!)
+        let ref = Database.database().reference()
         
         if(storeStart.isEmpty == true && deliveryStart.isEmpty == false){
             let wd: WorkDay = WorkDay(organization: companyTextField.text!, delivery_startTime: deliveryStart.date, delivery_endTime: deliveryEnd.date)
@@ -286,10 +286,40 @@ struct WorkDay{
         return true
     }
     
+    static func addToFirestore(companyTextField: UIOrganizationTextField, storeStart: UIDateTextField, storeEnd: UIDateTextField, breakTextField: UITimeTextField, deliveryStart: UIDateTextField, deliveryEnd: UIDateTextField) -> Bool{
+        
+        
+        let rUser = UserData(authData: (Auth.auth().currentUser)!)
+        let ref = Database.database().reference()
+        
+        if(storeStart.isEmpty == true && deliveryStart.isEmpty == false){
+            let wd: WorkDay = WorkDay(organization: companyTextField.text!, delivery_startTime: deliveryStart.date, delivery_endTime: deliveryEnd.date)
+            ref.child("users/\(rUser.userRef)/Workdays/\(wd.firebaseTitle)").setValue(wd.toAnyObject())
+            
+        }
+        else if(deliveryStart.isEmpty == true && storeStart.isEmpty == false){
+            let wd: WorkDay = WorkDay(organization: companyTextField.text!, store_startTime: storeStart.date, store_endTime: storeEnd.date, breakDuration: (Double(breakTextField.value)))
+            ref.child("users/\(rUser.userRef)/Workdays/\(wd.firebaseTitle)").setValue(wd.toAnyObject())
+        }
+        else if(storeStart.isEmpty == true && deliveryStart.isEmpty == true){
+            print(".isEmpty = true")
+            return false
+        }
+        else{
+            let wd: WorkDay = WorkDay(organization: companyTextField.text!, store_startTime: storeStart.date, store_endTime: storeEnd.date, delivery_startTime: deliveryStart.date, delivery_endTime: deliveryEnd.date, breakDuration: (Double(breakTextField.value)))
+            ref.child("users/\(rUser.userRef)/Workdays/\(wd.firebaseTitle)").setValue(wd.toAnyObject())
+        }
+        self.resetCurrentWorkdayProgress()
+        return true
+    }
+    
+    
+    
+    
     static func saveInputToFirebase(companyTextField: UIOrganizationTextField, storeStart: UIDateTextField, storeEnd: UIDateTextField, breakTextField: UITimeTextField, deliveryStart: UIDateTextField, deliveryEnd: UIDateTextField){
         
-        let rUser = User(authData: (FIRAuth.auth()?.currentUser)!)
-        let ref = FIRDatabase.database().reference()
+        let rUser = UserData(authData: (Auth.auth().currentUser)!)
+        let ref = Database.database().reference()
         
         ref.child("users/\(rUser.userRef)/unsaved-workday/company/").setValue(companyTextField.text)
         
@@ -316,8 +346,8 @@ struct WorkDay{
     }
     
     static func resetCurrentWorkdayProgress(){
-        let rUser = User(authData: (FIRAuth.auth()?.currentUser)!)
-        let ref = FIRDatabase.database().reference()
+        let rUser = UserData(authData: (Auth.auth().currentUser)!)
+        let ref = Database.database().reference()
         ref.child("users/\(rUser.userRef)/unsaved-workday/").setValue(nil)
     }
     /*
@@ -341,8 +371,8 @@ struct WorkDay{
     
     static func loadWorkdayInProgress(completion: @escaping (String?, [String]?, [String]?, Int?) ->()){
         
-        let rUser = User(authData: (FIRAuth.auth()?.currentUser)!)
-        let ref = FIRDatabase.database().reference()
+        let rUser = UserData(authData: (Auth.auth().currentUser)!)
+        let ref = Database.database().reference()
         
         ref.child("users/\(rUser.userRef)/unsaved-workday/").observeSingleEvent(of: .value, with: { snapshot in
             let value = snapshot.value as? NSDictionary

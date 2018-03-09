@@ -22,9 +22,9 @@ class PastWorkDaysTableViewController: UITableViewController {
     let workDayViewSegue = "cellToDisplay"
     
     //MARK: FIREBASE
-    let ref = FIRDatabase.database().reference()
-    let user = FIRAuth.auth()?.currentUser
-    let rUser = User(authData: (FIRAuth.auth()?.currentUser)!)
+    let ref = Database.database().reference()
+    let user = Auth.auth().currentUser
+    let rUser = UserData(authData: (Auth.auth().currentUser)!)
     
     //MARK: Array of WorkDays
     var selectedDays = [WorkDay]() // for segue
@@ -37,7 +37,7 @@ class PastWorkDaysTableViewController: UITableViewController {
         super.viewDidLoad()
         
         
-        let userRef = FIRDatabase.database().reference(withPath: "users/\(rUser.userRef))/")
+        let userRef = Database.database().reference(withPath: "users/\(rUser.userRef))/")
         
         userRef.observe(.value, with: { snapshot in
             self.load()
@@ -155,11 +155,11 @@ class PastWorkDaysTableViewController: UITableViewController {
     }
     
     private func load(){
-        let dayRef = FIRDatabase.database().reference(withPath: "users//\(rUser.userRef)/Workdays/")
+        let dayRef = Database.database().reference(withPath: "users//\(rUser.userRef)/Workdays/")
         dayRef.observe(.value, with: { snapshot in
             var currentWorkDays = [WorkDay]()
             for day in snapshot.children{
-                let oldDay = WorkDay(snapshot: day as! FIRDataSnapshot)
+                let oldDay = WorkDay(snapshot: day as! DataSnapshot)
                 currentWorkDays.append(oldDay)
             }
             currentWorkDays.sort(by: { $0.timestamp.dateValue?.compare($1.timestamp.dateValue!) == ComparisonResult.orderedAscending})
@@ -175,11 +175,11 @@ class PastWorkDaysTableViewController: UITableViewController {
     }
     
     private func changeOrganization(newOrganization: String){
-        let dayRef = FIRDatabase.database().reference(withPath: "users//\(rUser.userRef)/Workdays/")
+        let dayRef = Database.database().reference(withPath: "users//\(rUser.userRef)/Workdays/")
         dayRef.observe(.value, with: { snapshot in
             var currentWorkDays = [WorkDay]()
             for day in snapshot.children{
-                let oldDay = WorkDay(snapshot: day as! FIRDataSnapshot)
+                let oldDay = WorkDay(snapshot: day as! DataSnapshot)
                 currentWorkDays.append(oldDay)
             }
             currentWorkDays.sort(by: { $0.timestamp.dateValue?.compare($1.timestamp.dateValue!) == ComparisonResult.orderedAscending})

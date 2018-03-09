@@ -19,9 +19,9 @@ class DisplayRangedWorkdaysViewController: UIViewController {
     
     
     //MARK: FIREBASE
-    let ref = FIRDatabase.database().reference()
-    let user = FIRAuth.auth()?.currentUser
-    let rUser = User(authData: (FIRAuth.auth()?.currentUser)!)
+    let ref = Database.database().reference()
+    let user = Auth.auth().currentUser
+    let rUser = UserData(authData: (Auth.auth().currentUser)!)
     
     //MARK: Array of WorkDays
     var workDays = [WorkDay]()

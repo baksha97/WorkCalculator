@@ -18,9 +18,9 @@ class CreateAccountViewController: UIViewController {
     @IBOutlet weak var confirmPasswordField: UITextField!
     
     //MARK:Firebase
-    var user = (FIRAuth.auth()?.currentUser)
-    var referencedUser: User? = nil
-    let ref = FIRDatabase.database().reference(withPath: "users")
+    var user = (Auth.auth().currentUser)
+    var referencedUser: UserData? = nil
+    let ref = Database.database().reference(withPath: "users")
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,7 +34,7 @@ class CreateAccountViewController: UIViewController {
     
     private func createAccount(){
         if((passwordField.text! == confirmPasswordField.text!)){
-        FIRAuth.auth()!.createUser(withEmail: emailField.text!,
+            Auth.auth().createUser(withEmail: emailField.text!,
                                    password: passwordField.text!) { user, error in
                                     if error != nil { //unsucessful
                                         let alert = UIAlertController(title: "Create account error",
@@ -65,13 +65,13 @@ class CreateAccountViewController: UIViewController {
 
     
     func addUserFirebase(){
-        self.user = FIRAuth.auth()?.currentUser
+        self.user = Auth.auth().currentUser
         /// adding user to firebase database:
         let newUser: WorkUser = WorkUser(   uid: (self.user!.uid),
                                                email: (self.user?.email)!,
                                                name: nameField.text!)
         // 1
-        referencedUser = User(authData: user!)
+        referencedUser = UserData(authData: user!)
         let currentUserRef = self.ref.child(referencedUser!.userRef)
 
         // 2

@@ -9,8 +9,12 @@
 import UIKit
 import JTAppleCalendar
 import Firebase
-
+/*
 class CalendarVC: UIViewController, JTAppleCalendarViewDelegate, JTAppleCalendarViewDataSource {
+//    func calendar(_ calendar: JTAppleCalendarView, willDisplay cell: JTAppleCell, forItemAt date: Date, cellState: CellState, indexPath: IndexPath) {
+//
+//    }
+    
 
     @IBOutlet weak var calendarView: JTAppleCalendarView!
     @IBOutlet weak var monthYear: UILabel!
@@ -18,9 +22,9 @@ class CalendarVC: UIViewController, JTAppleCalendarViewDelegate, JTAppleCalendar
     let selectedDaysSegue = "calendarToTableView"
     
     //MARK: FIREBASE
-    let ref = FIRDatabase.database().reference()
-    let user = FIRAuth.auth()?.currentUser
-    let rUser = User(authData: (FIRAuth.auth()?.currentUser)!)
+    let ref = Database.database().reference()
+    let user = Auth.auth().currentUser
+    let rUser = User(authData: (Auth.auth().currentUser))
     
     //MARK: Array of WorkDays
     var workDays = [WorkDay]()
@@ -34,7 +38,7 @@ class CalendarVC: UIViewController, JTAppleCalendarViewDelegate, JTAppleCalendar
             self.setupViewsOfCalendar(from: visibleDates)
         }
         
-        let userRef = FIRDatabase.database().reference(withPath: "users/\(rUser.userRef))/")
+        let userRef = Database.database().reference(withPath: "users/\(rUser.userRef))/")
         
         userRef.observe(.value, with: { snapshot in
             self.load()
@@ -45,7 +49,7 @@ class CalendarVC: UIViewController, JTAppleCalendarViewDelegate, JTAppleCalendar
     }
     
     private func load(){
-        let runRef = FIRDatabase.database().reference(withPath: "users//\(rUser.userRef)/Workdays/")
+        let runRef = Database.database().reference(withPath: "users//\(rUser.userRef)/Workdays/")
         runRef.observe(.value, with: { snapshot in
             var currentWorkDays = [WorkDay]()
             for day in snapshot.children{
@@ -92,7 +96,7 @@ class CalendarVC: UIViewController, JTAppleCalendarViewDelegate, JTAppleCalendar
         //validCell.workView.isHidden = false
     }
     
-    /*
+    
     
     func calendar(_ calendar: JTAppleCalendarView, willDisplayCell cell: JTAppleDayCellView, date: Date, cellState: CellState) {
         //(cell as? CellView)?.setupCellBeforeDisplay(cellState, date: date)
@@ -106,7 +110,7 @@ class CalendarVC: UIViewController, JTAppleCalendarViewDelegate, JTAppleCalendar
         } else {
             //makeBackgroundHidden()
         }
-    }*/
+    }
     
     public func calendar(_ calendar: JTAppleCalendarView, cellForItemAt date: Date, cellState: CellState, indexPath: IndexPath) -> JTAppleCell {
         let cell = calendar.dequeueReusableJTAppleCell(withReuseIdentifier: "CustomCell", for: indexPath) as! CustomCell
@@ -224,4 +228,4 @@ class CalendarVC: UIViewController, JTAppleCalendarViewDelegate, JTAppleCalendar
             rangeSelectedDates.removeAll()
         }
     }
-}
+ }*/

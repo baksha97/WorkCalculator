@@ -16,9 +16,11 @@ extension BinaryFloatingPoint {
     }
     
     public func rounded(toPlaces places: Int) -> Self {
-        guard places >= 0 else { return self }
-        let divisor = Self((0..<places).reduce(1.0) { $0.0 * 10.0 })
+        let divisor = Self(pow(10.0, Double(places)))
         return (self * divisor).rounded() / divisor
+//        guard places >= 0 else { return self }
+//        let divisor = Self((0..<places).reduce(1.0) { $0 * 10.0 })
+//        return (self * divisor).rounded() / divisor
     }
     
     var stringValue: String{
